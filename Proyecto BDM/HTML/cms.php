@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuity-CMS</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./../CSS/cms.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <?php include_once("layout_nav.php") ?>
+
+   
+
+    <div class="cms-container">
+        <div class="row ">
+            <div class="col-lg-2">
+
+                <div class="nav">
+                    <div onclick="toggleNav('dashboard')" class="item-nav cms-act">Dashboard <i
+                            class="fas fa-tachometer-alt"></i> </div>
+                    <div onclick="toggleNav('misCursos')" class="item-nav cms-act">Mis Cursos <i
+                            class="fas fa-laptop-house"></i> </div>
+                    <div class="item-nav cms-des">Agregar Nuevo</div>
+                    <div onclick="toggleNav('curso')" class="item-nav cms-act"> Curso <i
+                            class="fas fa-arrow-circle-right"></i> </div>
+                    <div onclick="toggleNav('nivel')" class="item-nav cms-act"> Nivel <i
+                            class="fas fa-arrow-circle-right"></i></div>
+                    <div onclick="toggleNav('video')" class="item-nav cms-act"> Video <i
+                            class="fas fa-arrow-circle-right"></i></div>
+                    <div onclick="toggleNav('categoria')" class="item-nav cms-act"> Categoria <i
+                            class="fas fa-arrow-circle-right"></i></div>
+
+                </div>
+
+            </div>
+            <div class="col-lg-10  pr-4  pt-4">
+                <div id="dashboard">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card shadow">
+                                        <div class="card-body">
+                                            <div class="h5"> Total</div>
+                                            <div class="card-text">$8,600.00 MXN</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow">
+                                        <div class="card-body">
+                                            <div class="h5"> Total Semanal</div>
+                                            <div class="card-text">$1,200.00 MXN</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow">
+                                        <div class="card-body">
+                                            <div class="h5"> Cursos Vendidos</div>
+                                            <div class="card-text">5 cursos</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row p-2 mt-2">
+                                <div class="col-12 card p-2  shadow">
+                                    <p class="h5 pl-2">Ingresos</p>
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="  card shadow pt-3">
+                                <p class="h5 pl-3">Cursos Mas Vendidos</p>
+                                <ul class="list-group">
+                                    <li
+                                        class="list-group-item d-flex flex-row justify-content-between align-items-center list-group-item-action">
+                                        <div class="h4">1</div>
+                                        <img src="" alt="Curso" class="img-thubnail">
+                                        <div class="h5">$2,500.00</div>
+                                    </li>
+                                    <li
+                                        class="list-group-item d-flex flex-row justify-content-between align-items-center list-group-item-action">
+                                        <div class="h4">2</div>
+                                        <img src="" alt="Curso" class="img-thubnail">
+                                        <div class="h5">$2,100.00</div>
+                                    </li>
+                                    <li
+                                        class="list-group-item d-flex flex-row justify-content-between align-items-center list-group-item-action">
+                                        <div class="h4">3</div>
+                                        <img src="" alt="Curso" class="img-thubnail">
+                                        <div class="h5">$1,400.00</div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="card shadow p-3 mt-2 mb-4">
+                                <p class="h5">Mejores Categorias</p>
+                                <canvas id="categoryChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="misCursos">
+                    <p class="h2 pl-2">
+                        Mis Cursos
+                    </p>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card shadow p-3 mt-3 mb-3">
+                                <table class="table">
+                                    
+                                      <thead>
+                                      <tr>
+                                            <th>Curso</th>
+                                            <th>Status</th>
+                                            <th>Precio</th>
+                                            <th>Inscritos</th>
+                                            <th>Ingresos</th>
+                                            <th>Nivel promedio</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                      </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Javascript Introducción</td>
+                                            <td>Público <i class="fas fa-globe-americas text-success"></i></td>
+                                            <td>$500.00</td>
+                                            <td>14</td>
+                                            <td>$7,000</td>
+                                            <td>3</td>
+                                            <td><button class="btn btn-sm btn-primary">Ver detalle</button></td>
+                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-ligth"><i class="far fa-eye"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Golang Gorilla-Mux</td>
+                                            <td>Público <i class="fas fa-globe-americas text-success"></i></td>
+                                            <td>$400.00</td>
+                                            <td>4</td>
+                                            <td>$1,600</td>
+                                            <td>5</td>
+                                            <td><button class="btn btn-sm btn-primary">Ver detalle</button></td>
+                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-ligth"><i class="far fa-eye"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>React Native</td>
+                                            <td>No público <i class="fas fa-globe-americas text-secondary"></i></td>
+                                            <td>$650.00</td>
+                                            <td>0</td>
+                                            <td>$0.00</td>
+                                            <td>0</td>
+                                            <td><button class="btn btn-sm btn-primary" >Publicar <i class="fas fa-globe-americas "></button></td>
+                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-ligth"><i class="far fa-eye"></i></button></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td><td></td><td></td><td></td><th>Total: $8,600.00</th><td></td><td></td><td></td><td></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card shadow p-3 mt-3 mb-3">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th>Formas de pago</th>
+                                        <td>Master Card</td>
+                                        <td>Paypal</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Ingresos</th>
+                                            <td>6200</td>
+                                            <td>2400</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="card shadow p-3 mt-3 mb-3">
+                                <p class="h4">Detalles del Curso Javascript Introducción</p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th>#</th>
+                                        <th>Alumno</th>
+                                        <th>Correo</th>
+                                        <th>Pago</th>
+                                        <th>Forma de pago</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Pedro Angel Ramírez Villarreal</td>
+                                            <td>pedro@gmail.com</td>
+                                            <td>$500.00</td>
+                                            <td>Master Card</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Jesus Angel Paredes Sauceda</td>
+                                            <td>angel @gmail.com</td>
+                                            <td>$500.00</td>
+                                            <td>Master Card</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="curso">
+                <p class="h2 pl-2">Cursos</p>
+                    <div class="row">
+                        <div class="col-lg-4 p-4">
+                            <div class="card shadow p-3">
+                                <p class="h2 mb-3">Agregar Curso</p>
+                                <form class="w-100" action="">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="curso"
+                                            placeholder="Nombre del curso...">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="description"
+                                            placeholder="Descripcion del curso...">
+                                    </div>
+
+                                      <div class="form-group">
+                                        <select class="custom-select">
+                                            <option selected>Seleciona la categoria</option>
+                                            <option value="1"> Ciencia </option>
+                                            <option value="2">Desarrollo</option>
+                                            <option value="3">Diseño</option>
+                                        </select>
+                                    </div>
+                                   
+                                    <div class="custom-file mb-3"> 
+                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                        <label class="custom-file-label" for="customFileLang">Seleccionar imagen del curso</label>
+                                    </div>
+                                   
+                                    <label for="" class="d-block">Gratis</label>
+                                    <input type="checkbox" checked="false" name="switch" id="switch" class="switch">
+                                    <label for="switch" onclick="stateSwitch()" class="lbl-switch"></label>
+                                    
+                                    <div class="form-group" >
+                                    
+                                        <input class="form-control" type="text" id="precio" name="precio"
+                                            placeholder="Precio del curso">
+                                            
+                                    </div>
+
+
+                                    <div class="form-group d-flex justify-content-center">
+                                        <input type="submit" class="btn btn-primary " value="Agregar">
+                                    </div>
+                                    
+
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 p-4">
+                            <div class="card shadow p-3">
+                                <table class="table ">
+                                    <tbody>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Curso</th>
+                                            <th>Precio</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Javascript</td>
+                                            <td> Gratis </td>
+                                            <td><button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Agregar Nivel</button></td>
+                                            <td><button class="btn btn-sm btn-secondary"><i class="fas fa-globe-americas"></i> Publicar</button></td>
+                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</button></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="nivel">
+                    <p class="h2 pl-2">Niveles</p>
+                    <div class="row">
+                        <div class="col-lg-4 p-4">
+                            <div class="card shadow p-3">
+                                <p class="h2 mb-3">Agregar Nivel</p>
+                                <form class="w-100" action="">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="video"
+                                            placeholder="Nombre del nivel...">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select class="custom-select">
+                                            <option selected>Seleciona el curso</option>
+                                            <option value="1">Javascript </option>
+                                            <option value="2">Python Django</option>
+                                            <option value="3">Flutter para principantes</option>
+                                        </select>
+                                    </div>
+                                    <label for="">Contenidos Adjuntos</label>
+                                    <div class="custom-file mb-3"> 
+                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                        <label class="custom-file-label" for="customFileLang">Seleccionar
+                                            Archivos</label>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Url ...">
+                                        </div>
+                                        <div class="col">
+                                            <button class="btn btn-secondary"> Agregar link</button>
+                                        </div>
+                                    </div>
+                                    <small  class="text-muted"> Documentos agregados </small>
+                                    <div class="form-group">
+                                        <div class="list-group">
+                                            <div class="list-group-item">URL : https://www.example.com</div>
+                                            <div class="list-group-item">PDF : example.pdf</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group d-flex justify-content-center">
+                                        <input type="submit" class="btn btn-primary " value="Agregar">
+                                    </div>
+                                    
+
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 p-4">
+                            <div class="card shadow p-3">
+                                <table class="table ">
+                                    <tbody>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nivel</th>
+                                            <th>Curso</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Fase 1</td>
+                                            <td>Javascript </td>
+                                            <td><button class="btn  btn-sm btn-primary"><i class="fas fa-plus"></i> Agregar Video</button></td>
+                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn  btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</button></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="video">
+                    <p class="h2 pl-2">Videos</p>
+                    <div class="row">
+                        <div class="col-lg-4 p-4">
+                            <div class="card shadow p-3">
+                                <p class="h2 mb-3">Agregar Video</p>
+                                <form class="w-100" action="">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="video"
+                                            placeholder="Título del video...">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Descripción del video..."
+                                            rows="3"></textarea>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="custom-select">
+                                            <option selected>Seleciona el curso</option>
+                                            <option value="1">Javascript </option>
+                                            <option value="2">Python Django</option>
+                                            <option value="3">Flutter para principantes</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select class="custom-select">
+                                            <option selected>Seleciona el nivel</option>
+                                            <option value="1">Fase 1</option>
+                                            <option value="2">Fase 2</option>
+                                            <option value="3">fase 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                        <label class="custom-file-label" for="customFileLang">Seleccionar Video</label>
+                                    </div>
+                                    <div class="form-group d-flex justify-content-center">
+                                        <input type="submit" class="btn btn-primary " value="Agregar">
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 p-4">
+                            <div class="card shadow p-3">
+                                <table class="table ">
+                                    <tbody>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Video</th>
+                                            <th>Nivel</th>
+                                            <th>Curso</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Async /Await</td>
+                                            <td>Javascript Intermideo</td>
+                                            <td>Javascript</td>
+                                            <td> <button class="btn btn-sm btn-info"><i class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Migraciones</td>
+                                            <td>Django migraciones y modelos</td>
+                                            <td>Curso de Python Django</td>
+                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn  btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="categoria">
+                    <p class="h2 pl-2">Categorias</p>
+                    <div class="row">
+                        <div class="col-lg-4 p-4">
+                            <div class="card shadow p-3">
+                                <p class="h2 mb-3">Agregar Categoria</p>
+                                <form class="w-100" action="">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="categoria"
+                                            placeholder="Nombre de categoria...">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Descripción de la categoria..."
+                                            rows="3"></textarea>
+
+                                    </div>
+
+                                    <div class="form-group d-flex justify-content-center">
+                                        <input type="submit" class="btn btn-primary " value="Agregar">
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 p-4">
+                            <div class="card shadow p-3">
+                                <table class="table ">
+                                    <tbody>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Categoria</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Ciencia</td>
+                                            <td>Esta categroia es orientada a la ciencia</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php include_once("layout_footer.php") ?>
+
+    <script>
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June'
+    ];
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30],
+        }]
+    };
+
+    const dataCategory = {
+        labels: labels,
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: ['rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(54,235,162)',
+                'rgb(162,54,240)',
+                'rgb(40,255,100)'
+            ],
+            borderColor: 'rgb(255, 99, 132)',
+            data: [5, 10, 5, 2, 20, 30],
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+    var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+    var categoryChart = new Chart(
+        document.getElementById('categoryChart'), {
+            type: 'doughnut',
+            data: dataCategory,
+            options: {}
+        }
+    );
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script>
+    var menus = [];
+    menus.push('dashboard');
+    menus.push('misCursos');
+    menus.push('curso');
+    menus.push('nivel');
+    menus.push('video');
+    menus.push('categoria');
+
+    function hideNavs() {
+        for (item of menus) {
+            $('#' + item).hide()
+        }
+    }
+
+    function toggleNav(id) {
+        hideNavs()
+        $('#' + id).show();
+    }
+
+    function init() {
+        hideNavs()
+        $("#dashboard").show();
+    }
+
+    init()
+
+    function stateSwitch(){
+        var check = document.getElementById('switch').checked;
+       if(!check){
+            $('#precio').removeAttr('disabled');
+       }else{
+        $('#precio').attr('disabled',true);
+       }
+        
+
+    }
+    </script>
+</body>
+
+</html>
