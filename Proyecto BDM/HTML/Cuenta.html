@@ -37,7 +37,7 @@
     <title>Continuity</title>
 </head>
 
-<body>
+<body style="background-color: #F2F7F9; overflow-y: hidden;">
     <div>
         <nav class="navbar navi  navbar-expand-lg navbar-light fixed-top" id="_cartelera">
             <div class="namep">
@@ -48,8 +48,8 @@
                 </span>
                 <img class="negro imageno pb-2" src="../IMG/logooficial.png" width="45px">
                 <a class="variable zoom variable negro pr-5 navbar-brand titulo"
-                    onclick="javascript:location.href='../HTML/IndexNuevo.php';"
-                    style="color: whitesmoke; font-family: 'Bebas Neue', cursive; font-size: 25px;">Continuity</a>
+                href="../HTML/IndexNuevo.html"
+                  style="color: whitesmoke; font-family: 'Bebas Neue', cursive; font-size: 25px;">Continuity</a>
             </div>
 
             <button id="botonazo" class=" navbar-toggler" type="button" data-toggle="collapse"
@@ -77,98 +77,48 @@
                             Categorias
                         </a>
 
-                        <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal"
-                            id="sesioninicia">
-                            Inicia sesion
-                        </a>
-
-
-
-
-
-                        <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal2"
-                            id="sesionregistrate">
-                            Registrate
-                        </a>
-
-
-
-                        <a class="zoom btn palab cdp nav-link d-none" role="button" id="__Historial"
-                            onclick="javascript:location.href='../HTML/Historial.php';">
-                            Historial
-                        </a>
-
-
-                        <a class="zoom btn  palab cdp nav-link d-none" href="#" role="button" id="carrito"
-                            onclick="javascript:location.href='../HTML/Carrito.php';">
-                            Carrito
-                            <i class="fas fa-shopping-cart" id="_carritonumero"> </i>
-                        </a>
-
-
-
-                        <li class="nav-item d-none" id="infocuenta">
-
-                            <a class="palab cdp nav-link dropdown-toggle" href="#" id="sesionperfil" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                style="font-family: 'Staatliches';   z-index: 4 !important;">
-                                Cuenta
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
-                                style="font-family: 'Staatliches';">
-                                <a class="dropdown-item d-none" id="noadmins" href="Historial.html">Cuenta</a>
-                                <a class="variable dropdown-item d-none" id="admins"
-                                    onclick="javascript:location.href='../HTML/Dashboard.php';">Dashboard</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../../models/cierrasesion.php"
-                                    onclick="myFunction();">Cerrar
-                                    sesión</a>
-                                <script>
-                                    function myFunction() {
-                                        debugger
-                                        localStorage.clear();
-                                    }
-                                </script>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
     </div>
-    <div class="wrapper" style="padding-top: 70px; ">
+    <div class="wrapper" style="padding-top: 70px; overflow-x: hidden;">
 
         <nav id="sidebar" style="background-color: black;">
             <div class="sidebar-header" style="color: ghostwhite !important; background-color: black;">
-                <h3>Navegacion</h3>
+                <h3 style="font-family: 'Archivo Narrow', sans-serif;">Navegacion</h3>
             </div>
 
-            <ul class="list-unstyled components">
+            <ul class="list-unstyled components"  style="font-family: 'Archivo Narrow', sans-serif;">
 
                 <li>
-                    <a href="" class="zoom" style="padding-left: 20px;"><i class="fas fa-home"></i>Inicio</a>
+                    <a class="zoom opcion" style="padding-left: 20px;"><i class="fas fa-home"></i>Inicio</a>
                 </li>
                 <li>
-                    <a href="" class="zoom" style="padding-left: 20px;"><i class="fab fa-youtube"></i></i>Mis cursos</a>
+                    <a type="button " class=" zoom opcion" style="padding-left: 20px;" id="boton2"><i class="fab fa-youtube"></i>Mis cursos</a>
                 </li>
                 <li>
-                    <a href="" class="zoom" style="padding-left: 20px;"><i class="fas fa-address-card"></i></i>Mi
+                    <a type="button" class=" zoom opcion " style="padding-left: 20px;" id="boton1"><i class="fas fa-address-card"></i>Mi
                         perfil</a>
+
                 </li>
+                
+
+             <!--     <button id="boton1" class="button mt-2"><span>Mi cuenta</span></button>
+                 <button id="boton2" class="button mt-2"><span>Cursos</span></button> -->
             </ul>
         </nav>
-
-        <div class="contenidoGeneral pl-4 col-lg-12">
-            <div class="d-none division1">
+         
+        <div class="contenidoGeneral pl-4 col-lg-12" style="font-family: 'Archivo Narrow', sans-serif;">
+            <div class="d-none division2">
                 <div class=" d-flex  justify-content-center mx-auto"
-                    style=" background-color: rgb(255, 255, 255); padding-top: 20px; font-family: 'Archivo Narrow', sans-serif;">
-                    <h1 class="primero d-none" style="color: white;">Mi cuenta</h1>
-                    <h1 class="segundo" style="color: rgb(0, 0, 0);">Mis cursos</h1>
+                    style="  padding-top: 20px; font-family: 'Archivo Narrow', sans-serif;">
+                   
                 </div>
-                <div class="division2 pb-4" id="cursotes " style="font-family: 'Archivo Narrow', sans-serif;">
+                <div class="division2 pb-4" id="cursotes " style="font-family: 'Archivo Narrow', sans-serif;">   
                     <section class="pt-4   cursos d-flex align-items-center">
-                        <div class="container " style="overflow-x: hidden; overflow-y: scroll; height: 730px;">
+                        <div class="container " style="overflow-x: hidden; overflow-y: scroll; height: 550px;">
                             <div class="col-lg-12 col-md-12 col-sm-12 row pb-3"
                                 style="border:rgb(48, 16, 16) 1px !important; border-style: 1px !important;">
                                 <div class="col-lg-4">
@@ -342,23 +292,28 @@
                     </section>
                 </div>
             </div>
-            <div class=" division2">
-                <div class="division" id="cuentota">
+            <div class="division1">
+                <div class="division container" id="cuentota">
+                    
                     <section class=" cuenta d-flex align-items-center" id="home" data-scroll-index="0">
 
                         <div class="col-lg-5 mx-auto text-center pt-4">
                             <img class="rounded-circle" src="../IMG/photoshop.png" alt=""
-                                style="height: 200px; width: 200px;">
+                                style="height: 150px; width: 150px;">
                             <title>Placeholder</title>
                             </svg>
 
                             <h2>Pedro Ramirez</h2>
-                            <p>Mi nombre es Pedro Ramirez soy programador en c++ y c#</p>
-                            <p><a class="btn btn-secondary" href="#">Cambiar Imagen</a></p>
+                            <div class="text-center  mx-auto justify-content m-3">
+                                <button class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch"
+                                    type="submit"
+                                    style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 20px; width: 200px;">Cambiar Imagen</button>
+
+                            </div>
                         </div>
 
                     </section>
-                    <section id="cursotes" class="  cursos d-flex align-items-center " id="home" data-scroll-index="0">
+                    <section id="cursotes" class="  cursos d-flex align-items-center " id="home" data-scroll-index="0" >
 
                         <div class="mx-auto col-lg-6 col-md-12 col-sm-12">
                             <div class="box-shadow justify-content-center mx-auto">
@@ -370,39 +325,48 @@
                                         <div class="form-group">
                                             <label for="fullName" style="font-size: 20px;">Nombre Completo</label>
                                             <input type="text" class="form-control" id="fullName"
-                                                placeholder="Enter full name">
+                                                placeholder="Ingresa los datos">
                                         </div>
                                     </div>
                                     <div class=" col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="eMail" style="font-size: 20px;">Correo electronico</label>
                                             <input type="email" class="form-control" id="eMail"
-                                                placeholder="Enter email ID">
+                                                placeholder="Ingresa los datos ">
                                         </div>
                                     </div>
                                     <div class=" col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="eMail" style="font-size: 20px;">Contraseña</label>
                                             <input type="email" class="form-control" id="eMail"
-                                                placeholder="Enter email ID" style="font-size:  15px;">
+                                                placeholder="Ingresa los datos" style="font-size:  15px;">
                                         </div>
                                     </div>
                                     <div class=" col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="eMail" style="font-size: 20px;">Contraseña</label>
                                             <input type="email" class="form-control" id="eMail"
-                                                placeholder="Enter email ID" style="font-size:  15px;">
+                                                placeholder="Ingresa los datos " style="font-size:  15px;">
                                         </div>
                                     </div>
-
-                                    <div class="pt-3 col-lg-6 col-md-6 col-sm-12 text-center">
-                                        <div class="form-group">
-                                            <label for="eMail" style="font-size: 20px;">Fecha de nacimiento:</label>
-
-                                            <input type="datetime-local" id="birthdaytime" name="birthdaytime"
-                                                style="width: 200px; font-size: 18px;">
+                                    <div class="col-lg-6 col-sm-12 pb-3 ">
+                                        <label for="eMail" style="font-size: 20px;">Fecha de nacimiento</label>
+                                        
+                                        <select id="cantidad" class="custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 100% !important;">
+                                          <option value="Estudiante">Masculino</option>
+                                          <option value="Profesor">Femenino</option>
+                                        </select>
+                                      </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                                    
+                                        <div class="form-group text-left">
+                                      
+                                            <label for="eMail" class=""  style="font-size: 20px;">Fecha de nacimiento</label>
+                                            <input type="datetime-local"class="form-control" id="birthdaytime" name="birthdaytime"
+                                                style="width: 100%; font-size: 15px;">
                                         </div>
                                     </div>
+                                    
 
                                     <div class="col-lg-12 col-md-12 col-sm-12 ">
                                         <div class="text-center  mx-auto justify-content m-3">

@@ -8,10 +8,20 @@ $(document).ready(function () {
         $('#sidebar').toggleClass('active');
     });
 
-    $("#datetime").datetimepicker({
-        format: 'yyyy-mm-dd hh:ii'
+  
+
+    $("#boton1").on('click', function () {
+        $(".division1").removeClass("d-none");
+        $(".division2").addClass("d-none");
     });
 
+    $("#boton2").on('click', function () {
+        $(".division1").addClass("d-none");
+        $(".division2").removeClass("d-none");
+    });
+
+      
+      });
 
 
 
@@ -23,5 +33,3 @@ $(document).ready(function () {
 
 
 
-
-});
