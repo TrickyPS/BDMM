@@ -6,11 +6,11 @@ p {
     color: #999;
 }
 
-a, a:hover, a:focus {
+/* a, a:hover, a:focus {
     color: white !important;
     text-decoration: none !important;
     transition: all 0.3s;
-}
+} */
 
 a > i {
     margin-right: 1rem;
@@ -60,13 +60,13 @@ a[data-toggle="collapse"] {
     display: block;
 }
 
-.dropdown-toggle::after {
+/*.dropdown-toggle::after {
     display: block;
     position: absolute;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-}
+}*/
 
 @media (max-width: 768px) {
     #sidebar {

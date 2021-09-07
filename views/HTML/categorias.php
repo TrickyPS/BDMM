@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./../CSS/categorias.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
 </head>
 
 <body>
@@ -18,7 +20,7 @@
     <div class="container cat-nav bg-light p-2" >
         <div class="container">
         <div class="  row align-items-center">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 
                     <select id="inputState" class="form-control">
                         <option selected>Categoria</option>
@@ -32,18 +34,21 @@
             </div>
             <div class="col-md-3">
                 
-                    <input type="date" name=""  class="form-control" id="">
+                    <input type="date" name="" id="desdeDate" class="form-control" id="">
                 
 
             </div>
             <div class="col-md-1 ">
                 <p class="text-dark text-center pt-2">A:</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3  ">
                 
-                    <input type="date" name=""  class="form-control" id="">
-                
+                    <input type="date" name="" id="aDate"  class="form-control" id="">
+                   
 
+            </div>
+            <div class="col-md-1 ">
+            <button onclick="dateValidate()" class=" ml-2 btn btn-primary"><i class="fas fa-search"></i></button>
             </div>
         </div>
 
@@ -60,9 +65,8 @@
 
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">20%</span>
@@ -75,7 +79,7 @@
                         <li class="fa fa-star disable"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Women's Blouse</a></h3>
+                        <h3 class="title"><a href="#">Curso de Python</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -89,9 +93,8 @@
                             <img class="pic-1" src="../IMG/python.png">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                           
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">50%</span>
@@ -104,7 +107,7 @@
                         <li class="fa fa-star"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                        <h3 class="title"><a href="#">Curso de Python</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -118,9 +121,8 @@
                             <img class="pic-1" src="../IMG/python.png">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                           
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">50%</span>
@@ -133,7 +135,7 @@
                         <li class="fa fa-star"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                        <h3 class="title"><a href="#">Curso de Python</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -147,9 +149,8 @@
                             <img class="pic-1" src="../IMG/python.png">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                           
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">50%</span>
@@ -162,7 +163,7 @@
                         <li class="fa fa-star"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                        <h3 class="title"><a href="#">Curso de Python</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -178,13 +179,12 @@
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
+                            <img class="pic-1" src="../IMG/angular.png">
 
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                           
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">20%</span>
@@ -197,7 +197,7 @@
                         <li class="fa fa-star disable"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Women's Blouse</a></h3>
+                        <h3 class="title"><a href="#">Stack MEAN</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -208,12 +208,11 @@
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
+                            <img class="pic-1" src="../IMG/angular.png">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">50%</span>
@@ -226,7 +225,7 @@
                         <li class="fa fa-star"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                        <h3 class="title"><a href="#">Stack MEAN</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -237,12 +236,11 @@
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
+                            <img class="pic-1" src="../IMG/angular.png">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">50%</span>
@@ -255,7 +253,7 @@
                         <li class="fa fa-star"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                        <h3 class="title"><a href="#">Stack MEAN</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -266,12 +264,11 @@
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
+                            <img class="pic-1" src="../IMG/angular.png">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                           
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">50%</span>
@@ -284,7 +281,7 @@
                         <li class="fa fa-star"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                        <h3 class="title"><a href="#">Curso de Javascript</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -299,13 +296,12 @@
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
+                            <img class="pic-1" src="../IMG/javascript.png">
 
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">20%</span>
@@ -318,7 +314,7 @@
                         <li class="fa fa-star disable"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Women's Blouse</a></h3>
+                        <h3 class="title"><a href="#">Curso de Javascript</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -329,12 +325,11 @@
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
+                            <img class="pic-1" src="../IMG/javascript.png">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">50%</span>
@@ -347,7 +342,7 @@
                         <li class="fa fa-star"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                        <h3 class="title"><a href="#">Stack MEAN</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -358,12 +353,11 @@
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
+                            <img class="pic-1" src="../IMG/javascript.png">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">50%</span>
@@ -376,7 +370,7 @@
                         <li class="fa fa-star"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                        <h3 class="title"><a href="#">Curso de Javascript</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -387,12 +381,11 @@
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
+                            <img class="pic-1" src="../IMG/javascript.png">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                           
                         </ul>
                         <span class="product-new-label">Sale</span>
                         <span class="product-discount-label">50%</span>
@@ -405,7 +398,7 @@
                         <li class="fa fa-star"></li>
                     </ul>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Men's Plain Tshirt</a></h3>
+                        <h3 class="title"><a href="#">Curso de Javascript</a></h3>
                         <div class="price pb-2">$16.00
                             <span>$20.00</span>
                         </div>
@@ -421,10 +414,7 @@
             <a href="#">&laquo;</a>
             <a href="#">1</a>
             <a class="active" href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
+            
             <a href="#">&raquo;</a>
         </div>
         </div>
@@ -440,6 +430,19 @@
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script>
+        function dateValidate(){
+            var desde = document.getElementById("desdeDate").value;
+            var a = document.getElementById("aDate").value;
+
+            var dateDesde = new Date(desde);
+            var dateA = new Date(a);
+            
+            if(dateA < dateDesde){
+                toastr.warning("Cuidado","Fechas deben estar en un rango")
+            }
+        }
     </script>
 </body>
 

@@ -53,11 +53,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" id="_Buscador">
 
-      <form class=" form1 form-inline justify-content-center" id="_Buscador">
+      <form action="categorias.php" class=" form1 form-inline justify-content-center" id="_Buscador">
         <input class="buscador form-control input-group-sm mr-sm-2 justify-content-center" type="search"
           placeholder="Busca algun producto..." aria-label="Search"
           style="width: 260px; font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;"">
-            <button class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
+            <button  class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
           style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
 
       </form>
@@ -77,25 +77,11 @@
             Registrate
           </a>
 
-          <a class="zoom btn  palab cdp nav-link" id="sesionregistrate" href="../HTML/Categorias.html">
+          <a class="zoom btn  palab cdp nav-link" id="sesionregistrate" href="../HTML/categorias.php">
           Categorias
         </a>
 
-        <a class="zoom btn  palab cdp nav-link" id="sesionregistrate" href="../HTML/Cuenta.html">
-        Mi cuenta
-      </a>
-
-
-
-
-
-
-
-          <a class="zoom btn  palab cdp nav-link d-none" href="#" role="button" id="carrito"
-            onclick="javascript:location.href='../HTML/Carrito.php';">
-            Carrito
-            <i class="fas fa-shopping-cart" id="_carritonumero"> </i>
-          </a>
+        
 
 
 
@@ -103,10 +89,10 @@
 
             <a class="zoom cdp nav-link dropdown-toggle" href="#" id="sesionperfil" role="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Cuenta
+              <img style="border-radius: 50%;width: 24px;" class="mr-2"  src="./../IMG/user.png" alt="">Cuenta
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item " id="noadmins" href="../HTML/Cuenta.html">Cuenta</a>
+              <a class="dropdown-item " id="noadmins" href="../HTML/Cuenta.html">Mi Cuenta</a>
               <a class="variable dropdown-item" id="admins" href="../HTML/cms.php">Cms</a>
               <a class="variable dropdown-item" id="chat" href="../HTML/chat.php">Chat</a>
               <div class="dropdown-divider"></div>
@@ -133,7 +119,7 @@
             <p style="font-size: 30px;">
               Continuity, la mejor para plataforma de cursos para aprender.
             </p>
-            <button class="p1p btn button zoom" id="botonsearch" type="submit"
+            <button onclick="location.href = 'categorias.php'" class="p1p btn button zoom" id="botonsearch" type="submit"
               style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: large;">Ver Cursos</button>
           </div>
         </div>

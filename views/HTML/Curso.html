@@ -20,11 +20,16 @@
         integrity="sha512-i+WzzATeaDcwcfi5CfLn63qBxrKqiQvDLC+IChU1zVlaPguPgJlddOR07nU28XOoIOno9WPmJ+3ccUInpmHxBg=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
-    <link rel="stylesheet" href="../CSS/Onboarding.css">
-    <link rel="stylesheet" href="../CSS/toast.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
+    <script src="../JS/IndexNuevo.js" defer></script>
  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
@@ -52,11 +57,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent" id="_Buscador">
 
-            <form class=" form1 form-inline justify-content-center" id="_Buscador">
+            <form  action="categorias.php" class=" form1 form-inline justify-content-center" id="_Buscador">
                 <input class="buscador form-control input-group-sm mr-sm-2 justify-content-center" type="search"
                     placeholder="Busca algun producto..." aria-label="Search"
                     style="width: 260px; font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;"">
-            <button class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
+            <button  class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
                     style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
 
             </form>
@@ -64,19 +69,45 @@
                 <ul class="navbar-nav text-center mx-auto mt-2"
                     style="flex-direction: row; justify-content: space-evenly; font-family: 'Yanone Kaffeesatz', sans-serif;;">
 
-                    <a class="zoom  palab  cdp btn pt-2 pr-2 nav-link" id="_categorias" type="sumbit"
-                        onclick="javascript:location.href='../HTML/Categorias.php';">
-                        Categorias
-                    </a>
-
                     <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal"
-                        id="sesioninicia">
-                        Inicia sesion
+                    id="sesioninicia">
+                    Inicia sesion
+                </a>
+
+                <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal2"
+                    id="sesionregistrate">
+                    Registrate
+                </a>
+
+                <a class="zoom btn  palab cdp nav-link" id="sesionregistrate" href="../HTML/categorias.php">
+                    Categorias
+                </a>
+
+
+
+
+
+                <li class="nav-item " id="infocuenta">
+
+                    <a class="zoom cdp nav-link dropdown-toggle" href="#" id="sesionperfil" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img style="border-radius: 50%;width: 24px;" class="mr-2" src="./../IMG/user.png" alt="">Cuenta
                     </a>
-                    <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal2"
-                        id="sesionregistrate">
-                        Registrate
-                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item " id="noadmins" href="../HTML/Cuenta.html">Mi Cuenta</a>
+                        <a class="variable dropdown-item" id="admins" href="../HTML/cms.php">Cms</a>
+                        <a class="variable dropdown-item" id="chat" href="../HTML/chat.php">Chat</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../../models/cierrasesion.php" onclick="myFunction();">Cerrar
+                            sesión</a>
+                        <script>
+                        function myFunction() {
+                            debugger
+                            localStorage.clear();
+                        }
+                        </script>
+                    </div>
+                </li>
                 </ul>
             </div>
         </div>
@@ -96,7 +127,7 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="card-body m-0 pt-0 pl-5">
-                        <h3 class="title text-uppercase" style="font-size: 25px;">Curso de photoshop</h3>
+                        <h3 class="title text-uppercase" style="font-size: 25px;">Curso de Python con Machine Learning</h3>
 
                         <div class="mb-3 mt-3">
                             <span class="h7 text-success">Categoria</span>
@@ -158,13 +189,13 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
                      <span>Video uno de practica de programacion con Python.</span>
-                     <button class=" p1p btn button mt-0 ml-1 zoom float-right"  id="botonsearch" type="submit"
-                     style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
+                     <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"  id="botonsearch" type="submit"
+                     style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
                     </div>
                     <div class="card-body">
                         <span>Video uno de practica de programacion con Python.</span>
-                        <button class=" p1p btn button mt-0 ml-1 zoom float-right"  id="botonsearch" type="submit"
-                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
+                        <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"  id="botonsearch" type="submit"
+                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
                        </div>
                     
                 </div>
@@ -183,8 +214,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
                         <span>Video uno de practica de programacion con Python.</span>
-                        <button class=" p1p btn button mt-0 ml-1 zoom float-right"  id="botonsearch" type="submit"
-                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
+                        <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"  id="botonsearch" type="submit"
+                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
                        </div>
                 </div>
             </div>
@@ -203,8 +234,8 @@
                    
                         <div class="card-body">
                             <span>Video uno de practica de programacion con Python.</span>
-                            <button class=" p1p btn button mt-0 ml-1 zoom float-right"  id="botonsearch" type="submit"
-                            style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
+                            <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"  id="botonsearch" onclick="location.href = 'video.php'" type="submit"
+                            style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
                            </div>
                     
                 </div>
@@ -223,8 +254,8 @@
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                    <div class="card-body">
                      <span>Video uno de practica de programacion con Python.</span>
-                     <button class=" p1p btn button mt-0 ml-1 zoom float-right"  id="botonsearch" type="submit"
-                     style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
+                     <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"  id="botonsearch" type="submit"
+                     style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
                     </div>
                 </div>
             </div>
@@ -246,7 +277,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-8 pb-5 examplee "
                     style=" 
-                    overflow-y: scroll; height: 300px; :rgb(156, 156, 156) 1px !important; border-stylbordere: solid !important; padding: 10px; background-color: rgb(107, 101, 101);">
+                    overflow-y: scroll; height: 300px;  padding: 10px; background-color: rgb(107, 101, 101);">
 
                     <div class="card p-3 m-1">
                         <div class="d-flex justify-content-between align-items-center">
@@ -575,7 +606,7 @@
                     </form>
                     <center>
                         <button type="button" class="btn btn-second" data-dismiss="modal">Cancelar</button>
-                        <button class="btn  my-1 btn-main " onclick="addHistorial(<?php  echo $_SESSION['id']; ?>);"><i
+                        <button class="btn  my-1 btn-main " ><i
                                 class="fa fa-lock"></i> Pagar</button>
                     </center>
                 </div>
