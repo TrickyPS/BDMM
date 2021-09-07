@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./../CSS/cms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./../JS/cms.js" defer></script>
 </head>
 
 <body>
@@ -141,8 +144,8 @@
                                             <td>$7,000</td>
                                             <td>3</td>
                                             <td><button class="btn btn-sm btn-primary">Ver detalle</button></td>
-                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-ligth"><i class="far fa-eye"></i></button></td>
+                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-ligth" onclick="location.href='Curso.html'"><i class="far fa-eye"></i></button></td>
                                         </tr>
                                         <tr>
                                             <td>Golang Gorilla-Mux</td>
@@ -152,8 +155,8 @@
                                             <td>$1,600</td>
                                             <td>5</td>
                                             <td><button class="btn btn-sm btn-primary">Ver detalle</button></td>
-                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-ligth"><i class="far fa-eye"></i></button></td>
+                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-ligth" onclick="location.href='Curso.html'"><i class="far fa-eye"></i></button></td>
                                         </tr>
                                         <tr>
                                             <td>React Native</td>
@@ -163,8 +166,8 @@
                                             <td>$0.00</td>
                                             <td>0</td>
                                             <td><button class="btn btn-sm btn-primary" >Publicar <i class="fas fa-globe-americas "></button></td>
-                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-ligth"><i class="far fa-eye"></i></button></td>
+                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-ligth" onclick="location.href='Curso.html'"><i class="far fa-eye"></i></button></td>
                                         </tr>
 
                                         <tr>
@@ -232,19 +235,19 @@
                         <div class="col-lg-4 p-4">
                             <div class="card shadow p-3">
                                 <p class="h2 mb-3">Agregar Curso</p>
-                                <form class="w-100" action="">
+                                <form class="w-100" id="formCurso">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="curso"
+                                        <input class="form-control" type="text" id="Ccurso"
                                             placeholder="Nombre del curso...">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="description"
+                                        <input class="form-control" type="text" id="Cdescription"
                                             placeholder="Descripcion del curso...">
                                     </div>
 
                                       <div class="form-group">
-                                        <select class="custom-select">
-                                            <option selected>Seleciona la categoria</option>
+                                        <select class="custom-select" id="Ccategoria">
+                                            <option selected value="0">Seleciona la categoria</option>
                                             <option value="1"> Ciencia </option>
                                             <option value="2">Desarrollo</option>
                                             <option value="3">Diseño</option>
@@ -252,7 +255,7 @@
                                     </div>
                                    
                                     <div class="custom-file mb-3"> 
-                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                        <input type="file" class="custom-file-input"  lang="es" id="Cimagen">
                                         <label class="custom-file-label" for="customFileLang">Seleccionar imagen del curso</label>
                                     </div>
                                    
@@ -262,7 +265,7 @@
                                     
                                     <div class="form-group" >
                                     
-                                        <input class="form-control" type="text" id="precio" name="precio"
+                                        <input class="form-control" step="0.01" min="0.01" type="number" id="Cprecio" name="precio"
                                             placeholder="Precio del curso">
                                             
                                     </div>
@@ -293,7 +296,7 @@
                                             <td>1</td>
                                             <td>Javascript</td>
                                             <td> Gratis </td>
-                                            <td><button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Agregar Nivel</button></td>
+                                            <td><button class="btn btn-sm btn-primary" onclick="toggleNav('nivel')" ><i class="fas fa-plus"></i> Agregar Nivel</button></td>
                                             <td><button class="btn btn-sm btn-secondary"><i class="fas fa-globe-americas"></i> Publicar</button></td>
                                             <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
                                             <td><button class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</button></td>
@@ -311,15 +314,15 @@
                         <div class="col-lg-4 p-4">
                             <div class="card shadow p-3">
                                 <p class="h2 mb-3">Agregar Nivel</p>
-                                <form class="w-100" action="">
+                                <form class="w-100" id="formNivel" action="">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="video"
+                                        <input class="form-control" type="text" id="Nnivel" 
                                             placeholder="Nombre del nivel...">
                                     </div>
 
                                     <div class="form-group">
-                                        <select class="custom-select">
-                                            <option selected>Seleciona el curso</option>
+                                        <select class="custom-select" id="Ncurso">
+                                            <option selected value="0">Seleciona el curso</option>
                                             <option value="1">Javascript </option>
                                             <option value="2">Python Django</option>
                                             <option value="3">Flutter para principantes</option>
@@ -371,7 +374,7 @@
                                             <td>1</td>
                                             <td>Fase 1</td>
                                             <td>Javascript </td>
-                                            <td><button class="btn  btn-sm btn-primary"><i class="fas fa-plus"></i> Agregar Video</button></td>
+                                            <td><button class="btn  btn-sm btn-primary" onclick="toggleNav('video')"><i class="fas fa-plus"></i> Agregar Video</button></td>
                                             <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
                                             <td><button class="btn  btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</button></td>
                                         </tr>
@@ -388,20 +391,20 @@
                         <div class="col-lg-4 p-4">
                             <div class="card shadow p-3">
                                 <p class="h2 mb-3">Agregar Video</p>
-                                <form class="w-100" action="">
+                                <form class="w-100" id="formVideo" action="">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="video"
+                                        <input class="form-control" type="text" id="Vname"
                                             placeholder="Título del video...">
                                     </div>
 
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Descripción del video..."
+                                        <textarea id="Vdescription" class="form-control" placeholder="Descripción del video..."
                                             rows="3"></textarea>
 
                                     </div>
                                     <div class="form-group">
-                                        <select class="custom-select">
-                                            <option selected>Seleciona el curso</option>
+                                        <select id="Vcurso" class="custom-select">
+                                            <option selected value="0">Seleciona el curso</option>
                                             <option value="1">Javascript </option>
                                             <option value="2">Python Django</option>
                                             <option value="3">Flutter para principantes</option>
@@ -409,15 +412,15 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <select class="custom-select">
-                                            <option selected>Seleciona el nivel</option>
+                                        <select class="custom-select"  id="Vnivel">
+                                            <option selected value="0">Seleciona el nivel</option>
                                             <option value="1">Fase 1</option>
                                             <option value="2">Fase 2</option>
                                             <option value="3">fase 3</option>
                                         </select>
                                     </div>
                                     <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                        <input type="file"  class="custom-file-input" id="Vvideo" lang="es">
                                         <label class="custom-file-label" for="customFileLang">Seleccionar Video</label>
                                     </div>
                                     <div class="form-group d-flex justify-content-center">
@@ -467,14 +470,14 @@
                         <div class="col-lg-4 p-4">
                             <div class="card shadow p-3">
                                 <p class="h2 mb-3">Agregar Categoria</p>
-                                <form class="w-100" action="">
+                                <form class="w-100" id="formCategoria" action="">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="categoria"
+                                        <input class="form-control" type="text" id="Catname"
                                             placeholder="Nombre de categoria...">
                                     </div>
 
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Descripción de la categoria..."
+                                        <textarea class="form-control" id="Catdescription" placeholder="Descripción de la categoria..."
                                             rows="3"></textarea>
 
                                     </div>
@@ -604,9 +607,9 @@
     function stateSwitch(){
         var check = document.getElementById('switch').checked;
        if(!check){
-            $('#precio').removeAttr('disabled');
+            $('#Cprecio').removeAttr('disabled');
        }else{
-        $('#precio').attr('disabled',true);
+        $('#Cprecio').attr('disabled',true);
        }
         
 
