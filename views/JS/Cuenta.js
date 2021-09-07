@@ -23,37 +23,45 @@ $(document).ready(function () {
       
       });
 
-      function validateMyFormP() {
-        var name = document.getElementById("nameP").value;
-        var email = document.getElementById("emailP").value;
-        var password = document.getElementById("passwordP").value;
-        var opcion = document.getElementById("opcion").value;
-        var fecha = document.getElementById("birthdaytime").value;
-    debugger
-     var ps = validar_clave(password);
-    
-        if (ps == false || password =="") {
-         debugger
-            alert("Coloca una contraseña correcta")
-    
-        }
-        if (email == "" || name == "") {
-    
-            alert("llena bien los campos")
-        }
-        if((opcion == null)){
-    
-            alert("Selecciona una opcion");
-          
-        }if(fecha == null){
 
-            alert("Selecciona una fecha");
-        }
-        else{
-            alert("Te has registrado correctamente")
-        }
+
     
+$("#formularioCuenta").submit(function (e) { 
+    e.preventDefault();
+    var name = document.getElementById("nameP").value;
+    var email = document.getElementById("emailP").value;
+    var password = document.getElementById("passwordP").value;
+    var opcion = document.getElementById("opcion").value;
+    var fecha = document.getElementById("birthdaytime").value;
+debugger
+ var ps = validar_clave(password);
+ var boolean = true;
+    if (ps == false || password =="") {
+     debugger
+     toastr.error('Error','Selecciona una opcion');
+ boolean = false;
     }
+    if (email == "" || name == "") {
+
+        toastr.error('Error','Llena los campos correctamente');
+        boolean = false;
+    }
+    if((opcion == null)){
+
+        toastr.error('Error','Selecciona una opcion');
+        boolean = false;
+      
+    }if(fecha == null){
+
+        toastr.error('Error','Selecciona una fecha');
+        boolean = false;
+    }
+    if(boolean == true){
+        toastr.success('Bien', 'Has modificado la información correctamente');
+    }
+   
+
+})
 
 
     function validar_clave(password) {

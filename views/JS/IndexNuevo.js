@@ -5,33 +5,44 @@ $(document).ready(function () {
 });
 
 
+$("#rertol").submit(function (e) { 
+    e.preventDefault();
 
-
-
-
- function validateMyForm() {
     var email = document.getElementById("emaili").value;
     var password = document.getElementById("passwordi").value;
 debugger
  var ps = validar_clave(password);
- 
+ var boolean = true;
 
     if (ps == false || password =="") {
-     debugger
-        alert("Coloca una contraseña correcta")
-
+   
+     toastr.error('Error','Ingresa la contraseña correctamente')
+     boolean = false
     }
     if (email == "") {
 
-        alert("llena bien los campos")
+        toastr.error('Error','Ingresa el correo correctamente')
+        boolean = false
     }
-    else{
-        alert("Has ingresado incorrectamente")
+     if(boolean == true){
+
+        toastr.success('Bien', 'Has ingresado correctamente');
     }
 
-}
 
-function validateMyFormR() {
+
+})
+
+
+
+
+
+
+
+
+$("#rerto").submit(function (e) { 
+    e.preventDefault();
+
     var name = document.getElementById("nombrer").value;
     var email = document.getElementById("emailr").value;
     var password = document.getElementById("passwordr").value;
@@ -39,27 +50,42 @@ function validateMyFormR() {
     
 debugger
  var ps = validar_clave(password);
- 
+ var boolean = true;
  
     if (ps == false || password =="") {
      debugger
-        alert("Coloca una contraseña correcta")
-
+     toastr.error('Error','Ingresa la contraseña correctamente')
+   boolean= false;
     }
     if (email == "" || name == "") {
 
-        alert("llena bien los campos")
+        toastr.error('Error','Llena bien los campos')
+        boolean= false;
     }
     if((Estudiante == null)){
 
-        alert("Selecciona una opcion");
-      
+        toastr.error('Error','Selecciona una opcion')
+        boolean= false;
     }
-    else{
-        alert("Te has registrado correctamente")
+    if(boolean == true){
+        toastr.success('Bien', 'Te has registrado correctamente');
+        
     }
 
-}
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function validar_clave(password) {
     debugger

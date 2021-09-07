@@ -21,9 +21,10 @@
         integrity="sha512-i+WzzATeaDcwcfi5CfLn63qBxrKqiQvDLC+IChU1zVlaPguPgJlddOR07nU28XOoIOno9WPmJ+3ccUInpmHxBg=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
-    <link rel="stylesheet" href="../CSS/Onboarding.css">
-    <link rel="stylesheet" href="../CSS/toast.css">
-    <!-- FONTS -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
 
@@ -320,7 +321,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h4 class="mb-3 mx-auto text-center">Cuenta creada en: 9/20/2021</h4>
                                 </div>
-                                <form class="row justify-content-center" onsubmit="return validateMyFormP()">
+                                <form id="formularioCuenta" class="row justify-content-center">
                                     <div class=" col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="fullName" style="font-size: 20px;">Nombre Completo</label>
@@ -356,7 +357,7 @@
                                         <div class="form-group text-left">
                                       
                                             <label for="eMail" class=""  style="font-size: 20px;">Fecha de nacimiento</label>
-                                            <input type="datetime-local"class="form-control" id="birthdaytime" name="birthdaytime"
+                                            <input type="date"class="form-control" id="birthdaytime" name="birthdaytime"
                                                 style="width: 100%; font-size: 15px;">
                                         </div>
                                     </div>

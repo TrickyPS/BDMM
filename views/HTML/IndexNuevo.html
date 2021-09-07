@@ -19,8 +19,10 @@
     integrity="sha512-i+WzzATeaDcwcfi5CfLn63qBxrKqiQvDLC+IChU1zVlaPguPgJlddOR07nU28XOoIOno9WPmJ+3ccUInpmHxBg=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
-  <link rel="stylesheet" href="../CSS/Onboarding.css">
-  <link rel="stylesheet" href="../CSS/toast.css">
+
+   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
   <!-- FONTS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
@@ -462,7 +464,7 @@
             herramientas y las habilidades para que enseñes lo que te apasiona.</p>
           <div class="text-center">
             <button class="p1p btn button mt-0 ml-1 zoom text-center" id="botonsearch" type="submit"
-              style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 30px;">Unete ahora</button>
+              style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 30px;"  data-toggle="modal" data-target="#exampleModal2">Unete ahora</button>
           </div>
 
         </div>
@@ -515,7 +517,7 @@
             </div>
 
 
-            <form id="rertol" accept-charset="utf-8" onsubmit="return validateMyForm()">
+            <form id="rertol" accept-charset="utf-8">
               <div class="form-group pl-5 pr-5">
                 <a>Correo electronico</a>
                 <input type="email" class="form-control" id="emaili" name="emaill"
@@ -565,7 +567,7 @@
             <div class="form-title text-center">
               <h4>Crea una cuenta.</h4>
             </div>
-            <form id="rerto" accept-charset="utf-8" onsubmit="return validateMyFormR()">
+            <form id="rerto" accept-charset="utf-8">
               <div class="form-group pl-5 pr-5">
                 <a>Nombre completo</a>
                 <input type="text" class="form-control" name="nombresign" id="nombrer" placeholder="Escribe tu nombre"
