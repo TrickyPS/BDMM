@@ -1,5 +1,5 @@
 <?php
 
-header("Location: controllers " )
+header("Location: views/HTML/IndexNuevo.html " )
 
 ?>

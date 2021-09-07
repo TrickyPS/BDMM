@@ -63,18 +63,15 @@
 
 
 
-          <li class="nav-item d-none" id="infocuenta">
+          <li class="nav-item " id="infocuenta">
 
-            <a class="palab cdp nav-link dropdown-toggle" href="#" id="sesionperfil" role="button"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              style="font-family: 'Staatliches';   z-index: 4 !important;">
+            <a class="zoom cdp nav-link dropdown-toggle" href="#" id="sesionperfil" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Cuenta
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
-              style="font-family: 'Staatliches';">
-              <a class="dropdown-item d-none" id="noadmins" href="Historial.html">Cuenta</a>
-              <a class="variable dropdown-item d-none" id="admins"
-                onclick="javascript:location.href='../HTML/Dashboard.php';">Dashboard</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item " id="noadmins" href="../HTML/Cuenta.html">Cuenta</a>
+              <a class="variable dropdown-item" id="admins" href="../HTML/cms.php">Cms</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="../../models/cierrasesion.php" onclick="myFunction();">Cerrar
                 sesión</a>
