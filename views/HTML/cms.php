@@ -20,7 +20,7 @@
 
     <?php include_once("layout_nav.php") ?>
 
-   
+
 
     <div class="cms-container">
         <div class="row ">
@@ -121,9 +121,9 @@
                         <div class="col-lg-12">
                             <div class="card shadow p-3 mt-3 mb-3">
                                 <table class="table">
-                                    
-                                      <thead>
-                                      <tr>
+
+                                    <thead>
+                                        <tr>
                                             <th>Curso</th>
                                             <th>Status</th>
                                             <th>Precio</th>
@@ -134,8 +134,8 @@
                                             <th></th>
                                             <th></th>
                                         </tr>
-                                      </thead>
-                                        <tbody>
+                                    </thead>
+                                    <tbody>
                                         <tr>
                                             <td>Javascript Introducción</td>
                                             <td>Público <i class="fas fa-globe-americas text-success"></i></td>
@@ -144,8 +144,11 @@
                                             <td>$7,000</td>
                                             <td>3</td>
                                             <td><button class="btn btn-sm btn-primary">Ver detalle</button></td>
-                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-ligth" onclick="location.href='Curso.html'"><i class="far fa-eye"></i></button></td>
+                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i
+                                                        class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-ligth"
+                                                    onclick="location.href='Curso.html'"><i
+                                                        class="far fa-eye"></i></button></td>
                                         </tr>
                                         <tr>
                                             <td>Golang Gorilla-Mux</td>
@@ -155,8 +158,11 @@
                                             <td>$1,600</td>
                                             <td>5</td>
                                             <td><button class="btn btn-sm btn-primary">Ver detalle</button></td>
-                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-ligth" onclick="location.href='Curso.html'"><i class="far fa-eye"></i></button></td>
+                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i
+                                                        class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-ligth"
+                                                    onclick="location.href='Curso.html'"><i
+                                                        class="far fa-eye"></i></button></td>
                                         </tr>
                                         <tr>
                                             <td>React Native</td>
@@ -165,13 +171,25 @@
                                             <td>0</td>
                                             <td>$0.00</td>
                                             <td>0</td>
-                                            <td><button class="btn btn-sm btn-primary" >Publicar <i class="fas fa-globe-americas "></button></td>
-                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-ligth" onclick="location.href='Curso.html'"><i class="far fa-eye"></i></button></td>
+                                            <td><button class="btn btn-sm btn-primary">Publicar <i
+                                                        class="fas fa-globe-americas "></button></td>
+                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i
+                                                        class="fas fa-pen"></i> Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-ligth"
+                                                    onclick="location.href='Curso.html'"><i
+                                                        class="far fa-eye"></i></button></td>
                                         </tr>
 
                                         <tr>
-                                            <td></td><td></td><td></td><td></td><th>Total: $8,600.00</th><td></td><td></td><td></td><td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <th>Total: $8,600.00</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
 
                                     </tbody>
@@ -181,9 +199,9 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                        <th>Formas de pago</th>
-                                        <td>Master Card</td>
-                                        <td>Paypal</td>
+                                            <th>Formas de pago</th>
+                                            <td>Master Card</td>
+                                            <td>Paypal</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -201,11 +219,11 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                        <th>#</th>
-                                        <th>Alumno</th>
-                                        <th>Correo</th>
-                                        <th>Pago</th>
-                                        <th>Forma de pago</th>
+                                            <th>#</th>
+                                            <th>Alumno</th>
+                                            <th>Correo</th>
+                                            <th>Pago</th>
+                                            <th>Forma de pago</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -230,7 +248,7 @@
                     </div>
                 </div>
                 <div id="curso">
-                <p class="h2 pl-2">Cursos</p>
+                    <p class="h2 pl-2">Cursos</p>
                     <div class="row">
                         <div class="col-lg-4 p-4">
                             <div class="card shadow p-3">
@@ -245,7 +263,7 @@
                                             placeholder="Descripcion del curso...">
                                     </div>
 
-                                      <div class="form-group">
+                                    <div class="form-group">
                                         <select class="custom-select" id="Ccategoria">
                                             <option selected value="0">Seleciona la categoria</option>
                                             <option value="1"> Ciencia </option>
@@ -253,28 +271,29 @@
                                             <option value="3">Diseño</option>
                                         </select>
                                     </div>
-                                   
-                                    <div class="custom-file mb-3"> 
-                                        <input type="file" class="custom-file-input"  lang="es" id="Cimagen">
-                                        <label class="custom-file-label" for="customFileLang">Seleccionar imagen del curso</label>
+
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" lang="es" id="Cimagen">
+                                        <label class="custom-file-label" for="customFileLang">Seleccionar imagen del
+                                            curso</label>
                                     </div>
-                                   
+
                                     <label for="" class="d-block">Gratis</label>
                                     <input type="checkbox" checked="false" name="switch" id="switch" class="switch">
                                     <label for="switch" onclick="stateSwitch()" class="lbl-switch"></label>
-                                    
-                                    <div class="form-group" >
-                                    
-                                        <input class="form-control" step="0.01" min="0.01" type="number" id="Cprecio" name="precio"
-                                            placeholder="Precio del curso">
-                                            
+
+                                    <div class="form-group">
+
+                                        <input class="form-control" step="0.01" min="0.01" type="number" id="Cprecio"
+                                            name="precio" placeholder="Precio del curso">
+
                                     </div>
 
 
                                     <div class="form-group d-flex justify-content-center">
                                         <input type="submit" class="btn btn-primary " value="Agregar">
                                     </div>
-                                    
+
 
                                 </form>
                             </div>
@@ -296,12 +315,16 @@
                                             <td>1</td>
                                             <td>Javascript</td>
                                             <td> Gratis </td>
-                                            <td><button class="btn btn-sm btn-primary" onclick="toggleNav('nivel')" ><i class="fas fa-plus"></i> Agregar Nivel</button></td>
-                                            <td><button class="btn btn-sm btn-secondary"><i class="fas fa-globe-americas"></i> Publicar</button></td>
-                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</button></td>
+                                            <td><button class="btn btn-sm btn-primary" onclick="toggleNav('nivel')"><i
+                                                        class="fas fa-plus"></i> Agregar Nivel</button></td>
+                                            <td><button class="btn btn-sm btn-secondary"><i
+                                                        class="fas fa-globe-americas"></i> Publicar</button></td>
+                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i>
+                                                    Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i>
+                                                    Eliminar</button></td>
                                         </tr>
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -316,7 +339,7 @@
                                 <p class="h2 mb-3">Agregar Nivel</p>
                                 <form class="w-100" id="formNivel" action="">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" id="Nnivel" 
+                                        <input class="form-control" type="text" id="Nnivel"
                                             placeholder="Nombre del nivel...">
                                     </div>
 
@@ -329,7 +352,7 @@
                                         </select>
                                     </div>
                                     <label for="">Contenidos Adjuntos</label>
-                                    <div class="custom-file mb-3"> 
+                                    <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFileLang" lang="es">
                                         <label class="custom-file-label" for="customFileLang">Seleccionar
                                             Archivos</label>
@@ -342,7 +365,7 @@
                                             <button class="btn btn-secondary"> Agregar link</button>
                                         </div>
                                     </div>
-                                    <small  class="text-muted"> Documentos agregados </small>
+                                    <small class="text-muted"> Documentos agregados </small>
                                     <div class="form-group">
                                         <div class="list-group">
                                             <div class="list-group-item">URL : https://www.example.com</div>
@@ -353,7 +376,7 @@
                                     <div class="form-group d-flex justify-content-center">
                                         <input type="submit" class="btn btn-primary " value="Agregar">
                                     </div>
-                                    
+
 
                                 </form>
                             </div>
@@ -374,11 +397,14 @@
                                             <td>1</td>
                                             <td>Fase 1</td>
                                             <td>Javascript </td>
-                                            <td><button class="btn  btn-sm btn-primary" onclick="toggleNav('video')"><i class="fas fa-plus"></i> Agregar Video</button></td>
-                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn  btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</button></td>
+                                            <td><button class="btn  btn-sm btn-primary" onclick="toggleNav('video')"><i
+                                                        class="fas fa-plus"></i> Agregar Video</button></td>
+                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i>
+                                                    Editar</button> </td>
+                                            <td><button class="btn  btn-sm btn-danger"> <i class="fas fa-trash-alt"></i>
+                                                    Eliminar</button></td>
                                         </tr>
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -398,8 +424,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <textarea id="Vdescription" class="form-control" placeholder="Descripción del video..."
-                                            rows="3"></textarea>
+                                        <textarea id="Vdescription" class="form-control"
+                                            placeholder="Descripción del video..." rows="3"></textarea>
 
                                     </div>
                                     <div class="form-group">
@@ -412,7 +438,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <select class="custom-select"  id="Vnivel">
+                                        <select class="custom-select" id="Vnivel">
                                             <option selected value="0">Seleciona el nivel</option>
                                             <option value="1">Fase 1</option>
                                             <option value="2">Fase 2</option>
@@ -420,7 +446,7 @@
                                         </select>
                                     </div>
                                     <div class="custom-file mb-3">
-                                        <input type="file"  class="custom-file-input" id="Vvideo" lang="es">
+                                        <input type="file" class="custom-file-input" id="Vvideo" lang="es">
                                         <label class="custom-file-label" for="customFileLang">Seleccionar Video</label>
                                     </div>
                                     <div class="form-group d-flex justify-content-center">
@@ -447,16 +473,20 @@
                                             <td>Async /Await</td>
                                             <td>Javascript Intermideo</td>
                                             <td>Javascript</td>
-                                            <td> <button class="btn btn-sm btn-info"><i class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</button></td>
+                                            <td> <button class="btn btn-sm btn-info"><i class="fas fa-pen"></i>
+                                                    Editar</button> </td>
+                                            <td><button class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i>
+                                                    Eliminar</button></td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>Migraciones</td>
                                             <td>Django migraciones y modelos</td>
                                             <td>Curso de Python Django</td>
-                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn  btn-sm btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</button></td>
+                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i>
+                                                    Editar</button> </td>
+                                            <td><button class="btn  btn-sm btn-danger"> <i class="fas fa-trash-alt"></i>
+                                                    Eliminar</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -477,8 +507,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <textarea class="form-control" id="Catdescription" placeholder="Descripción de la categoria..."
-                                            rows="3"></textarea>
+                                        <textarea class="form-control" id="Catdescription"
+                                            placeholder="Descripción de la categoria..." rows="3"></textarea>
 
                                     </div>
 
@@ -516,56 +546,56 @@
     <?php include_once("layout_footer.php") ?>
 
     <script>
-    const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June'
-    ];
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30],
-        }]
-    };
+        const labels = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June'
+        ];
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30],
+            }]
+        };
 
-    const dataCategory = {
-        labels: labels,
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: ['rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)',
-                'rgb(54,235,162)',
-                'rgb(162,54,240)',
-                'rgb(40,255,100)'
-            ],
-            borderColor: 'rgb(255, 99, 132)',
-            data: [5, 10, 5, 2, 20, 30],
-        }]
-    };
+        const dataCategory = {
+            labels: labels,
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: ['rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(54,235,162)',
+                    'rgb(162,54,240)',
+                    'rgb(40,255,100)'
+                ],
+                borderColor: 'rgb(255, 99, 132)',
+                data: [5, 10, 5, 2, 20, 30],
+            }]
+        };
 
-    const config = {
-        type: 'line',
-        data: data,
-        options: {}
-    };
-    var myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-    var categoryChart = new Chart(
-        document.getElementById('categoryChart'), {
-            type: 'doughnut',
-            data: dataCategory,
+        const config = {
+            type: 'line',
+            data: data,
             options: {}
-        }
-    );
+        };
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+        var categoryChart = new Chart(
+            document.getElementById('categoryChart'), {
+                type: 'doughnut',
+                data: dataCategory,
+                options: {}
+            }
+        );
     </script>
 
 
@@ -578,42 +608,42 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script>
-    var menus = [];
-    menus.push('dashboard');
-    menus.push('misCursos');
-    menus.push('curso');
-    menus.push('nivel');
-    menus.push('video');
-    menus.push('categoria');
+        var menus = [];
+        menus.push('dashboard');
+        menus.push('misCursos');
+        menus.push('curso');
+        menus.push('nivel');
+        menus.push('video');
+        menus.push('categoria');
 
-    function hideNavs() {
-        for (item of menus) {
-            $('#' + item).hide()
+        function hideNavs() {
+            for (item of menus) {
+                $('#' + item).hide()
+            }
         }
-    }
 
-    function toggleNav(id) {
-        hideNavs()
-        $('#' + id).show();
-    }
+        function toggleNav(id) {
+            hideNavs()
+            $('#' + id).show();
+        }
 
-    function init() {
-        hideNavs()
-        $("#dashboard").show();
-    }
+        function init() {
+            hideNavs()
+            $("#dashboard").show();
+        }
 
-    init()
+        init()
 
-    function stateSwitch(){
-        var check = document.getElementById('switch').checked;
-       if(!check){
-            $('#Cprecio').removeAttr('disabled');
-       }else{
-        $('#Cprecio').attr('disabled',true);
-       }
-        
+        function stateSwitch() {
+            var check = document.getElementById('switch').checked;
+            if (!check) {
+                $('#Cprecio').removeAttr('disabled');
+            } else {
+                $('#Cprecio').attr('disabled', true);
+            }
 
-    }
+
+        }
     </script>
 </body>
 
