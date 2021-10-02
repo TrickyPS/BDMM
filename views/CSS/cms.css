@@ -6,6 +6,10 @@ padding:0px 0px;
 overflow:hidden
 }
 
+html{
+    font-size: 1rem !important;
+}
+
 body{
     background-color: #F2F7F9;
 }
@@ -18,6 +22,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    transition: all 0.3s;
 }
 
 .item-nav{
@@ -70,7 +75,7 @@ body{
  .lbl-switch{
      width: 50px;
      height: 25px;
-     background-color: #5d929e;
+     background-color: #141c29;
      border-radius: 100px;
      position: relative;
      cursor: pointer;
@@ -101,5 +106,16 @@ body{
  }
 
  .switch:checked + .lbl-switch{
-     background-color: #141c29;
+     background-color: #5d929e;
  }
+
+ .cms-pad{
+     padding: 0px 2rem;
+ }
+
+ .toggle-nav{
+     display:none;
+    transform:translateX(-100%);
+    transition: all 0.3s;
+ }
+ 

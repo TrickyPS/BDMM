@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./../IMG/logooficial.png" type="image/png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
 <!-- jolj -->
@@ -34,82 +35,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap" rel="stylesheet">
-  <title>Continuity</title>
+  <title>Continuity-Pagina Principal</title>
 </head>
 
 <body>
-  <nav class="navbar navi  navbar-expand-lg navbar-light fixed-top" id="_cartelera">
-    <div class="namep pt-0">
-      <img class="negro imageno pb-2" src="../IMG/logooficial.png" width="45px" >
-      <a class="variable zoom variable negro pr-5 navbar-brand titulo"
-      href="../HTML/IndexNuevo.html"
-        style="color: whitesmoke; font-family: 'Bebas Neue', cursive; font-size: 25px;">Continuity</a>
-    </div>
+<?php include_once("layout_nav.php") ?>
 
-    <button id="botonazo" class=" navbar-toggler" type="button" data-toggle="collapse"
-      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-dark navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" id="_Buscador">
-
-      <form action="categorias.php" class=" form1 form-inline justify-content-center" id="_Buscador">
-        <input class="buscador form-control input-group-sm mr-sm-2 justify-content-center" type="search"
-          placeholder="Busca algun producto..." aria-label="Search"
-          style="width: 260px; font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;"">
-            <button  class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
-          style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
-
-      </form>
-      <div class="grupo ml-auto">
-        <ul class="navbar-nav text-center mx-auto mt-2"
-          style="flex-direction: row; justify-content: space-evenly; font-family: 'Yanone Kaffeesatz', sans-serif;;">
-
-         
-        
-
-          <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal" id="sesioninicia">
-            Inicia sesion
-          </a>
-
-          <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal2"
-            id="sesionregistrate">
-            Registrate
-          </a>
-
-          <a class="zoom btn  palab cdp nav-link" id="sesionregistrate" href="../HTML/categorias.php">
-          Categorias
-        </a>
-
-        
-
-
-
-          <li class="nav-item " id="infocuenta">
-
-            <a class="zoom cdp nav-link dropdown-toggle" href="#" id="sesionperfil" role="button"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img style="border-radius: 50%;width: 24px;" class="mr-2"  src="./../IMG/user.png" alt="">Cuenta
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item " id="noadmins" href="../HTML/Cuenta.html">Mi Cuenta</a>
-              <a class="variable dropdown-item" id="admins" href="../HTML/cms.php">Cms</a>
-              <a class="variable dropdown-item" id="chat" href="../HTML/chat.php">Chat</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="../../models/cierrasesion.php" onclick="myFunction();">Cerrar
-                sesión</a>
-              <script>
-                function myFunction() {
-                  debugger
-                  localStorage.clear();
-                }
-              </script>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
   <section class="inicio   shadow" id="home" data-scroll-index="0">
 
       <div class="mt-0 row row-inicio align-items-center" style="font-family: 'Bebas Neue'">
@@ -182,7 +113,7 @@
                       <span>$199.99</span>
                     </p>
                      <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
                   </div>
                 </div>
               </div>
@@ -198,7 +129,7 @@
                       <span>$199.99</span>
                     </p>
                     <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
                   </div>
                 </div>
               </div>
@@ -214,7 +145,7 @@
                       <span>$199.99</span>
                     </p>
                      <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
                   </div>
                 </div>
               </div>
@@ -235,7 +166,7 @@
                       <span>$199.99</span>
                     </p>
                     <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                    class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+                    class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
                   </div>
                 </div>
               </div>
@@ -251,7 +182,7 @@
                       <span>$199.99</span>
                     </p>
                     <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                    class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+                    class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
                   </div>
                 </div>
               </div>
@@ -267,7 +198,7 @@
                       <span>$199.99</span>
                     </p>
                     <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                    class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+                    class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
                   </div>
                 </div>
               </div>
@@ -288,7 +219,7 @@
                       <span>$199.99</span>
                     </p>
                     <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
                   </div>
                 </div>
               </div>
@@ -304,7 +235,7 @@
                       <span>$199.99</span>
                     </p>
                      <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
                   </div>
                 </div>
               </div>
@@ -320,7 +251,7 @@
                       <span>$199.99</span>
                     </p>
                      <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
                   </div>
                 </div>
               </div>
@@ -360,7 +291,7 @@
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
               <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
             </div>
           </div>
         </div>
@@ -380,7 +311,7 @@
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
               <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
             </div>
           </div>
         </div>
@@ -400,7 +331,7 @@
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
               <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
             </div>
           </div>
         </div>
@@ -420,7 +351,7 @@
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
               <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/Curso.html';">Ver Curso</button>
+              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
             </div>
           </div>
         </div>
@@ -461,7 +392,7 @@
 
 
 
-
+  <?php include_once("layout_footer.php") ?>
 
 
 
@@ -489,134 +420,10 @@
 
     });
   </script>
-  <!-- Modal -->
-  <div class="modal fade modalon mt-5 p-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true" style="font-family: 'Bebas Neue'">
-    <div class="modal-dialog modal-dialog-centered " style="width:700px;">
-      <div class="modal-content  modalon2">
-        <button type="button" class="close ml-auto pr-2" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <div class=" col-12 ">
-          <div class="modal-body">
-            <div class="form-title text-center">
-              <h4>Inicia sesión</h4>
-            </div>
+
+ 
 
 
-            <form id="rertol" accept-charset="utf-8" style="font-family: 'Archivo Narrow', sans-serif;">
-              <div class="form-group pl-5 pr-5">
-                <a>Correo electronico</a>
-                <input type="email" class="form-control" id="emaili" name="emaill"
-                  placeholder="Ingresa tu correo electronico">
-              </div>
-              <div class="form-group pl-5 pr-5">
-                <a>Contraseña</a>
-                <input type="password" class="form-control" id="passwordi" name="passwordl"
-                  placeholder="Ingresa tu contraseña">
-              </div>
-
-              <button type="submit" class="zoom btn btn-primary btn-md d-block mx-auto">Inicia sesion</button>
-
-            </form>
-
-
-            <div class="text-center text-muted delimiter pt-2">Sigue nuestras redes sociales</div>
-            <div class="text-center pt-5">
-              <a class="text-muted text-hover-primary " href="#" target="_blank" title="instagram">
-                <i class="fab fa-instagram p-1" style="font-size: 25px;"></i>
-              </a>
-
-              <a class="text-muted text-hover-primary p-1" href="#" target="_blank" title="facebook">
-                <i class="fab fa-facebook" style="font-size: 25px;"></i>
-              </a>
-
-              <a class="text-muted text-hover-primary p-1" href="#" target="_blank" title="twitter">
-                <i class="fab fa-twitter" style="font-size: 25px;"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div class="modal fade modalon mt-5" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true" style="font-family: 'Bebas Neue'">
-    <div class="modal-dialog modal-dialog-centered  " style="width:700px;">
-      <div class="modal-content  modalon2">
-        <button type="button" class="close ml-auto pr-2" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <div class=" col-12 ">
-          <div class="modal-body">
-            <div class="form-title text-center">
-              <h4>Crea una cuenta</h4>
-            </div>
-            <form id="rerto" accept-charset="utf-8" style="font-family: 'Archivo Narrow', sans-serif;">
-              <div class="form-group pl-5 pr-5">
-                <a>Nombre completo</a>
-                <input type="text" class="form-control" name="nombresign" id="nombrer" placeholder="Escribe tu nombre"
-                  style="font-size:  14px;">
-              </div>
-              <div class="form-group pl-5 pr-5">
-                <a>Correo electronico</a>
-                <input type="email" class="form-control" name="correosign" id="emailr" placeholder="Ingresa tu correo"
-                  style="font-size:  14px;">
-              </div>
-              <div class="form-group pl-5 pr-5">
-                <a>Contraseña</a>
-                <input type="password" class="form-control" name="contraseñasign" id="passwordr"
-                  placeholder="Ingresa tu contraseña" style="font-size: 14px;">
-              </div>
-
-              <div class="col-lg-12 col-sm-12 pb-3 pl-5 pr-5">
-                <a>Rol</a>
-                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
-                  style="max-height: 200px !important;">Preference</label>
-                <select id="cantidad" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                  <option id="tipo"  value="Estudiante">Estudiante</option>
-                  <option id="tipo" value="Profesor">Profesor</option>
-                </select>
-              </div>
-              <div class="grupo text-center pt-3">
-                <button type="sumbit" class="zoom btn btn-primary btn-md ">Registrate</button>
-              </div>
-            </form>
-            <div class="text-center text-muted delimiter pt-2">Sigue nuestras redes sociales</div>
-            <div class="text-center pt-3">
-              <a class="text-muted text-hover-primary p-1" href="#" target="_blank" title="instagram">
-                <i class="fab fa-instagram" style="font-size: 25px;"></i>
-              </a>
-              <a class="text-muted text-hover-primary p-1" href="#" target="_blank" title="facebook">
-                <i class="fab fa-facebook" style="font-size: 25px;"></i>
-              </a>
-              <a class="text-muted text-hover-primary p-1" href="#" target="_blank" title="twitter">
-                <i class="fab fa-twitter" style="font-size: 25px;"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-basic" style="background-color: rgb(46, 44, 44); color: white;">
-    <footer>
-      <div class="social"><a href="#"><i class="fab fa-instagram"></i></i></a><a href="#"><i
-            class="fab fa-snapchat"></i></i></a><a href="#"><i class="fab fa-twitter"></i></i></a><a href="#"><i
-            class="fab fa-facebook"></i></a></div>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Home</a></li>
-        <li class="list-inline-item"><a href="#">Services</a></li>
-        <li class="list-inline-item"><a href="#">About</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-      </ul>
-      <p class="copyright">Company Name © 2018</p>
-    </footer>
-  </div>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -628,5 +435,5 @@
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-<script src="../JS/IndexNuevo.js"></script>
+
 </html>

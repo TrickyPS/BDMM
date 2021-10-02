@@ -12,7 +12,7 @@ p {
     transition: all 0.3s;
 } */
 
-a > i {
+a > .navegacion {
     margin-right: 1rem;
 }
 

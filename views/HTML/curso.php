@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./../IMG/logooficial.png" type="image/png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <!-- jolj -->
     <!--  Link de css -->
     <link rel="stylesheet" href="../CSS/Curso.css">
-    
+
+    <!-------Semantic UI----->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/rating.min.css"
+        integrity="sha512-RFEUlwT70pTUPWqm2Uv8cpqeLisUAM7YWG/LIrXcZo7F0zgvp3TbViqX6xQz0Oou++N9AcwpogmEf8sDuN/OoQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/rating.min.js" defer
+        integrity="sha512-GKPaQJKsw7I5CTRr27RvbXXpv/kulDkVilCQmqQen2doK07UxhEQLnSe2ozB/8yTJ8x6ofF63FXfIpYnETz9Jw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -23,8 +32,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
-    <script src="../JS/IndexNuevo.js" defer></script>
- 
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
 
@@ -38,81 +47,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap" rel="stylesheet">
-    <title>Continuity</title>
+    <script src="./../JS/curso.js" defer></script>
+    <title>Continuity-Curso</title>
 </head>
 
 <body>
-    <nav class="navbar navi  navbar-expand-lg navbar-light fixed-top" id="_cartelera">
-        <div class="namep pt-0">
-            <img class="negro imageno pb-2" src="../IMG/logooficial.png" width="45px">
-            <a class="variable zoom variable negro pr-5 navbar-brand titulo"
-            href="../HTML/IndexNuevo.html"
-              style="color: whitesmoke; font-family: 'Bebas Neue', cursive; font-size: 25px;">Continuity</a>
-        </div>
 
-        <button id="botonazo" class=" navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-dark navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" id="_Buscador">
-
-            <form  action="categorias.php" class=" form1 form-inline justify-content-center" id="_Buscador">
-                <input class="buscador form-control input-group-sm mr-sm-2 justify-content-center" type="search"
-                    placeholder="Busca algun producto..." aria-label="Search"
-                    style="width: 260px; font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;"">
-            <button  class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
-                    style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
-
-            </form>
-            <div class="grupo ml-auto">
-                <ul class="navbar-nav text-center mx-auto mt-2"
-                    style="flex-direction: row; justify-content: space-evenly; font-family: 'Yanone Kaffeesatz', sans-serif;;">
-
-                    <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal"
-                    id="sesioninicia">
-                    Inicia sesion
-                </a>
-
-                <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal2"
-                    id="sesionregistrate">
-                    Registrate
-                </a>
-
-                <a class="zoom btn  palab cdp nav-link" id="sesionregistrate" href="../HTML/categorias.php">
-                    Categorias
-                </a>
-
-
-
-
-
-                <li class="nav-item " id="infocuenta">
-
-                    <a class="zoom cdp nav-link dropdown-toggle" href="#" id="sesionperfil" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img style="border-radius: 50%;width: 24px;" class="mr-2" src="./../IMG/user.png" alt="">Cuenta
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item " id="noadmins" href="../HTML/Cuenta.html">Mi Cuenta</a>
-                        <a class="variable dropdown-item" id="admins" href="../HTML/cms.php">Cms</a>
-                        <a class="variable dropdown-item" id="chat" href="../HTML/chat.php">Chat</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../../models/cierrasesion.php" onclick="myFunction();">Cerrar
-                            sesión</a>
-                        <script>
-                        function myFunction() {
-                            debugger
-                            localStorage.clear();
-                        }
-                        </script>
-                    </div>
-                </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    <?php include_once("layout_nav.php") ?>
     <div class="container" style="padding-top: 100px;">
 
 
@@ -127,10 +68,14 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="card-body m-0 pt-0 pl-5">
-                        <h3 class="title text-uppercase" style="font-size: 25px;">Curso de Python con Machine Learning</h3>
+                        <h3 class="title text-uppercase" style="font-size: 25px;">Curso de Python con Machine Learning
+                        </h3>
 
                         <div class="mb-3 mt-3">
-                            <span class="h7 text-success">Categoria</span>
+                            <span class="h7 text-success">Categoria
+                                <div class="ui float-right huge star rating" id="ratingCurso" data-rating="1"></div>
+                                <p class="float-right text-secondary">4.5</p>
+                            </span>
                         </div>
                         <div class="mb-3 mt-3">
                             <span class="price-title">Precio:</span>
@@ -146,120 +91,137 @@
                             </dd>
 
                         </dl>
+
+
+                        <div class="mb-4 mt-3 d-flex flex-column">
+                            <div class="h3 text-center">Calificar este curso</div>
+                            <div data-toggle="modal" data-target="#ratingModalOpen"
+                                class="ui float-right massive star rating" id="ratingModal" data-rating="0"></div>
+                        </div>
+
                         <span class="btn btn-success disabled d-none">Curso adquirido</span>
-                        <button type="button" data-toggle="modal" data-target="#tarjeta" type="submit" class="m-0 mb-4 btn btn-dark zoom"
-                            style="font-size: 19px; width: 150px;">Comprar curso</button>
-                            <button type="button"  type="submit" class="m-0 mb-4 btn btn-dark zoom"
-                            onclick="location.href='../HTML/Certificado.html';" style="font-size: 19px; width: 150px;">Ver certificado</button>
-                      
-
+                        <center> <button type="button" data-toggle="modal" data-target="#tarjeta" type="submit"
+                            class="m-0 mb-4 btn btn-dark zoom" style="font-size: 19px; width: 150px;">Comprar
+                            curso</button>
+                        <button type="button" type="submit" class="m-0 mb-4 btn btn-dark zoom"
+                            onclick="location.href='../HTML/Certificado.html';"
+                            style="font-size: 19px; width: 150px;">Ver certificado</button></center>
                     </div>
+
+
 
                 </div>
 
             </div>
-            <div class="medio justify-content-center " style="font-size: 20px;">
-                <dl class="param param-feature  text-center">
-                    <dt class="text-center">Progreso del curso:
-                    <dt>100%</dt>
-                    </dt>
-                    <div class="progress mx-auto" style="width: 500px;">
-                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100"
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </dl>
+
+        </div>
+        <div class="medio justify-content-center mt-5 " style="font-size: 20px;">
+            <dl class="param param-feature  text-center">
+                <dt class="text-center">Progreso del curso:
+                <dt>100%</dt>
+                </dt>
+                <div class="progress mx-auto" style="width: 500px;">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </dl>
+        </div>
+    </div>
+
+    <h2 class="title text-center pt-5" style="font-family: 'Archivo Narrow', sans-serif; font-size: 40px;">Niveles
+        del curso</h2>
+    <div id="accordion" class="pb-5 justify-content-center" style="font-family: 'Archivo Narrow', sans-serif;">
+        <div class="col-lg-8 mx-auto">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Nivel 1
+                    </button>
+                    <span>Nombre del curso -</span>
+                    <span>(Curso completado)</span>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <span>Video uno de practica de programacion con Python.</span>
+                    <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"
+                        id="botonsearch" type="submit"
+                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
+                </div>
+                <div class="card-body">
+                    <span>Video uno de practica de programacion con Python.</span>
+                    <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"
+                        id="botonsearch" type="submit"
+                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
+                </div>
+
             </div>
         </div>
-
-        <h2 class="title text-center pt-5" style="font-family: 'Archivo Narrow', sans-serif; font-size: 40px;">Niveles
-            del curso</h2>
-        <div id="accordion" class="pb-5 justify-content-center" style="font-family: 'Archivo Narrow', sans-serif;">
-            <div class="col-lg-8 mx-auto">
-                <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                            aria-controls="collapseOne">
-                            Nivel 1
-                        </button>
-                        <span>Nombre del curso -</span>
-                        <span>(Curso completado)</span>
-                    </h5>
-                </div>
-
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                     <span>Video uno de practica de programacion con Python.</span>
-                     <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"  id="botonsearch" type="submit"
-                     style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                    </div>
-                    <div class="card-body">
-                        <span>Video uno de practica de programacion con Python.</span>
-                        <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"  id="botonsearch" type="submit"
+        <div class="col-lg-8 mx-auto">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        Nivel 2
+                    </button>
+                    <span>Nombre del curso -</span>
+                    <span> (Curso completado)</span>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <span>Video uno de practica de programacion con Python.</span>
+                    <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"
+                        id="botonsearch" type="submit"
                         style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                       </div>
-                    
-                </div>
-            </div>
-            <div class="col-lg-8 mx-auto">
-                <div class="card-header" id="headingTwo">
-                    <h5 class="mb-0">
-                        <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                            aria-expanded="false" aria-controls="collapseTwo">
-                            Nivel 2
-                        </button>
-                        <span>Nombre del curso -</span>
-                        <span> (Curso completado)</span>
-                    </h5>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div class="card-body">
-                        <span>Video uno de practica de programacion con Python.</span>
-                        <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"  id="botonsearch" type="submit"
-                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                       </div>
-                </div>
-            </div>
-            <div class="col-lg-8 mx-auto">
-                <div class="card-header" id="headingThree">
-                    <h5 class="mb-0">
-                        <button class="btn collapsed" data-toggle="collapse" data-target="#collapseThree"
-                            aria-expanded="false" aria-controls="collapseThree">
-                            Nivel 3
-                        </button>
-                        <span>Nombre del curso -</span>
-                        <span>(Curso completado)</span>
-                    </h5>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                   
-                        <div class="card-body">
-                            <span>Video uno de practica de programacion con Python.</span>
-                            <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"  id="botonsearch" onclick="location.href = 'video.php'" type="submit"
-                            style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                           </div>
-                    
-                </div>
-            </div>
-            <div class="col-lg-8 mx-auto">
-                <div class="card-header" id="headingFour">
-                    <h5 class="mb-0">
-                        <button class="btn collapsed" data-toggle="collapse" data-target="#collapseFour"
-                            aria-expanded="false" aria-controls="collapseFour">
-                            Nivel 4
-                        </button>
-                        <span>Nombre del curso -</span>
-                        <span>(Curso completado)</span>
-                    </h5>
-                </div>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                   <div class="card-body">
-                     <span>Video uno de practica de programacion con Python.</span>
-                     <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"  id="botonsearch" type="submit"
-                     style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                    </div>
                 </div>
             </div>
         </div>
+        <div class="col-lg-8 mx-auto">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        Nivel 3
+                    </button>
+                    <span>Nombre del curso -</span>
+                    <span>(Curso completado)</span>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+
+                <div class="card-body">
+                    <span>Video uno de practica de programacion con Python.</span>
+                    <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"
+                        id="botonsearch" onclick="location.href = 'video.php'" type="submit"
+                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-8 mx-auto">
+            <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                    <button class="btn collapsed" data-toggle="collapse" data-target="#collapseFour"
+                        aria-expanded="false" aria-controls="collapseFour">
+                        Nivel 4
+                    </button>
+                    <span>Nombre del curso -</span>
+                    <span>(Curso completado)</span>
+                </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="card-body">
+                    <span>Video uno de practica de programacion con Python.</span>
+                    <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"
+                        id="botonsearch" type="submit"
+                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     </div>
@@ -275,8 +237,7 @@
             overflow-x:hidden; font-family: 'Archivo Narrow', sans-serif;">
         <div class="comentarios borde">
             <div class="row d-flex justify-content-center">
-                <div class="col-md-8 pb-5 examplee "
-                    style=" 
+                <div class="col-md-8 pb-5 examplee " style=" 
                     overflow-y: scroll; height: 300px;  padding: 10px; background-color: rgb(107, 101, 101);">
 
                     <div class="card p-3 m-1">
@@ -345,137 +306,10 @@
 
     </div>
 
-    <div class="footer-basic" style="background-color: rgb(46, 44, 44); color: white;">
-        <footer>
-            <div class="social"><a href="#"><i class="fab fa-instagram"></i></i></a><a href="#"><i
-                        class="fab fa-snapchat"></i></i></a><a href="#"><i class="fab fa-twitter"></i></i></a><a
-                    href="#"><i class="fab fa-facebook"></i></a></div>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Home</a></li>
-                <li class="list-inline-item"><a href="#">Services</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-            </ul>
-            <p class="copyright">Company Name © 2018</p>
-        </footer>
-    </div>
+
+    <?php include_once("layout_footer.php") ?>
 
 
-
-    <!-- Modal -->
-    <div class="modal fade modalon mt-5 p-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true" style="font-family: 'Bebas Neue'">
-        <div class="modal-dialog modal-dialog-centered " style="width:700px;">
-            <div class="modal-content  modalon2">
-                <button type="button" class="close ml-auto pr-2" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class=" col-12 ">
-                    <div class="modal-body">
-                        <div class="form-title text-center">
-                            <h4>Inicia sesión</h4>
-                        </div>
-
-
-                        <form id="rertol" accept-charset="utf-8" method="POST">
-                            <div class="form-group pl-5 pr-5">
-                                <a>Correo electronico</a>
-                                <input type="email" class="form-control" id="emaili" name="emaill"
-                                    placeholder="Ingresa tu correo electronico">
-                            </div>
-                            <div class="form-group pl-5 pr-5">
-                                <a>Contraseña</a>
-                                <input type="password" class="form-control" id="passwordi" name="passwordl"
-                                    placeholder="Ingresa tu contraseña">
-                            </div>
-
-                            <button type="submit" class="zoom btn btn-primary btn-md d-block mx-auto">Inicia
-                                sesion</button>
-
-                        </form>
-
-
-                        <div class="text-center text-muted delimiter pt-2">O utiliza una red social</div>
-                        <div class="text-center pt-5">
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="instagram">
-                                <i class="fab fa-instagram" style="font-size: 25px;"></i>
-                            </a>
-
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="facebook">
-                                c
-                            </a>
-
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="twitter">
-                                <i class="fab fa-twitter" style="font-size: 25px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade modalon mt-5" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true" style="font-family: 'Bebas Neue'">
-        <div class="modal-dialog modal-dialog-centered  " style="width:700px;">
-            <div class="modal-content  modalon2">
-                <button type="button" class="close ml-auto pr-2" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class=" col-12 ">
-                    <div class="modal-body">
-                        <div class="form-title text-center">
-                            <h4>Crea una cuenta.</h4>
-                        </div>
-                        <form id="rerto" accept-charset="utf-8" method="POST">
-                            <div class="form-group pl-5 pr-5">
-                                <a>Nombre (Curso completado)</a>
-                                <input type="text" class="form-control" name="nombresign" id="nombrer"
-                                    placeholder="Escribe tu nombre" style="font-size:  14px;">
-                            </div>
-                            <div class="form-group pl-5 pr-5">
-                                <a>Correo electronico</a>
-                                <input type="email" class="form-control" name="correosign" id="emailr"
-                                    placeholder="Ingresa tu correo" style="font-size:  14px;">
-                            </div>
-                            <div class="form-group pl-5 pr-5">
-                                <a>Contraseña</a>
-                                <input type="password" class="form-control" name="contraseñasign" id="passwordr"
-                                    placeholder="Ingresa tu contraseña" style="font-size: 14px;">
-                            </div>
-
-                            <div class="col-lg-12 col-sm-12 pb-3 pl-5 pr-5">
-                                <a>Rol</a>
-                                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
-                                    style="max-height: 200px !important;">Preference</label>
-                                <select id="cantidad" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                    <option value="Estudiante">Estudiante</option>
-                                    <option value="Profesor">Profesor</option>
-                                </select>
-                            </div>
-                            <div class="grupo text-center pt-3">
-                                <button type="sumbit" class="zoom btn btn-primary btn-md ">Registrate</button>
-                            </div>
-                        </form>
-                        <div class="text-center text-muted delimiter pt-2">O utiliza una red social</div>
-                        <div class="text-center pt-3">
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="instagram">
-                                <i class="fab fa-instagram" style="font-size: 25px;"></i>
-                            </a>
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="facebook">
-                                <i class="fab fa-facebook" style="font-size: 25px;"></i>
-                            </a>
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="twitter">
-                                <i class="fab fa-twitter" style="font-size: 25px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="modal fade" data-backdrop="static" id="tarjeta" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -606,8 +440,7 @@
                     </form>
                     <center>
                         <button type="button" class="btn btn-second" data-dismiss="modal">Cancelar</button>
-                        <button class="btn  my-1 btn-main " ><i
-                                class="fa fa-lock"></i> Pagar</button>
+                        <button class="btn  my-1 btn-main "><i class="fa fa-lock"></i> Pagar</button>
                     </center>
                 </div>
 
@@ -616,7 +449,27 @@
 
     </div>
 
-
+    <!---Modal rating-->
+    <div class="modal fade"  id="ratingModalOpen" tabindex="-2" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered" role="document" ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Calificar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body d-flex justify-content-center">
+                <div class="ui float-right massive star rating" id="ratingCalificate" ></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Calificar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"

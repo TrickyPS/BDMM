@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./../IMG/logooficial.png" type="image/png">
     <title>Continuity-Chat</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -46,7 +47,7 @@
                   </div>
                   <div class="box-message">
                       <textarea rows="1" class="text-message" placeholder="Escribir mensaje..."></textarea>
-                      <button class="btn btn-primary">Enviar</button>
+                      <button class=" zoom btn btn-primary">Enviar</button>
                   </div>
               </div>
           </div>

@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./../IMG/logooficial.png" type="image/png">
     <title>Continuity-CMS</title>
+    <!----Semantic ui-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" defer></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -24,9 +28,9 @@
 
     <div class="cms-container">
         <div class="row ">
-            <div class="col-lg-2">
+            <div id="nav-cms" class="col-lg-2">
 
-                <div class="nav">
+                <div  class="nav">
                     <div onclick="toggleNav('dashboard')" class="item-nav cms-act">Dashboard <i
                             class="fas fa-tachometer-alt"></i> </div>
                     <div onclick="toggleNav('misCursos')" class="item-nav cms-act">Mis Cursos <i
@@ -44,7 +48,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-10  pr-4  pt-4">
+            <div id="cms-container" class="col-lg-10 container cms-pad  pt-4">
                 <div id="dashboard">
                     <div class="row">
                         <div class="col-md-8">
@@ -143,11 +147,11 @@
                                             <td>14</td>
                                             <td>$7,000</td>
                                             <td>3</td>
-                                            <td><button class="btn btn-sm btn-primary">Ver detalle</button></td>
+                                            <td><button class="btn btn-sm btn-primary ">Ver detalle</button></td>
                                             <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i
                                                         class="fas fa-pen"></i> Editar</button> </td>
                                             <td><button class="btn btn-sm btn-ligth"
-                                                    onclick="location.href='Curso.html'"><i
+                                                    onclick="location.href='curso.php'"><i
                                                         class="far fa-eye"></i></button></td>
                                         </tr>
                                         <tr>
@@ -157,11 +161,11 @@
                                             <td>4</td>
                                             <td>$1,600</td>
                                             <td>5</td>
-                                            <td><button class="btn btn-sm btn-primary">Ver detalle</button></td>
+                                            <td><button class="btn btn-sm btn-primary ">Ver detalle</button></td>
                                             <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i
                                                         class="fas fa-pen"></i> Editar</button> </td>
                                             <td><button class="btn btn-sm btn-ligth"
-                                                    onclick="location.href='Curso.html'"><i
+                                                    onclick="location.href='curso.php'"><i
                                                         class="far fa-eye"></i></button></td>
                                         </tr>
                                         <tr>
@@ -171,12 +175,12 @@
                                             <td>0</td>
                                             <td>$0.00</td>
                                             <td>0</td>
-                                            <td><button class="btn btn-sm btn-primary">Publicar <i
+                                            <td><button class="btn btn-sm btn-primary ">Publicar <i
                                                         class="fas fa-globe-americas "></button></td>
                                             <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i
                                                         class="fas fa-pen"></i> Editar</button> </td>
                                             <td><button class="btn btn-sm btn-ligth"
-                                                    onclick="location.href='Curso.html'"><i
+                                                    onclick="location.href='curso.php'"><i
                                                         class="far fa-eye"></i></button></td>
                                         </tr>
 
@@ -264,8 +268,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <select class="custom-select" id="Ccategoria">
-                                            <option selected value="0">Seleciona la categoria</option>
+                                        <select class=" ui drop w-100 " placeholder="si" multiple="" id="Ccategoria">
+                                            <option value="">Seleciona la categoria</option>
                                             <option value="1"> Ciencia </option>
                                             <option value="2">Desarrollo</option>
                                             <option value="3">Diseño</option>
@@ -279,8 +283,9 @@
                                     </div>
 
                                     <label for="" class="d-block">Gratis</label>
-                                    <input type="checkbox" checked="false" name="switch" id="switch" class="switch">
-                                    <label for="switch" onclick="stateSwitch()" class="lbl-switch"></label>
+                                    <input type="checkbox" onchange="stateSwitch()" name="switch" id="switch"
+                                        class="switch">
+                                    <label for="switch" class="lbl-switch"></label>
 
                                     <div class="form-group">
 
@@ -291,7 +296,7 @@
 
 
                                     <div class="form-group d-flex justify-content-center">
-                                        <input type="submit" class="btn btn-primary " value="Agregar">
+                                        <input type="submit" class="btn btn-primary zoom " value="Agregar">
                                     </div>
 
 
@@ -351,6 +356,16 @@
                                             <option value="3">Flutter para principantes</option>
                                         </select>
                                     </div>
+                                    <label for="" class="d-block">Gratis</label>
+                                    <input type="checkbox" onchange="stateSwitchLevel()"  name="switch" id="switchLevel" class="switch" >
+                                    <label for="switchLevel"   class="lbl-switch"></label>
+
+                                    <div class="form-group">
+
+                                        <input class="form-control" step="0.01" min="0.01" type="number" id="Lprecio"
+                                            name="precio" placeholder="Precio del nivel">
+
+                                    </div>
                                     <label for="">Contenidos Adjuntos</label>
                                     <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFileLang" lang="es">
@@ -374,7 +389,7 @@
                                     </div>
 
                                     <div class="form-group d-flex justify-content-center">
-                                        <input type="submit" class="btn btn-primary " value="Agregar">
+                                        <input type="submit" class="btn btn-primary zoom " value="Agregar">
                                     </div>
 
 
@@ -450,7 +465,7 @@
                                         <label class="custom-file-label" for="customFileLang">Seleccionar Video</label>
                                     </div>
                                     <div class="form-group d-flex justify-content-center">
-                                        <input type="submit" class="btn btn-primary " value="Agregar">
+                                        <input type="submit" class="btn btn-primary zoom " value="Agregar">
                                     </div>
 
                                 </form>
@@ -513,7 +528,7 @@
                                     </div>
 
                                     <div class="form-group d-flex justify-content-center">
-                                        <input type="submit" class="btn btn-primary " value="Agregar">
+                                        <input type="submit" class="btn btn-primary zoom " value="Agregar">
                                     </div>
 
                                 </form>
@@ -546,56 +561,56 @@
     <?php include_once("layout_footer.php") ?>
 
     <script>
-        const labels = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June'
-        ];
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5, 2, 20, 30],
-            }]
-        };
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June'
+    ];
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30],
+        }]
+    };
 
-        const dataCategory = {
-            labels: labels,
-            datasets: [{
-                label: 'My First dataset',
-                backgroundColor: ['rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)',
-                    'rgb(54,235,162)',
-                    'rgb(162,54,240)',
-                    'rgb(40,255,100)'
-                ],
-                borderColor: 'rgb(255, 99, 132)',
-                data: [5, 10, 5, 2, 20, 30],
-            }]
-        };
+    const dataCategory = {
+        labels: labels,
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: ['rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(54,235,162)',
+                'rgb(162,54,240)',
+                'rgb(40,255,100)'
+            ],
+            borderColor: 'rgb(255, 99, 132)',
+            data: [5, 10, 5, 2, 20, 30],
+        }]
+    };
 
-        const config = {
-            type: 'line',
-            data: data,
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+    var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+    var categoryChart = new Chart(
+        document.getElementById('categoryChart'), {
+            type: 'doughnut',
+            data: dataCategory,
             options: {}
-        };
-        var myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
-        var categoryChart = new Chart(
-            document.getElementById('categoryChart'), {
-                type: 'doughnut',
-                data: dataCategory,
-                options: {}
-            }
-        );
+        }
+    );
     </script>
 
 
@@ -607,44 +622,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    <script>
-        var menus = [];
-        menus.push('dashboard');
-        menus.push('misCursos');
-        menus.push('curso');
-        menus.push('nivel');
-        menus.push('video');
-        menus.push('categoria');
 
-        function hideNavs() {
-            for (item of menus) {
-                $('#' + item).hide()
-            }
-        }
-
-        function toggleNav(id) {
-            hideNavs()
-            $('#' + id).show();
-        }
-
-        function init() {
-            hideNavs()
-            $("#dashboard").show();
-        }
-
-        init()
-
-        function stateSwitch() {
-            var check = document.getElementById('switch').checked;
-            if (!check) {
-                $('#Cprecio').removeAttr('disabled');
-            } else {
-                $('#Cprecio').attr('disabled', true);
-            }
-
-
-        }
-    </script>
 </body>
 
 </html>

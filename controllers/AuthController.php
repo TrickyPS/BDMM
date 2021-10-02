@@ -19,7 +19,7 @@ if (isset($_SERVER['REQUEST_METHOD']))
           $pass = $data->pass;
           
           if($user && $pass ){
-            $user = new User($user, null, $pass,null,null,null);
+            $user = new User($user, null, $pass,null,null,null,null);
             $resp = $user->Auth();
             if( $resp  != false ){
               http_response_code(200);

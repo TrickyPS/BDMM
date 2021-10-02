@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./../IMG/logooficial.png" type="image/png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <!-- jolj -->
@@ -24,7 +25,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
-    <script src="../JS/IndexNuevo.js" defer></script>
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
@@ -36,122 +37,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap" rel="stylesheet">
-    <title>Continuity</title>
+    <title>Continuity-Cuenta</title>
 </head>
 
-<body style="background-color: #F2F7F9; overflow-y: hidden;">
-    <div>
-        <nav class="navbar navi  navbar-expand-lg navbar-light fixed-top" id="_cartelera">
-            <div class="namep">
-                <span type="button" id="sidebarCollapse" class="btn mr-2 zoom"
-                    style=" color: rgb(255, 255, 255); font-size: 30px;">
-                    <i class="fas fa-bars"></i>
-
-                </span>
-                <img class="negro imageno pb-2" src="../IMG/logooficial.png" width="45px">
-                <a class="variable zoom variable negro pr-5 navbar-brand titulo"
-                href="../HTML/IndexNuevo.html"
-                  style="color: whitesmoke; font-family: 'Bebas Neue', cursive; font-size: 25px;">Continuity</a>
-            </div>
-
-            <button id="botonazo" class=" navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-dark navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" id="_Buscador">
-
-                <form  action="categorias.php" class=" form1 form-inline justify-content-center" id="_Buscador">
-                    <input class="buscador form-control input-group-sm mr-sm-2 justify-content-center" type="search"
-                        placeholder="Busca algun producto..." aria-label="Search"
-                        style="width: 260px; font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;"">
-                <button  class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
-                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
-
-                </form>
-                <div class="grupo ml-auto">
-                    <ul class="navbar-nav text-center mx-auto mt-2"
-                        style="flex-direction: row; justify-content: space-evenly; font-family: 'Yanone Kaffeesatz', sans-serif;;">
-                        <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal"
-                        id="sesioninicia">
-                        Inicia sesion
-                    </a>
-    
-                    <a class="zoom btn  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal2"
-                        id="sesionregistrate">
-                        Registrate
-                    </a>
-    
-                    <a class="zoom btn  palab cdp nav-link" id="sesionregistrate" href="../HTML/categorias.php">
-                        Categorias
-                    </a>
-    
-    
-    
-    
-    
-                    <li class="nav-item " id="infocuenta">
-    
-                        <a class="zoom cdp nav-link dropdown-toggle" href="#" id="sesionperfil" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img style="border-radius: 50%;width: 24px;" class="mr-2" src="./../IMG/user.png" alt="">Cuenta
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item " id="noadmins" href="../HTML/Cuenta.html">Mi Cuenta</a>
-                            <a class="variable dropdown-item" id="admins" href="../HTML/cms.php">Cms</a>
-                            <a class="variable dropdown-item" id="chat" href="../HTML/chat.php">Chat</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../../models/cierrasesion.php" onclick="myFunction();">Cerrar
-                                sesión</a>
-                            <script>
-                            function myFunction() {
-                                debugger
-                                localStorage.clear();
-                            }
-                            </script>
-                        </div>
-                    </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-    </div>
-    <div class="wrapper" style="padding-top: 70px; overflow-x: hidden;">
+<body style="background-color: #F2F7F9;">
+    <?php include_once("layout_nav.php") ?>
+    <div class="wrapper" style="padding-top: 66px; overflow-x: hidden;">
 
         <nav id="sidebar" style="background-color: black; padding-top: 80px;">
-            
+
             <div class="sidebar-header" style="color: ghostwhite !important; background-color: black;">
                 <h3 style="font-family: 'Bebas Neue', sans-serif;">Navegacion</h3>
             </div>
 
-            <ul class="list-unstyled components"  style="font-family: 'Archivo Narrow', sans-serif;">
+            <ul class="list-unstyled components" style="font-family: 'Archivo Narrow', sans-serif;">
 
                 <li>
-                    <a class="zoom opcion" style="padding-left: 20px;"><i class="fas fa-home"></i>Inicio</a>
+                    <a class="zoom opcion" style="padding-left: 20px;"><i class="fas fa-home navegacion"></i>Inicio</a>
                 </li>
                 <li>
-                    <a type="button " class=" zoom opcion" style="padding-left: 20px;" id="boton2"><i class="fab fa-youtube"></i>Mis cursos</a>
+                    <a type="button " class=" zoom opcion" style="padding-left: 20px;" id="boton2"><i
+                            class="fab fa-youtube navegacion"></i>Mis cursos</a>
                 </li>
                 <li>
-                    <a type="button" class=" zoom opcion " style="padding-left: 20px;" id="boton1"><i class="fas fa-address-card"></i>Mi
+                    <a type="button" class=" zoom opcion  " style="padding-left: 20px;" id="boton1"><i
+                            class="fas fa-address-card navegacion"></i>Mi
                         perfil</a>
 
                 </li>
-                
 
-             <!--     <button id="boton1" class="button mt-2"><span>Mi cuenta</span></button>
+
+                <!--     <button id="boton1" class="button mt-2"><span>Mi cuenta</span></button>
                  <button id="boton2" class="button mt-2"><span>Cursos</span></button> -->
             </ul>
         </nav>
-         
+
         <div class="contenidoGeneral pl-4 col-lg-12" style="font-family: 'Archivo Narrow', sans-serif;">
             <div class="d-none division2">
                 <div class=" d-flex  justify-content-center mx-auto"
                     style="  padding-top: 20px; font-family: 'Archivo Narrow', sans-serif;">
-                   
+
                 </div>
-                <div class="division2 pb-4" id="cursotes " style="font-family: 'Archivo Narrow', sans-serif;">   
+                <div class="division2 pb-4" id="cursotes " style="font-family: 'Archivo Narrow', sans-serif;">
                     <section class="pt-4   cursos d-flex align-items-center">
                         <div class="container " style="overflow-x: hidden; overflow-y: scroll; height: 550px;">
                             <div class="col-lg-12 col-md-12 col-sm-12 row pb-3"
@@ -182,7 +109,7 @@
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" onclick="location.href = 'Curso.html'"
+                                        <button type="button" onclick="location.href = 'curso.php'"
                                             class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
                                             style="width:150px; font-size: 17px;">Ver
                                             clase</button>
@@ -223,7 +150,7 @@
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" onclick="location.href = 'Curso.html'"
+                                        <button type="button" onclick="location.href = 'curso.php'"
                                             class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
                                             style="width:150px; font-size: 17px;">Ver
                                             clase</button>
@@ -264,7 +191,7 @@
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" onclick="location.href = 'Curso.html'"
+                                        <button type="button" onclick="location.href = 'curso.php'"
                                             class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
                                             style="width:150px; font-size: 17px;">Ver
                                             clase</button>
@@ -305,7 +232,7 @@
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="button"  onclick="location.href = 'Curso.html'"
+                                        <button type="button" onclick="location.href = 'curso.php'"
                                             class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
                                             style="width:150px; font-size: 17px;">Ver
                                             clase</button>
@@ -329,73 +256,80 @@
             </div>
             <div class="division1">
                 <div class="division container" id="cuentota">
-                    
-                    <section class=" cuenta d-flex align-items-center" id="home" data-scroll-index="0"  style="padding-top: 70px;">
+
+                    <section class=" cuenta d-flex align-items-center" id="home" data-scroll-index="0"
+                        style="padding-top: 70px;">
 
                         <div class="col-lg-5 mx-auto text-center pt-4">
-                            <img class="rounded-circle" src="../IMG/photoshop.png" alt=""
-                                style="height: 150px; width: 150px; ">
+                            <img class="rounded-circle" id="avatar" alt=""
+                                style="height: 150px; width: 150px;object-fit:cover ">
                             <title>Placeholder</title>
                             </svg>
-
-                            <h2>Pedro Ramirez</h2>
+                            <h5 id="isStudent"></h5>
+                            <h2 id="nameUser"></h2>
                             <div class="text-center  mx-auto justify-content m-3">
-                                <button class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch"
-                                    type="submit"
-                                    style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 20px; width: 200px;">Cambiar Imagen</button>
+                                <label class=" p1p btn button mt-0 ml-1 zoom" for="updateAvatar"
+                                    style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 20px; width: 200px;">Cambiar
+                                    Imagen</label>
+
+                                    <input multiple="false" type="file" class="d-none" accept="image/png, image/jpeg" id="updateAvatar">
 
                             </div>
                         </div>
 
                     </section>
-                    <section id="cursotes" class="  cursos d-flex align-items-center " id="home" data-scroll-index="0" >
+                    <section id="cursotes" class="  cursos d-flex align-items-center " id="home" data-scroll-index="0">
 
                         <div class="mx-auto col-lg-6 col-md-12 col-sm-12">
                             <div class="box-shadow justify-content-center mx-auto">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h4 class="mb-3 mx-auto text-center">Cuenta creada en: 9/20/2021</h4>
+                                    <h4 class="mb-3 mx-auto text-center" id="createdAt"></h4>
                                 </div>
                                 <form id="formularioCuenta" class="row justify-content-center">
                                     <div class=" col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="fullName" style="font-size: 20px;">Nombre Completo</label>
                                             <input type="text" class="form-control" id="nameP"
-                                                placeholder="Ingresa los datos">
+                                                placeholder="Ingrese el nombre">
                                         </div>
                                     </div>
                                     <div class=" col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label for="eMail" style="font-size: 20px;">Correo electronico</label>
+                                            <label for="eMail" style="font-size: 20px;">Correo electrónico</label>
                                             <input type="email" class="form-control" id="emailP"
-                                                placeholder="Ingresa los datos ">
+                                                placeholder="Ingrese el correo ">
                                         </div>
                                     </div>
                                     <div class=" col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="password" style="font-size: 20px;">Contraseña</label>
                                             <input type="password" class="form-control" id="passwordP"
-                                                placeholder="Ingresa los datos" style="font-size:  15px;">
+                                                placeholder="Contraseña" style="font-size:  15px;">
                                         </div>
                                     </div>
-                                   
+
                                     <div class="col-lg-6 col-sm-12 pb-3 ">
                                         <label for="eMail" style="font-size: 20px;">Genero</label>
-                                        
-                                        <select id="cantidad" class="custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 100% !important;">
-                                          <option id="opcion" value="Estudiante">Masculino</option>
-                                          <option id="opcion" value="Profesor">Femenino</option>
+
+                                        <select id="genderP" class="custom-select mr-sm-2" 
+                                            style="width: 100% !important;">
+                                            <option id="opcion" value="">Seleccionar Género</option>
+                                            <option id="opcion" value="1">Masculino</option>
+                                            <option id="opcion" value="2">Femenino</option>
+                                            <option id="opcion" value="3">Otro</option>
                                         </select>
-                                      </div>
+                                    </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-center">
-                                    
+
                                         <div class="form-group text-left">
-                                      
-                                            <label for="eMail" class=""  style="font-size: 20px;">Fecha de nacimiento</label>
-                                            <input type="date"class="form-control" id="birthdaytime" name="birthdaytime"
-                                                style="width: 100%; font-size: 15px;">
+
+                                            <label for="birthdaytime" class="" style="font-size: 20px;">Fecha de
+                                                nacimiento</label>
+                                            <input type="date" class="form-control" id="birthdaytime"
+                                                name="birthdaytime" style="width: 100%; font-size: 15px;">
                                         </div>
                                     </div>
-                                    
+
 
                                     <div class="col-lg-12 col-md-12 col-sm-12 ">
                                         <div class="text-center  mx-auto justify-content m-3">
@@ -420,119 +354,7 @@
 
 
     </div>
-    <!-- Modal -->
-    <div class="modal fade modalon mt-5 p-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true" style="font-family: 'Bebas Neue'">
-        <div class="modal-dialog modal-dialog-centered " style="width:700px;">
-            <div class="modal-content  modalon2">
-                <button type="button" class="close ml-auto pr-2" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class=" col-12 ">
-                    <div class="modal-body">
-                        <div class="form-title text-center">
-                            <h4>Inicia sesión</h4>
-                        </div>
-
-
-                        <form id="rertol" accept-charset="utf-8" method="POST">
-                            <div class="form-group pl-5 pr-5">
-                                <a>Correo electronico</a>
-                                <input type="email" class="form-control" id="emaili" name="emaill"
-                                    placeholder="Ingresa tu correo electronico">
-                            </div>
-                            <div class="form-group pl-5 pr-5">
-                                <a>Contraseña</a>
-                                <input type="password" class="form-control" id="passwordi" name="passwordl"
-                                    placeholder="Ingresa tu contraseña">
-                            </div>
-
-                            <button type="submit" class="zoom btn btn-primary btn-md d-block mx-auto">Inicia
-                                sesion</button>
-
-                        </form>
-
-
-                        <div class="text-center text-muted delimiter pt-2">O utiliza una red social</div>
-                        <div class="text-center pt-5">
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="instagram">
-                                <i class="fab fa-instagram" style="font-size: 25px;"></i>
-                            </a>
-
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="facebook">
-                                c
-                            </a>
-
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="twitter">
-                                <i class="fab fa-twitter" style="font-size: 25px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade modalon mt-5" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true" style="font-family: 'Bebas Neue'">
-        <div class="modal-dialog modal-dialog-centered  " style="width:700px;">
-            <div class="modal-content  modalon2">
-                <button type="button" class="close ml-auto pr-2" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class=" col-12 ">
-                    <div class="modal-body">
-                        <div class="form-title text-center">
-                            <h4>Crea una cuenta.</h4>
-                        </div>
-                        <form id="rerto" accept-charset="utf-8" method="POST">
-                            <div class="form-group pl-5 pr-5">
-                                <a>Nombre (Curso completado)</a>
-                                <input type="text" class="form-control" name="nombresign" id="nombrer"
-                                    placeholder="Escribe tu nombre" style="font-size:  14px;">
-                            </div>
-                            <div class="form-group pl-5 pr-5">
-                                <a>Correo electronico</a>
-                                <input type="email" class="form-control" name="correosign" id="emailr"
-                                    placeholder="Ingresa tu correo" style="font-size:  14px;">
-                            </div>
-                            <div class="form-group pl-5 pr-5">
-                                <a>Contraseña</a>
-                                <input type="password" class="form-control" name="contraseñasign" id="passwordr"
-                                    placeholder="Ingresa tu contraseña" style="font-size: 14px;">
-                            </div>
-
-                            <div class="col-lg-12 col-sm-12 pb-3 pl-5 pr-5">
-                                <a>Rol</a>
-                                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
-                                    style="max-height: 200px !important;">Preference</label>
-                                <select id="cantidad" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                    <option value="Estudiante">Estudiante</option>
-                                    <option value="Profesor">Profesor</option>
-                                </select>
-                            </div>
-                            <div class="grupo text-center pt-3">
-                                <button type="sumbit" class="zoom btn btn-primary btn-md ">Registrate</button>
-                            </div>
-                        </form>
-                        <div class="text-center text-muted delimiter pt-2">O utiliza una red social</div>
-                        <div class="text-center pt-3">
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="instagram">
-                                <i class="fab fa-instagram" style="font-size: 25px;"></i>
-                            </a>
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="facebook">
-                                <i class="fab fa-facebook" style="font-size: 25px;"></i>
-                            </a>
-                            <a class="text-muted text-hover-primary " href="#" target="_blank" title="twitter">
-                                <i class="fab fa-twitter" style="font-size: 25px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php include_once("layout_footer.php") ?>
 
 
 

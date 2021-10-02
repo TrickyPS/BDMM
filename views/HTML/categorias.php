@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./../IMG/logooficial.png" type="image/png">
     <title>Continuity-Chat</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -48,7 +49,7 @@
 
             </div>
             <div class="col-md-1 ">
-            <button onclick="dateValidate()" class=" ml-2 btn btn-primary"><i class="fas fa-search"></i></button>
+            <button onclick="dateValidate()" class=" ml-2 btn btn-primary zoom "><i class="fas fa-search" style="font-size:12px"></i></button>
             </div>
         </div>
 
@@ -65,7 +66,7 @@
 
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                             
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -93,7 +94,7 @@
                             <img class="pic-1" src="../IMG/python.png">
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                            
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -121,7 +122,7 @@
                             <img class="pic-1" src="../IMG/python.png">
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                            
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -149,7 +150,7 @@
                             <img class="pic-1" src="../IMG/python.png">
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                            
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -183,7 +184,7 @@
 
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                            
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -211,7 +212,7 @@
                             <img class="pic-1" src="../IMG/angular.png">
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                             
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -239,7 +240,7 @@
                             <img class="pic-1" src="../IMG/angular.png">
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                             
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -267,7 +268,7 @@
                             <img class="pic-1" src="../IMG/angular.png">
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                            
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -300,7 +301,7 @@
 
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                             
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -328,7 +329,7 @@
                             <img class="pic-1" src="../IMG/javascript.png">
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                             
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -356,7 +357,7 @@
                             <img class="pic-1" src="../IMG/javascript.png">
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                             
                         </ul>
                         <span class="product-new-label">Sale</span>
@@ -384,7 +385,7 @@
                             <img class="pic-1" src="../IMG/javascript.png">
                         </a>
                         <ul class="social">
-                            <li><a href="curso.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                            
                         </ul>
                         <span class="product-new-label">Sale</span>
