@@ -272,7 +272,7 @@
                                     style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 20px; width: 200px;">Cambiar
                                     Imagen</label>
 
-                                    <input multiple="false" type="file" class="d-none" accept="image/png, image/jpeg" id="updateAvatar">
+                                    <input multiple="false" type="file" class="d-none" accept="image/png, image/jpeg" onchange="showImage()" id="updateAvatar">
 
                             </div>
                         </div>

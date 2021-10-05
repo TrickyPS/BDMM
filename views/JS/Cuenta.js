@@ -109,13 +109,20 @@ $("#formularioCuenta").submit( function (e) {
 
 
 })
-/*
+
 const toBase64 = file => new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
     reader.onerror = error => reject(error);
-});*/
+});
+
+async function  showImage(){
+    var avatar = $('#updateAvatar').prop('files');
+    var image = await toBase64(avatar[0]);
+    debugger
+    $('#avatar').attr("src",image);
+}
 
 function validar_clave(password) {
 
