@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./../IMG/logooficial.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/certificado.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Links de fonts -->
+    <script src="../JS/jquery-3.6.0.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&display=swap" rel="stylesheet">
+    <script src="../JS/certificado.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="d-flex row  justify-content-center w-100 h-100" style="font-size: 23px;">
+        <div class=" certificado w-75 m-5 " id="certificado" style="background-color: rgb(243, 242, 233); ">
+            <div class="d-flex flex-row justify-content-center align-items-center h-100">
+                <div class="p-5 w-100 d-flex flex-column  align-items-center  justify-content-center">
+
+                    <img src="../IMG/logooficial.png" width="140px" class="mt-3 pb-4">
+                    <h1>Continuity</h1>
+                    <h2 class="p-0" id="curso"></h2>
+                    <span class="hr w-100 mt-3 mb-3"></span>
+                    <p class="text-center" style="font-size: 25px; ">!Muchas felicidades! has cumplido con los
+                        requisitos academicos exigidos en el curso <strong style="text-transform: uppercase;"
+                            id="curso2"></strong> de Javscript a 10/09/2021. </p>
+                    <p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Se te entrega el
+                        presente diploma acreditativo a nombre de<strong id="nameUser"></strong> .</p>
+                    <span>Nombre del Estudiante:</span>
+                    <span style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Pedro Angel
+                        Ramirez Villarreal</span>
+                    <i id="date"></i>
+                    <span>Firma del director:</span>
+                    <i class="firma">Jesus Angel Paredes Sauceda:)</i>
+                    <span class="hr w-25 m-1"></span>
+                    <h6><strong>Jesus Angel Paredes Sauceda</strong></h6>
+                    <h6>Director General de Continuity</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  class="d-flex justify-content-center w-100 btn_imprimir">
+        <a  onclick="Imprimir()" class=" btn btn-light"> Imprimir</a>
+    </div>
+
+    <script>
+
+
+        function Imprimir() {
+
+            window.print();
+        }
+
+    </script>
+
+
+</body>
+
+</html>
