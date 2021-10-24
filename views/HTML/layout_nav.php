@@ -6,6 +6,7 @@ $currentUrl = strtolower(array_pop($url));
 <link rel="stylesheet" href="./../CSS/layout.css">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+<script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <nav class="navbar navi  navbar-expand-lg navbar-dark fixed-top" id="_cartelera">
     <div class="namep pt-0">
         <?php
@@ -54,10 +55,6 @@ $currentUrl = strtolower(array_pop($url));
                 <a class="zoom btn  palab cdp nav-link" id="sesionregistrate" href="../HTML/categorias.php">
                     Categorias
                 </a>
-
-
-
-
 
                 <li class="nav-item d-none " id="infocuenta">
 

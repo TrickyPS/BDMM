@@ -42,7 +42,7 @@
                             class="fas fa-arrow-circle-right"></i></div>
                     <div onclick="toggleNav('video')" class="item-nav cms-act"> Video <i
                             class="fas fa-arrow-circle-right"></i></div>
-                    <div onclick="toggleNav('categoria')" class="item-nav cms-act"> Categoria <i
+                    <div id="btnCategory" onclick="toggleNav('categoria')" class="item-nav cms-act"> Categoria <i
                             class="fas fa-arrow-circle-right"></i></div>
 
                 </div>
@@ -515,7 +515,7 @@
                         <div class="col-lg-4 p-4">
                             <div class="card shadow p-3">
                                 <p class="h2 mb-3">Agregar Categoria</p>
-                                <form class="w-100" id="formCategoria" action="">
+                                <form class="w-100" id="formCategoria" >
                                     <div class="form-group">
                                         <input class="form-control" type="text" id="Catname"
                                             placeholder="Nombre de categoria...">
@@ -537,17 +537,15 @@
                         <div class="col-lg-8 p-4">
                             <div class="card shadow p-3">
                                 <table class="table ">
-                                    <tbody>
+                                    <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Categoria</th>
                                             <th>Descripción</th>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Ciencia</td>
-                                            <td>Esta categroia es orientada a la ciencia</td>
-                                        </tr>
+                                    </thead>
+                                    <tbody id="tableShowCategories">
+                                        
                                     </tbody>
                                 </table>
                             </div>

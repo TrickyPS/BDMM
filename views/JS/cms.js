@@ -1,3 +1,9 @@
+var vars = {};
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+  function (m, key, value) {
+    vars[key] = value;
+  });
+
 $("#formCurso").submit(function (e) {
     e.preventDefault();
     var campos = [];
@@ -102,6 +108,7 @@ $("#formCategoria").submit(function (e) {
     var campos = [];
     const name = $("#Catname").val();
     const description = $("#Catdescription").val();
+    const id_user = JSON.parse(localStorage.getItem("id"));
     
     campos.push({campo:" nombre de categoria", value:name});
     campos.push({campo:" descripcion de la categoria", value:description});
@@ -115,10 +122,70 @@ $("#formCategoria").submit(function (e) {
         }
     }
     if(success){
-        toastr.success('Bien', 'Curso registrado');
+        $.ajax({
+            type:"POST",
+            url:"./../../controllers/CategoryController.php",
+            data:{action:"addCategory",name,description,id_user},
+            dataType:"json",
+            success: function(resp){
+               showCategories(resp)
+                $("#Catname").val("");
+                $("#Catdescription").val("");
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: `Categoria ${name} agregada`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            },
+            error:function(x,y,z){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    confirmButtonColor: '#141C29',
+                    text: 'Error al agregar categoria. Vuelvelo a intentar'
+                  })
+            }
+        });
+
+       
     }
     
 });
+
+$("#btnCategory").click(function(){
+    $.ajax({
+        type:"GET",
+        url:"./../../controllers/CategoryController.php",
+        data:{action:"findAll"},
+        dataType:"json",
+        success: function(resp){
+           showCategories(resp)
+           
+        },
+        error:function(x,y,z){
+           
+        }
+    });
+});
+
+function showCategories(categories){
+    $("#tableShowCategories").html("");
+    var i = 0;
+    for(var category of categories ){
+        i++
+        $("#tableShowCategories").append(`
+        <tr>
+            <td>${i}</td>
+            <td>${category.name}</td>
+            <td>${category.description}</td>
+        </tr>
+        `)
+    }
+}
+
+
 
 var menus = [];
 menus.push('dashboard');
@@ -145,6 +212,9 @@ function init() {
 }
 
 init()
+if(vars.o == "categorias")
+$("#btnCategory").click();
+
 
 function stateSwitch() {
     var check = document.getElementById('switch').checked;
