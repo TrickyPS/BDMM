@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+   
+    <script src="./../JS/cms/curso.js" defer></script>
+    <script src="./../JS/cms/category.js" defer></script>
     <script src="./../JS/cms.js" defer></script>
 </head>
 
@@ -31,16 +35,16 @@
             <div id="nav-cms" class="col-lg-2">
 
                 <div  class="nav">
-                    <div onclick="toggleNav('dashboard')" class="item-nav cms-act">Dashboard <i
+                    <div  onclick="toggleNav('dashboard')" class="item-nav cms-act">Dashboard <i
                             class="fas fa-tachometer-alt"></i> </div>
-                    <div onclick="toggleNav('misCursos')" class="item-nav cms-act">Mis Cursos <i
+                    <div id="btnMyCourses" onclick="toggleNav('misCursos')" class="item-nav cms-act">Mis Cursos <i
                             class="fas fa-laptop-house"></i> </div>
                     <div class="item-nav cms-des">Agregar Nuevo</div>
-                    <div onclick="toggleNav('curso')" class="item-nav cms-act"> Curso <i
+                    <div id="btnCourse" onclick="toggleNav('curso')" class="item-nav cms-act"> Curso <i
                             class="fas fa-arrow-circle-right"></i> </div>
-                    <div onclick="toggleNav('nivel')" class="item-nav cms-act"> Nivel <i
+                    <div id="btnLevel" onclick="toggleNav('nivel')" class="item-nav cms-act"> Nivel <i
                             class="fas fa-arrow-circle-right"></i></div>
-                    <div onclick="toggleNav('video')" class="item-nav cms-act"> Video <i
+                    <div id="btnVideo" onclick="toggleNav('video')" class="item-nav cms-act"> Video <i
                             class="fas fa-arrow-circle-right"></i></div>
                     <div id="btnCategory" onclick="toggleNav('categoria')" class="item-nav cms-act"> Categoria <i
                             class="fas fa-arrow-circle-right"></i></div>
@@ -269,10 +273,8 @@
 
                                     <div class="form-group">
                                         <select class=" ui drop w-100 " placeholder="si" multiple="" id="Ccategoria">
-                                            <option value="">Seleciona la categoria</option>
-                                            <option value="1"> Ciencia </option>
-                                            <option value="2">Desarrollo</option>
-                                            <option value="3">Diseño</option>
+                                        <option value="" >Selecciona la categoria</option>
+                                         
                                         </select>
                                     </div>
 

@@ -18,7 +18,7 @@ switch ($action) {
         $name = $_POST["name"];
         $description = $_POST["description"];
         $id_user = $_POST["id_user"];
-        $category = new Category($name,$description,$id_user);
+        $category = new Category($name,$description,$id_user,0,0);
         $resp = $category->AddCategory();
         echo json_encode($resp);
        }else{
@@ -27,10 +27,20 @@ switch ($action) {
     break;
 
     case "findAll":
-         $category = new Category("","",0);
+         $category = new Category("","",0,0,0);
          $resp = $category->FindAll();
          echo json_encode($resp);
      break;
+
+     case "addCategoriaCurso":
+        if(isset($_POST["curso"]) && isset($_POST["categoria"])){
+        $category = new Category("","",0,$_POST["categoria"],$_POST["curso"]);
+        $resp = $category->AddCategoryCurso();
+        echo json_encode($resp);
+        }else{
+            http_response_code(404);
+        }
+    break;
 
     default:
         http_response_code(404);
