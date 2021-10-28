@@ -17,8 +17,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+
+    <script src="./../JS/cms/video.js" defer></script>
+    <script src="./../JS/cms/nivel.js" defer></script>
     <script src="./../JS/cms/curso.js" defer></script>
     <script src="./../JS/cms/category.js" defer></script>
     <script src="./../JS/cms.js" defer></script>
@@ -298,7 +300,7 @@
 
 
                                     <div class="form-group d-flex justify-content-center">
-                                        <input type="submit" class="btn btn-primary zoom " value="Agregar">
+                                        <input id="btnAddCurso" type="submit" class="btn btn-primary zoom " value="Agregar">
                                     </div>
 
 
@@ -308,7 +310,7 @@
                         <div class="col-lg-8 p-4">
                             <div class="card shadow p-3">
                                 <table class="table ">
-                                    <tbody>
+                                    <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Curso</th>
@@ -318,20 +320,9 @@
                                             <th></th>
                                             <th></th>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Javascript</td>
-                                            <td> Gratis </td>
-                                            <td><button class="btn btn-sm btn-primary" onclick="toggleNav('nivel')"><i
-                                                        class="fas fa-plus"></i> Agregar Nivel</button></td>
-                                            <td><button class="btn btn-sm btn-secondary"><i
-                                                        class="fas fa-globe-americas"></i> Publicar</button></td>
-                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i>
-                                                    Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i>
-                                                    Eliminar</button></td>
-                                        </tr>
-
+                                    </thead>
+                                    <tbody id="tableShowCursos">
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -352,10 +343,7 @@
 
                                     <div class="form-group">
                                         <select class="custom-select" id="Ncurso">
-                                            <option selected value="0">Seleciona el curso</option>
-                                            <option value="1">Javascript </option>
-                                            <option value="2">Python Django</option>
-                                            <option value="3">Flutter para principantes</option>
+                                           
                                         </select>
                                     </div>
                                     <label for="" class="d-block">Gratis</label>
@@ -370,23 +358,22 @@
                                     </div>
                                     <label for="">Contenidos Adjuntos</label>
                                     <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                        <input  type="file" class="custom-file-input" id="filesNivelCms" lang="es">
                                         <label class="custom-file-label" for="customFileLang">Seleccionar
                                             Archivos</label>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="Url ...">
+                                            <input id="urlInput" type="text" class="form-control" placeholder="Url ...">
                                         </div>
                                         <div class="col">
-                                            <button class="btn btn-secondary"> Agregar link</button>
+                                            <button id="btnUrl" type="button" class="btn btn-secondary"> Agregar link</button>
                                         </div>
                                     </div>
                                     <small class="text-muted"> Documentos agregados </small>
                                     <div class="form-group">
-                                        <div class="list-group">
-                                            <div class="list-group-item">URL : https://www.example.com</div>
-                                            <div class="list-group-item">PDF : example.pdf</div>
+                                        <div id="contResourcesCms" class="list-group">
+                                            
                                         </div>
                                     </div>
 
@@ -401,26 +388,18 @@
                         <div class="col-lg-8 p-4">
                             <div class="card shadow p-3">
                                 <table class="table ">
-                                    <tbody>
+                                    <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Nivel</th>
                                             <th>Curso</th>
-                                            <th></th>
+                                            <th>Precio</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Fase 1</td>
-                                            <td>Javascript </td>
-                                            <td><button class="btn  btn-sm btn-primary" onclick="toggleNav('video')"><i
-                                                        class="fas fa-plus"></i> Agregar Video</button></td>
-                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i>
-                                                    Editar</button> </td>
-                                            <td><button class="btn  btn-sm btn-danger"> <i class="fas fa-trash-alt"></i>
-                                                    Eliminar</button></td>
-                                        </tr>
+                                    </thead>
+                                    <tbody id="tableNivel">
+                                        
 
                                     </tbody>
                                 </table>
@@ -440,26 +419,17 @@
                                             placeholder="Título del video...">
                                     </div>
 
-                                    <div class="form-group">
-                                        <textarea id="Vdescription" class="form-control"
-                                            placeholder="Descripción del video..." rows="3"></textarea>
-
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <select id="Vcurso" class="custom-select">
-                                            <option selected value="0">Seleciona el curso</option>
-                                            <option value="1">Javascript </option>
-                                            <option value="2">Python Django</option>
-                                            <option value="3">Flutter para principantes</option>
+                                           
+                                            
                                         </select>
                                     </div>
 
                                     <div class="form-group">
                                         <select class="custom-select" id="Vnivel">
                                             <option selected value="0">Seleciona el nivel</option>
-                                            <option value="1">Fase 1</option>
-                                            <option value="2">Fase 2</option>
-                                            <option value="3">fase 3</option>
                                         </select>
                                     </div>
                                     <div class="custom-file mb-3">
@@ -476,35 +446,19 @@
                         <div class="col-lg-8 p-4">
                             <div class="card shadow p-3">
                                 <table class="table ">
-                                    <tbody>
+                                    <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Video</th>
                                             <th>Nivel</th>
                                             <th>Curso</th>
                                             <th></th>
-                                            <th></th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Async /Await</td>
-                                            <td>Javascript Intermideo</td>
-                                            <td>Javascript</td>
-                                            <td> <button class="btn btn-sm btn-info"><i class="fas fa-pen"></i>
-                                                    Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i>
-                                                    Eliminar</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Migraciones</td>
-                                            <td>Django migraciones y modelos</td>
-                                            <td>Curso de Python Django</td>
-                                            <td> <button class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i>
-                                                    Editar</button> </td>
-                                            <td><button class="btn  btn-sm btn-danger"> <i class="fas fa-trash-alt"></i>
-                                                    Eliminar</button></td>
-                                        </tr>
+                                            
+                                        </tr> 
+                                    </thead>
+                                    <tbody id="tableVideos">
+                                        
+                                       
                                     </tbody>
                                 </table>
                             </div>
