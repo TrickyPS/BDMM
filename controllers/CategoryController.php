@@ -42,6 +42,12 @@ switch ($action) {
         }
     break;
 
+    case "getCategoriasByCurso":
+        $curso = $_GET["curso"];
+        $resp = Category::GetCategoriasByCurso($curso);
+        echo json_encode($resp);
+    break;
+
     default:
         http_response_code(404);
         break;

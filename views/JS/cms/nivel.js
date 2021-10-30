@@ -1,4 +1,5 @@
 var listNiveles = {};
+var listCursos = [];
 var listResources = [];
 var stateVideoCmb = null;
 $("#btnLevel").click(function(){
@@ -62,6 +63,19 @@ $("#formNivel").submit(function (e) {
             success = false;
         }
     }
+    debugger
+   for(var item of listCursos){
+       if(item.id_course == curso){
+           if(item.price == null && !gratis){
+            Swal.fire(
+                {title: 'El curso es gratis, actualiza el precio del curso para ponerle un precio a tu nivel',
+                confirmButtonColor: '#141C29',
+                icon:'warning'}
+               )
+            success = false;
+           }
+       }
+   }
     if (success) {
        Nivel.addNivel(curso,name,gratis? "":precio);
     }
@@ -78,6 +92,7 @@ const Nivel = {
             data:{action:"getAllCursosByUser",user},
             dataType:"json",
             success: function(resp){
+                listCursos = resp;
                 $("#Ncurso").html("")
                 $("#Ncurso").append(' <option selected value="0">Seleciona el curso</option>')
                 resp.map((item)=>{

@@ -15,10 +15,10 @@ $currentUrl = strtolower(array_pop($url));
             <span class="navbar-dark navbar-toggler-icon"></span>
         </span>
         <?php } ?>
-        <img class="negro imageno pb-2" src="../IMG/logooficial.png" width="45px">
-        <a class="variable zoom variable negro pr-5 navbar-brand titulo"
+        <img style="cursor:pointer;" class="negro imageno pb-2" src="../IMG/logooficial.png" width="45px">
+        <a  class="variable zoom variable negro pr-5 navbar-brand titulo"
             onclick="javascript:location.href='../HTML/index.php';"
-            style="color: whitesmoke; font-family: 'Bebas Neue', cursive; font-size: 25px;">Continuity</a>
+            style="color: whitesmoke; font-family: 'Bebas Neue', cursive; font-size: 25px;cursor:pointer">Continuity</a>
     </div>
 
 

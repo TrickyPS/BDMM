@@ -108,8 +108,8 @@ class Curso{
        Connection::disconnect($db);
 }
 
-public function PublicarCurso(){
-  try {
+  public function PublicarCurso(){
+    try {
       $db = Connection::connect();
       $query = $db->query("CALL SP_Curso(5,".$this->user.",0,'".$this->name."','".$this->description."',".$this->precio.",'".$this->image."','".$this->type."',".$this->curso.")");
       
@@ -126,7 +126,28 @@ public function PublicarCurso(){
          return false;
      }
      Connection::disconnect($db);
-}
+  }
 
+  public static function GetCursobyId($curso,$user){
+    try {
+      $db = Connection::connect();
+      $query = $db->query("CALL SP_CursoState(1,".$curso.",".$user.")");
+      
+      if($query){
+          Connection::disconnect($db);
+          $curso = $query->fetch_assoc();
+          $curso["image"] = base64_encode($curso["image"]);
+          return $curso; 
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     
+  }
 
 }

@@ -85,5 +85,28 @@ class Category {
          Connection::disconnect($db);
   }
 
+  public static function GetCategoriasByCurso($curso){
+    try {
+      $db = Connection::connect();
+      $query = $db->query("CALL SP_CursoState(2,".$curso.",0)");
+      
+      if($query){
+        Connection::disconnect($db);
+        $categories = null;
+          while($row = $query->fetch_assoc()){
+              $categories[] = $row;
+          }
+          return $categories; 
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+    
+  }
 
 }

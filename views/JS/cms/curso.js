@@ -108,7 +108,7 @@ function updateCurso(image,name,description,price,user,categoria){
         formData.append('price',price);
         formData.append('user',user);
         formData.append('curso',currentCurso);
-        debugger
+     
     $.ajax({
         type:"POST",
         enctype: "multipart/form-data",
@@ -171,9 +171,9 @@ function getAllCursos(user){
                 <td>${i}</td>
                 <td>${item.name}</td>
                 <td> ${item.price? "$ " + item.price:"Gratis"} </td>
-                <td><button onclick="setStateNivelCmb(${item.id_course})" class="btn btn-sm btn-primary" onclick="toggleNav('nivel')"><i
+                <td><button onclick="setStateNivelCmb(${item.id_course})" ${item.is_public == 1?"disabled":""} class="btn btn-sm btn-primary" onclick="toggleNav('nivel')"><i
                             class="fas fa-plus"></i> Agregar Nivel</button></td>
-                <td><button onclick="publicarCurso(${item.id_course})" ${item.is_public == 1?"disabled":""} class="btn btn-sm btn-secondary"><i
+                <td><button onclick="publicarCurso(${item.id_course},${item.count})" ${item.is_public == 1?"disabled":""} class="btn btn-sm btn-secondary"><i
                             class="fas fa-globe-americas"></i> Publicar</button></td>
                 <td> <button onclick="prepareUpdate(${item.id_course})" class="btn  btn-sm btn-info"> <i class="fas fa-pen"></i>
                         Editar</button> </td>
@@ -218,7 +218,12 @@ function prepareUpdate(id){
         $('#Cprecio').removeAttr('disabled');
         $("#Cprecio").val(curso.price);
     }
-    
+    Swal.fire(
+        {title: 'Cuidado',
+        html:'Si pones tu curso gratis todos los niveles se harán gratis',
+        confirmButtonColor: '#141C29',
+        icon:'warning'}
+       )
     
 }
 
@@ -265,45 +270,55 @@ function deleteCurso(id){
       })
 }
 
-function publicarCurso(id){
+function publicarCurso(id,count){
     var curso = {};
     for(item of listCursos){
         if(item.id_course == id ){
             curso = item;
         }
     }
-    Swal.fire({
-        title: '¿Estas seguro?',
-        html: `Si publicas este curso, ya no podrás agregar niveles ni videos`,
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#28a745',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Publicar'
-      }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type:"GET",
-                url:"./../../controllers/CourseController.php",
-                data:{action:"publicarCurso",user:id},
-                dataType:"json",
-                success: function(resp){
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: `Curso ${curso.name} publicado`,
-                        showConfirmButton: false,
-                        timer: 1500
-                      }).then((result) => {
-                        window.location.reload()
-                      }).catch((err) => {
-                          console.error(err)
-                      });
-                },
-                error:function(x,y,z){
-                }
-            });
-         
-        }
-      })
+    if(count > 0){
+        Swal.fire({
+            title: '¿Estas seguro?',
+            html: `Si publicas este curso, ya no podrás agregar niveles ni videos`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#28a745',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Publicar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type:"GET",
+                    url:"./../../controllers/CourseController.php",
+                    data:{action:"publicarCurso",user:id},
+                    dataType:"json",
+                    success: function(resp){
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: `Curso ${curso.name} publicado`,
+                            showConfirmButton: false,
+                            timer: 1500
+                          }).then((result) => {
+                            window.location.reload()
+                          }).catch((err) => {
+                              console.error(err)
+                          });
+                    },
+                    error:function(x,y,z){
+                    }
+                });
+             
+            }
+          })
+    }else{
+        Swal.fire(
+           {title: 'No se puede publicar',
+           html:'Agrega videos a este curso para publicarlo',
+           confirmButtonColor: '#141C29',
+           icon:'error'}
+          )
+    }
+   
 }

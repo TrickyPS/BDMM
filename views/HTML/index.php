@@ -35,6 +35,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap" rel="stylesheet">
+  <script src="./../JS/landing.js" defer> </script>
   <title>Continuity-Pagina Principal</title>
 </head>
 
@@ -92,7 +93,7 @@
 
   <section class="categorias pb-5" style="background-color: rgb(239, 242, 245);">
     <div class="text-center pt-4">
-      <h1 style="font-family:'Bebas Neue'; color: rgb(0, 0, 0);">Recomendados para ti NombreUser</h1>
+      <h1 style="font-family:'Bebas Neue'; color: rgb(0, 0, 0);"> Ultimos cursos </h1>
     </div>
 
     <div class="container pt-0" id="_productos">
@@ -100,164 +101,16 @@
         style="font-family: 'Bebas Neue'">
         <div class="splide__track " style="border-radius: 10px">
           <ul class="splide__list">
-            <li class="splide__slide p-2 d-flex" id="splide-slide01" style="background-color:#383a41">
-              <div class="col-lg-4 col-md-3 col-sm-12  pt-2">
-                <div class="imagen text-center" style="border-color: white !important;;">
-                  <img src="../IMG/photoshop.png" style="height: 200px; width: 200px;">
-                </div>
-                <div class="stats mt-2 text-center">
-                  <div class="mx-auto p-price" style="color: white;">
-                    <h4>Curso de photoshop</h4>
-                    <span>Precio</span>
-                    <p class="lead" style="color: white;">
-                      <span>$199.99</span>
-                    </p>
-                     <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-3 col-sm-12  pt-2">
-                <div class="imagen text-center" style="border-color: white !important;;">
-                  <img src="../IMG/photoshop.png" style="height: 200px; width: 200px;">
-                </div>
-                <div class="stats mt-2 text-center">
-                  <div class="mx-auto p-price" style="color: white;">
-                    <h4>Curso de photoshop</h4>
-                    <span>Precio</span>
-                    <p class="lead" style="color: white;">
-                      <span>$199.99</span>
-                    </p>
-                    <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-3 col-sm-12 pt-2">
-                <div class="imagen text-center" style="border-color: white !important;;">
-                  <img src="../IMG/photoshop.png" style="height: 200px; width: 200px;">
-                </div>
-                <div class="stats mt-2 text-center">
-                  <div class="mx-auto p-price" style="color: white;">
-                    <h4>Curso de photoshop</h4>
-                    <span>Precio</span>
-                    <p class="lead" style="color: white;">
-                      <span>$199.99</span>
-                    </p>
-                     <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-                  </div>
-                </div>
-              </div>
-
+            <li class="liRecientes1 splide__slide p-2 d-flex" id="splide-slide01" style="background-color:#383a41">
+              
 
 
             </li>
-            <li class="splide__slide p-2 d-flex" id="splide-slide02" style="background-color:#383a41">
-              <div class="col-lg-4 col-md-3 col-sm-12  pt-2">
-                <div class="imagen text-center" style="border-color: white !important;;">
-                  <img src="../IMG/photoshop.png" style="height: 200px; width: 200px;">
-                </div>
-                <div class="stats mt-2 text-center">
-                  <div class="mx-auto p-price" style="color: white;">
-                    <h4>Curso de photoshop</h4>
-                    <span>Precio</span>
-                    <p class="lead" style="color: white;">
-                      <span>$199.99</span>
-                    </p>
-                    <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                    class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-3 col-sm-12  pt-2">
-                <div class="imagen text-center" style="border-color: white !important;;">
-                  <img src="../IMG/photoshop.png" style="height: 200px; width: 200px;">
-                </div>
-                <div class="stats mt-2 text-center">
-                  <div class="mx-auto p-price" style="color: white;">
-                    <h4>Curso de photoshop</h4>
-                    <span>Precio</span>
-                    <p class="lead" style="color: white;">
-                      <span>$199.99</span>
-                    </p>
-                    <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                    class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-3 col-sm-12 pt-2">
-                <div class="imagen text-center" style="border-color: white !important;;">
-                  <img src="../IMG/photoshop.png" style="height: 200px; width: 200px;">
-                </div>
-                <div class="stats mt-2 text-center">
-                  <div class="mx-auto p-price" style="color: white;">
-                    <h4>Curso de photoshop</h4>
-                    <span>Precio</span>
-                    <p class="lead" style="color: white;">
-                      <span>$199.99</span>
-                    </p>
-                    <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                    class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-                  </div>
-                </div>
-              </div>
-
-
-
+            <li class=" liRecientes2 splide__slide p-2 d-flex" id="splide-slide02" style="background-color:#383a41">
+             
             </li>
-            <li class="splide__slide p-2 d-flex" id="splide-slide03" style="background-color:#383a41">
-              <div class="col-lg-4 col-md-3 col-sm-12  pt-2">
-                <div class="imagen text-center" style="border-color: white !important;;">
-                  <img src="../IMG/photoshop.png" style="height: 200px; width: 200px;">
-                </div>
-                <div class="stats mt-2 text-center">
-                  <div class="mx-auto p-price" style="color: white;">
-                    <h4>Curso de photoshop</h4>
-                    <span>Precio</span>
-                    <p class="lead" style="color: white;">
-                      <span>$199.99</span>
-                    </p>
-                    <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-3 col-sm-12  pt-2">
-                <div class="imagen text-center" style="border-color: white !important;;">
-                  <img src="../IMG/photoshop.png" style="height: 200px; width: 200px;">
-                </div>
-                <div class="stats mt-2 text-center">
-                  <div class="mx-auto p-price" style="color: white;">
-                    <h4>Curso de photoshop</h4>
-                    <span>Precio</span>
-                    <p class="lead" style="color: white;">
-                      <span>$199.99</span>
-                    </p>
-                     <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-3 col-sm-12 pt-2">
-                <div class="imagen text-center" style="border-color: white !important;;">
-                  <img src="../IMG/photoshop.png" style="height: 200px; width: 200px;">
-                </div>
-                <div class="stats mt-2 text-center">
-                  <div class="mx-auto p-price" style="color: white;">
-                    <h4>Curso de photoshop</h4>
-                    <span>Precio</span>
-                    <p class="lead" style="color: white;">
-                      <span>$199.99</span>
-                    </p>
-                     <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-                      class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-                  </div>
-                </div>
-              </div>
-
-
-
+            <li class=" liRecientes3 splide__slide p-2 d-flex" id="splide-slide03" style="background-color:#383a41">
+    
             </li>
           </ul>
         </div>
@@ -269,6 +122,7 @@
       </div>
     </div>
 
+    <!---Los mas comprados-->
     <div class="text-center pt-4">
       <h1 style="font-family:'Bebas Neue'; color: rgb(0, 0, 0);">Cursos mas comprados </h1>
     </div>
@@ -359,7 +213,98 @@
       </div>
     </div>
 
+ 
+    <!-- Para los mas calificados-->
+    <div class="text-center pt-4">
+      <h1 style="font-family:'Bebas Neue'; color: rgb(0, 0, 0);">Los mejores calificados </h1>
+    </div>
 
+    <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div class="col mb-5 zoom">
+          <div class="card h-100" style="background-color: #383a41; color: white;">
+            <!-- Product image-->
+            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
+            <!-- Product details-->
+            <div class="card-body p-4">
+              <div class="text-center">
+                <!-- Product name-->
+                <h5 class="fw-bolder">Curso de React</h5>
+                <!-- Product price-->
+                Precio: $199
+              </div>
+            </div>
+            <!-- Product actions-->
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
+              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-5 zoom">
+          <div class="card h-100" style="background-color: #383a41; color: white;">
+            <!-- Product image-->
+            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
+            <!-- Product details-->
+            <div class="card-body p-4">
+              <div class="text-center">
+                <!-- Product name-->
+                <h5 class="fw-bolder">Curso de React</h5>
+                <!-- Product price-->
+                Precio: $199
+              </div>
+            </div>
+            <!-- Product actions-->
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
+              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-5 zoom">
+          <div class="card h-100" style="background-color: #383a41; color: white;">
+            <!-- Product image-->
+            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
+            <!-- Product details-->
+            <div class="card-body p-4">
+              <div class="text-center">
+                <!-- Product name-->
+                <h5 class="fw-bolder">Curso de React</h5>
+                <!-- Product price-->
+                Precio: $199
+              </div>
+            </div>
+            <!-- Product actions-->
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
+              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-5 zoom">
+          <div class="card h-100" style="background-color: #383a41; color: white;">
+            <!-- Product image-->
+            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
+            <!-- Product details-->
+            <div class="card-body p-4">
+              <div class="text-center">
+                <!-- Product name-->
+                <h5 class="fw-bolder">Curso de React</h5>
+                <!-- Product price-->
+                Precio: $199
+              </div>
+            </div>
+            <!-- Product actions-->
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
+              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+ 
 
   </section>
 

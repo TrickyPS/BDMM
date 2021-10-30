@@ -63,33 +63,31 @@
             <div class="row m-3">
 
                 <div class="img-big-wrap col-lg-5">
-                    <div> <a href="#"><img src="../IMG/python.png"
-                                style="object-fit:initial; height: 300px; width: 450px;"></a></div>
+                    <div> 
+                        <img id="imageCurso" src=""
+                                style="object-fit:initial; height: 300px; width: 450px;"></div>
                 </div>
                 <div class="col-lg-7">
                     <div class="card-body m-0 pt-0 pl-5">
-                        <h3 class="title text-uppercase" style="font-size: 25px;">Curso de Python con Machine Learning
+                        <h3 id="titleCurso" class="title text-uppercase" style="font-size: 25px;">
                         </h3>
 
                         <div class="mb-3 mt-3">
-                            <span class="h7 text-success">Categoria
+                            <span > <span id="categoriasCurso" class="h7 text-success"></span>
                                 <div class="ui float-right huge star rating" id="ratingCurso" data-rating="1"></div>
                                 <p class="float-right text-secondary">4.5</p>
                             </span>
                         </div>
                         <div class="mb-3 mt-3">
-                            <span class="price-title">Precio:</span>
-                            <span class="price color-price-waanbii">199</span>
+                            <span class="price-title">Precio: </span>
+                            <span id="precioCurso" class="price color-price-waanbii">199</span>
                         </div>
                         <dl class="item-property">
                             <dt>Description</dt>
                             <dd>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus suscipit qui
-                                    asperiores, enim ratione ea maxime consequatur aut aliquam natus. Voluptatem ipsa
-                                    veritatis est necessitatibus aspernatur aliquam harum? Quae officia natus dolore
-                                    magni et a animi exercitationem commodi, sunt id?</p>
+                                <p id="descriptionCurso"></p>
                             </dd>
-
+                            <a style="cursor:pointer" id="chatearCurso" class="h6 text-primary"> </a>
                         </dl>
 
 
@@ -99,11 +97,13 @@
                                 class="ui float-right massive star rating" id="ratingModal" data-rating="0"></div>
                         </div>
 
-                        <span class="btn btn-success disabled d-none">Curso adquirido</span>
-                        <center> <button type="button" data-toggle="modal" data-target="#tarjeta" type="submit"
-                            class="m-0 mb-4 btn btn-dark zoom" style="font-size: 19px; width: 150px;">Comprar
-                            curso</button>
-                        <button type="button" type="submit" class="m-0 mb-4 btn btn-dark zoom"
+                        <span id="comprarCon" class=" disabled ">Comprar con: </span>
+                        <center>
+                        <a target="blank" href="https://www.paypal.com/" id="btnComprarPaypal" type="button"
+                            class="m-0 mb-4 btn text-light btn-dark zoom" style="font-size: 19px; width: 150px;">Paypal <i class="fab fa-paypal"></i></a>    
+                        <button id="btnComprarMasterCard" type="button" data-toggle="modal" data-target="#tarjeta" type="submit"
+                            class="m-0 mb-4 btn btn-dark zoom" style="font-size: 19px; width: 150px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
+                        <button id="btnVerCertificado" type="button" type="submit" class="m-0 mb-4 btn btn-dark zoom d-none"
                             onclick="location.href='../HTML/Certificado.html';"
                             style="font-size: 19px; width: 150px;">Ver certificado</button></center>
                     </div>
@@ -115,7 +115,7 @@
             </div>
 
         </div>
-        <div class="medio justify-content-center mt-5 " style="font-size: 20px;">
+        <div id="contProgreso" class="medio d-none justify-content-center mt-5 " style="font-size: 20px;">
             <dl class="param param-feature  text-center">
                 <dt class="text-center">Progreso del curso:
                 <dt>100%</dt>
@@ -233,7 +233,7 @@
         <h2 style="font-family: 'Archivo Narrow', sans-serif; font-size: 40px;">Comentarios del curso</h2>
     </div>
 
-    <form action="" class="col-lg-12 col-md-8 col-sm-12" style=" 
+    <form action="" class="col-lg-12 col-md-8 col-sm-12 mb-2" style=" 
             overflow-x:hidden; font-family: 'Archivo Narrow', sans-serif;">
         <div class="comentarios borde">
             <div class="row d-flex justify-content-center">
@@ -293,7 +293,7 @@
 
     </form>
     </div>
-    <div class="container pt-3" style="font-size: 20px;" style="font-family: 'Archivo Narrow', sans-serif;">
+    <div id="containerComentarios" class=" d-none container pt-3" style="font-size: 20px;" style="font-family: 'Archivo Narrow', sans-serif;">
         <div class="form-group d-flex">
             <h3 class="pr-3" for="comment" style="font-family: 'Archivo Narrow', sans-serif;">Comentar:</h3>
             <textarea class="form-control" rows="0" id="comment"></textarea>

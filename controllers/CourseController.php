@@ -71,6 +71,12 @@ switch ($action) {
          echo json_encode($resp);
      break;
 
+     case "getCursobyId":
+        $curso = $_GET["curso"];
+        $user = $_GET["user"];
+         $resp = Curso::GetCursobyId($curso,$user);
+         echo json_encode($resp);
+     break;
     
     default:
         http_response_code(404);
