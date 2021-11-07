@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
 
@@ -74,7 +74,9 @@
 
                         <div class="mb-3 mt-3">
                             <span > <span id="categoriasCurso" class="h7 text-success"></span>
-                                <div class="ui float-right huge star rating" id="ratingCurso" data-rating="1"></div>
+                                <div class="ui float-right huge star rating" id="ratingCurso" data-rating="1">
+                                    
+                                </div>
                                 <p class="float-right text-secondary">4.5</p>
                             </span>
                         </div>
@@ -89,23 +91,24 @@
                             </dd>
                             <a style="cursor:pointer" id="chatearCurso" class="h6 text-primary"> </a>
                         </dl>
-
-
-                        <div class="mb-4 mt-3 d-flex flex-column">
-                            <div class="h3 text-center">Calificar este curso</div>
-                            <div data-toggle="modal" data-target="#ratingModalOpen"
-                                class="ui float-right massive star rating" id="ratingModal" data-rating="0"></div>
-                        </div>
-
+                        <div class="compra" id="compraBotones">
                         <span id="comprarCon" class=" disabled ">Comprar con: </span>
                         <center>
-                        <a target="blank" href="https://www.paypal.com/" id="btnComprarPaypal" type="button"
-                            class="m-0 mb-4 btn text-light btn-dark zoom" style="font-size: 19px; width: 150px;">Paypal <i class="fab fa-paypal"></i></a>    
-                        <button id="btnComprarMasterCard" type="button" data-toggle="modal" data-target="#tarjeta" type="submit"
-                            class="m-0 mb-4 btn btn-dark zoom" style="font-size: 19px; width: 150px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
+                        <button target="blank" id="btnComprarPaypal2" type="button"
+                            class="m-0 mb-4 btn text-light btn-dark zoom" style="font-size: 19px; width: 150px;">Paypal <i class="fab fa-paypal"></i></button>    
+                        <button id="btnComprarMasterCard2" type="button" data-toggle="modal" data-target="#tarjeta2" type="submit"
+                            class="m-0 mb-4 btn btn-dark zoom  " style="font-size: 19px; width: 150px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
                         <button id="btnVerCertificado" type="button" type="submit" class="m-0 mb-4 btn btn-dark zoom d-none"
                             onclick="location.href='../HTML/Certificado.html';"
                             style="font-size: 19px; width: 150px;">Ver certificado</button></center>
+                        </div>
+                       
+
+                        <div class="mb-4 mt-3 d-flex flex-column">
+                            <div class="h3 text-center" id="cursocal"><span>Calificar este curso</span></div>
+                            <div data-toggle="modal" data-target="#ratingModalOpen" id="cursocal2"
+                                class="ui float-right massive star rating" id="ratingModal" data-rating="0"></div>
+                             </div>
                     </div>
 
 
@@ -118,20 +121,20 @@
         <div id="contProgreso" class="medio d-none justify-content-center mt-5 " style="font-size: 20px;">
             <dl class="param param-feature  text-center">
                 <dt class="text-center">Progreso del curso:
-                <dt>100%</dt>
+                <dt id="numerop"></dt>
                 </dt>
                 <div class="progress mx-auto" style="width: 500px;">
-                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100"
+                    <div class="progress-bar" id="numeropp" role="progressbar" style="width: 0%" aria-valuenow="100"
                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </dl>
         </div>
     </div>
 
-    <h2 class="title text-center pt-5" style="font-family: 'Archivo Narrow', sans-serif; font-size: 40px;">Niveles
+    <h2 class="title text-center pt-5" id="nombreCurso" style="font-family: 'Archivo Narrow', sans-serif; font-size: 40px;">Niveles
         del curso</h2>
     <div id="accordion" class="pb-5 justify-content-center" style="font-family: 'Archivo Narrow', sans-serif;">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-lg-8 mx-auto d-none">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
@@ -140,9 +143,12 @@
                     </button>
                     <span>Nombre del curso -</span>
                     <span>(Curso completado)</span>
+                    <button target="blank" id="btnComprarPaypal" type="button"
+                            class="m-0 btn text-light btn-dark zoom float-right ml-1" style="font-size: 10px;">Paypal <i class="fab fa-paypal"></i></button>    
+                        <button id="btnComprarMasterCard" type="button" data-toggle="modal" data-target="#tarjeta2" type="submit"
+                            class="m-0 btn btn-dark zoom float-right ml-1" style="font-size: 10px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
                 </h5>
             </div>
-
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <span>Video uno de practica de programacion con Python.</span>
@@ -158,69 +164,7 @@
                 </div>
 
             </div>
-        </div>
-        <div class="col-lg-8 mx-auto">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="false" aria-controls="collapseTwo">
-                        Nivel 2
-                    </button>
-                    <span>Nombre del curso -</span>
-                    <span> (Curso completado)</span>
-                </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                    <span>Video uno de practica de programacion con Python.</span>
-                    <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"
-                        id="botonsearch" type="submit"
-                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-8 mx-auto">
-            <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                    <button class="btn collapsed" data-toggle="collapse" data-target="#collapseThree"
-                        aria-expanded="false" aria-controls="collapseThree">
-                        Nivel 3
-                    </button>
-                    <span>Nombre del curso -</span>
-                    <span>(Curso completado)</span>
-                </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-
-                <div class="card-body">
-                    <span>Video uno de practica de programacion con Python.</span>
-                    <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"
-                        id="botonsearch" onclick="location.href = 'video.php'" type="submit"
-                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-lg-8 mx-auto">
-            <div class="card-header" id="headingFour">
-                <h5 class="mb-0">
-                    <button class="btn collapsed" data-toggle="collapse" data-target="#collapseFour"
-                        aria-expanded="false" aria-controls="collapseFour">
-                        Nivel 4
-                    </button>
-                    <span>Nombre del curso -</span>
-                    <span>(Curso completado)</span>
-                </h5>
-            </div>
-            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                <div class="card-body">
-                    <span>Video uno de practica de programacion con Python.</span>
-                    <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"
-                        id="botonsearch" type="submit"
-                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                </div>
-            </div>
-        </div>
+        </div>  
     </div>
 
 
@@ -237,7 +181,7 @@
             overflow-x:hidden; font-family: 'Archivo Narrow', sans-serif;">
         <div class="comentarios borde">
             <div class="row d-flex justify-content-center">
-                <div class="col-md-8 pb-5 examplee " style=" 
+                <div class="col-md-8 pb-5 examplee " id="agregacomentario"   style=" 
                     overflow-y: scroll; height: 300px;  padding: 10px; background-color: rgb(107, 101, 101);">
 
                     <div class="card p-3 m-1">
@@ -250,36 +194,8 @@
                             <small>2 days ago</small>
                         </div>
                     </div>
-                    <div class="card p-3 m-1">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="user d-flex flex-row align-items-center"> <img src="../IMG/persono.png"
-                                    class="user-img rounded-circle mr-2"
-                                    style="object-fit: contain; width: 30px; height:30px;"> <span><small
-                                        class="font-weight-bold text-primary">james_olesenn</small> <small
-                                        class="font-weight-bold">Hmm, This poster looks cool</small></span> </div>
-                            <small>2 days ago</small>
-                        </div>
-                    </div>
-                    <div class="card p-3 m-1">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="user d-flex flex-row align-items-center"> <img src="../IMG/persono.png"
-                                    class="user-img rounded-circle mr-2"
-                                    style="object-fit: contain; width: 30px; height:30px;"> <span><small
-                                        class="font-weight-bold text-primary">james_olesenn</small> <small
-                                        class="font-weight-bold">Hmm, This poster looks cool</small></span> </div>
-                            <small>2 days ago</small>
-                        </div>
-                    </div>
-                    <div class="card p-3 m-1">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="user d-flex flex-row align-items-center"> <img src="../IMG/persono.png"
-                                    class="user-img rounded-circle mr-2"
-                                    style="object-fit: contain; width: 30px; height:30px;"> <span><small
-                                        class="font-weight-bold text-primary">james_olesenn</small> <small
-                                        class="font-weight-bold">Hmm, This poster looks cool</small></span> </div>
-                            <small>2 days ago</small>
-                        </div>
-                    </div>
+                  
+                  
 
                 </div>
 
@@ -298,7 +214,7 @@
             <h3 class="pr-3" for="comment" style="font-family: 'Archivo Narrow', sans-serif;">Comentar:</h3>
             <textarea class="form-control" rows="0" id="comment"></textarea>
             <div class=" botonsub max-height my-auto pl-3">
-                <button type="button" class=" btn btn-dark zoom" style="font-size: 40px; width: 80px; height: 80px;"><i
+                <button type="button" id="comentariosu" class=" btn btn-dark zoom" style="font-size: 40px; width: 80px; height: 80px;"><i
                         class="fas fa-comment"></i></button>
 
             </div>
@@ -440,7 +356,7 @@
                     </form>
                     <center>
                         <button type="button" class="btn btn-second" data-dismiss="modal">Cancelar</button>
-                        <button class="btn  my-1 btn-main "><i class="fa fa-lock"></i> Pagar</button>
+                        <button class="btn  my-1 btn-main " id="btnpagartarjeta"><i class="fa fa-lock"></i> Pagar</button>
                     </center>
                 </div>
 
@@ -448,11 +364,147 @@
         </div>
 
     </div>
+    <div class="modal fade" data-backdrop="static" id="tarjeta2" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-md">
+            <div class="modal-content" style="background-color: transparent;border-color: transparent;">
 
+                <div class="checkout">
+                    <div class="credit-card-box">
+                        <div class="flip">
+                            <div class="front">
+                                <div class="chip"></div>
+                                <div class="logo">
+                                    <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.834px"
+                                        height="47.834px" viewBox="0 0 47.834 47.834"
+                                        style="enable-background:new 0 0 47.834 47.834;">
+                                        <g>
+                                            <g>
+                                                <path d="M44.688,16.814h-3.004c-0.933,0-1.627,0.254-2.037,1.184l-5.773,13.074h4.083c0,0,0.666-1.758,0.817-2.143
+                           c0.447,0,4.414,0.006,4.979,0.006c0.116,0.498,0.474,2.137,0.474,2.137h3.607L44.688,16.814z M39.893,26.01
+                           c0.32-0.819,1.549-3.987,1.549-3.987c-0.021,0.039,0.317-0.825,0.518-1.362l0.262,1.23c0,0,0.745,3.406,0.901,4.119H39.893z
+                           M34.146,26.404c-0.028,2.963-2.684,4.875-6.771,4.875c-1.743-0.018-3.422-0.361-4.332-0.76l0.547-3.193l0.501,0.228
+                           c1.277,0.532,2.104,0.747,3.661,0.747c1.117,0,2.313-0.438,2.325-1.393c0.007-0.625-0.501-1.07-2.016-1.77
+                           c-1.476-0.683-3.43-1.827-3.405-3.876c0.021-2.773,2.729-4.708,6.571-4.708c1.506,0,2.713,0.31,3.483,0.599l-0.526,3.092
+                           l-0.351-0.165c-0.716-0.288-1.638-0.566-2.91-0.546c-1.522,0-2.228,0.634-2.228,1.227c-0.008,0.668,0.824,1.108,2.184,1.77
+                           C33.126,23.546,34.163,24.783,34.146,26.404z M0,16.962l0.05-0.286h6.028c0.813,0.031,1.468,0.29,1.694,1.159l1.311,6.304
+                           C7.795,20.842,4.691,18.099,0,16.962z M17.581,16.812l-6.123,14.239l-4.114,0.007L3.862,19.161
+                           c2.503,1.602,4.635,4.144,5.386,5.914l0.406,1.469l3.808-9.729L17.581,16.812L17.581,16.812z M19.153,16.8h3.89L20.61,31.066
+                           h-3.888L19.153,16.8z" />
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="number"></div>
+                                <div class="card-holder">
+                                    <label>Card holder</label>
+                                    <div></div>
+                                </div>
+                                <div class="card-expiration-date">
+                                    <label>Expires</label>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="strip"></div>
+                                <div class="logo">
+                                    <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.834px"
+                                        height="47.834px" viewBox="0 0 47.834 47.834"
+                                        style="enable-background:new 0 0 47.834 47.834;">
+                                        <g>
+                                            <g>
+                                                <path d="M44.688,16.814h-3.004c-0.933,0-1.627,0.254-2.037,1.184l-5.773,13.074h4.083c0,0,0.666-1.758,0.817-2.143
+                           c0.447,0,4.414,0.006,4.979,0.006c0.116,0.498,0.474,2.137,0.474,2.137h3.607L44.688,16.814z M39.893,26.01
+                           c0.32-0.819,1.549-3.987,1.549-3.987c-0.021,0.039,0.317-0.825,0.518-1.362l0.262,1.23c0,0,0.745,3.406,0.901,4.119H39.893z
+                           M34.146,26.404c-0.028,2.963-2.684,4.875-6.771,4.875c-1.743-0.018-3.422-0.361-4.332-0.76l0.547-3.193l0.501,0.228
+                           c1.277,0.532,2.104,0.747,3.661,0.747c1.117,0,2.313-0.438,2.325-1.393c0.007-0.625-0.501-1.07-2.016-1.77
+                           c-1.476-0.683-3.43-1.827-3.405-3.876c0.021-2.773,2.729-4.708,6.571-4.708c1.506,0,2.713,0.31,3.483,0.599l-0.526,3.092
+                           l-0.351-0.165c-0.716-0.288-1.638-0.566-2.91-0.546c-1.522,0-2.228,0.634-2.228,1.227c-0.008,0.668,0.824,1.108,2.184,1.77
+                           C33.126,23.546,34.163,24.783,34.146,26.404z M0,16.962l0.05-0.286h6.028c0.813,0.031,1.468,0.29,1.694,1.159l1.311,6.304
+                           C7.795,20.842,4.691,18.099,0,16.962z M17.581,16.812l-6.123,14.239l-4.114,0.007L3.862,19.161
+                           c2.503,1.602,4.635,4.144,5.386,5.914l0.406,1.469l3.808-9.729L17.581,16.812L17.581,16.812z M19.153,16.8h3.89L20.61,31.066
+                           h-3.888L19.153,16.8z" />
+                                            </g>
+                                        </g>
+                                    </svg>
+
+                                </div>
+                                <div class="ccv">
+                                    <label>CCV</label>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="form" autocomplete="off" id="tarjeta_click" novalidate>
+                        <fieldset>
+                            <label for="card-number">Número de tarjeta.</label>
+                            <input type="num" id="card-number" class="input-cart-number" maxlength="4" required />
+                            <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" required />
+                            <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" required />
+                            <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" required />
+                        </fieldset>
+                        <fieldset>
+                            <label for="card-holder">Titular de tarjeta.</label>
+                            <input type="text" id="card-holder" required />
+                        </fieldset>
+                        <fieldset class="card-expire">
+                            <label for="expire-month">Fecha de expiración.</label>
+                            <div class="select">
+                                <select id="expire-month">
+                                    <option></option>
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>07</option>
+                                    <option>08</option>
+                                    <option>09</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                            <div class="select">
+                                <select id="expire-year">
+                                    <option></option>
+                                    <option>2016</option>
+                                    <option>2017</option>
+                                    <option>2018</option>
+                                    <option>2019</option>
+                                    <option>2020</option>
+                                    <option>2021</option>
+                                    <option>2022</option>
+                                    <option>2023</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                        <fieldset class="fieldset-ccv">
+                            <label for="card-ccv">CCV</label>
+                            <input type="text" id="card-ccv" maxlength="3" required />
+                        </fieldset>
+
+                    </form>
+                    <center>
+                        <button type="button" class="btn btn-second" data-dismiss="modal">Cancelar</button>
+                        <button class="btn  my-1 btn-main " id="btnpagartarjeta2"><i class="fa fa-lock"></i> Pagar</button>
+                    </center>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
     <!---Modal rating-->
     <div class="modal fade"  id="ratingModalOpen" tabindex="-2" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-centered" role="document" ">
+        <div class="modal-dialog  modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Calificar</h5>
