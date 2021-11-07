@@ -35,6 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
+    <script src="./../JS/video.js" defer></script>
     <title>Continuity-Video</title>
 </head>
 
@@ -42,24 +43,19 @@
    
 <?php include_once("layout_nav.php") ?>
 
-    <div class="row" style="padding-top: 50px;">
+    <div class="row" style="padding-top: 80px;">
 
     
 
-        <div class="col-lg-8 pt-4" style="padding-left: 50px;">
-            <h2 style="font-family: 'Archivo Narrow', sans-serif; font-size: 30px;">Titulo del video</h2>
+        <div class="col-lg-8 pt-2 mt-2" style="padding-left: 50px;">
+            <h2 id="titleVideo" style="font-family: 'Archivo Narrow', sans-serif; font-size: 30px;"></h2>
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-md-8 col-sm-12">
 
-                    <video class="jutify-content-center " src="../IMG/musica.mp4" width="100%" height="auto" >
-                        <source src="movie.mp4" type="video/mp4">
+                    <video id="srcVideo" controls ="controls" class="jutify-content-center " width="100%" height="auto" >
+                        
                     </video>
-                    <h3 style="font-family: 'Archivo Narrow', sans-serif;" >Descripcion del video</h3>
-                    <p style="font-family: 'Archivo Narrow', sans-serif;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ipsum, temporibus
-                        obcaecati placeat at aut dolorum, ullam corporis alias repellendus consectetur velit et nam,
-                        nostrum est similique aspernatur numquam aperiam voluptatum pariatur cupiditate itaque fugiat
-                        iste? Eligendi dolores voluptatibus vero dolorum
-                        alias eaque repellat sint omnis dolore eos, inventore eum.</p>
+                    
                 </div>
 
             </div>
@@ -68,7 +64,7 @@
             </form>
 
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 mt-2">
 
 
             <h2 class="title text-center pt-3" style="font-family: 'Archivo Narrow', sans-serif; font-size: 40px;">
@@ -155,32 +151,14 @@
                 
               
             </div>  <div class="text-center">
-                        <h2>Contenido de niveles</h2>
+                        <h2>Contenido del nivel </h2>
             </div>
     
             <div class="contenidon text-center examplee" style="overflow-y: scroll; height: 290px;" >
               
-            <ul class="list-group" style="color: white;">
-                <li class="list-group-item" style="background-color: rgb(71, 67, 67);">
-                    <span class="float-left">PDF1.doc</span>  <button class="float-right p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
-                    style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Descargar</button>
-                </li>
-                <li class="list-group-item" style="background-color: rgb(71, 67, 67);">
-                    <span class="float-left">PDF1.doc</span>  <button class="float-right p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
-                    style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Descargar</button>
-                </li>
-                <li class="list-group-item" style="background-color: rgb(71, 67, 67);">
-                    <span class="float-left">PDF1.doc</span>  <button class="float-right p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
-                    style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Descargar</button>
-                </li>
-                <li class="list-group-item" style="background-color: rgb(71, 67, 67);">
-                    <span class="float-left">PDF1.doc</span>  <button class="float-right p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
-                    style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Descargar</button>
-                </li>
-                <li class="list-group-item" style="background-color: rgb(71, 67, 67);">
-                    <span class="float-left">PDF1.doc</span>  <button class="float-right p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
-                    style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Descargar</button>
-                </li>
+            <ul class="list-group" id="contResources" style="color: white;">
+               
+               
                 
             
               </ul>

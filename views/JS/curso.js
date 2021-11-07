@@ -42,7 +42,7 @@ $.ajax({
     }
   },
   error:function (x,y,z){
-    debugger
+     
     location.href = "index.php"
   }
 })

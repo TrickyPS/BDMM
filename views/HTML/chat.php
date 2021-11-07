@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./../CSS/chat.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
+    <script src="./../JS/chat.js" defer></script>
 </head>
 
 <body>
@@ -37,17 +39,13 @@
                   <div id="head-msg" class="head-msg">
 
                   </div>
-                  <div class="messages ">
-                        <div class="comment owner">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, molestias sequi! Quam, delectus. Soluta ipsum neque eum ullam laborum veniam porro maxime facilis vitae? Sit eveniet aliquid quos dignissimos delectus.
-                        </div>
-                        <div class="comment noowner">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem praesentium iste dolor in distinctio sed tempore ex sunt adipisci officiis?
-                        </div>
+                  <div id="contMsg" class="messages ">
+                       
+                       
                   </div>
                   <div class="box-message">
-                      <textarea rows="1" class="text-message" placeholder="Escribir mensaje..."></textarea>
-                      <button class=" zoom btn btn-primary">Enviar</button>
+                      <textarea rows="1" id="textMessageChat" class="text-message" placeholder="Escribir mensaje..."></textarea>
+                      <button id="btnEnviarChat" class=" zoom btn btn-primary">Enviar</button>
                   </div>
               </div>
           </div>
@@ -67,28 +65,6 @@
         </script>
 </body>
 
-<script>
-   async function  init(){
-    var resp = await fetch("https://reqres.in/api/users");
-    var data = await resp.json();
-    for(item of data.data){
-        document.getElementById("users-chat").innerHTML += `
-        <div class="list-group" onclick="handlerUser('${item.avatar}','${item.first_name}')">
-                  <div class="list-group-item list-group-item-action d-flex justify-content-start align-items-center">
-                    <img src="${item.avatar}" class="img-fluid img-user"/>
-                    <div class="pl-2"><p> ${item.first_name} ${item.last_name} </p>
-                            <p> Mensaje   </p> <div/>
-                  </div>
-              </div>`;
-    }
-   }
-   function handlerUser(avatar,name){
-       document.getElementById("head-msg").innerHTML =`
-       <img src="${avatar}" class="img-fluid img-user-head"/>
-            <div> ${name} </div>
-       `;
-   }
-   init(); 
-</script>
+
 
 </html>

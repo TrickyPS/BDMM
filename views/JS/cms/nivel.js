@@ -63,7 +63,7 @@ $("#formNivel").submit(function (e) {
             success = false;
         }
     }
-    debugger
+     
    for(var item of listCursos){
        if(item.id_course == curso){
            if(item.price == null && !gratis){
@@ -125,7 +125,7 @@ const Nivel = {
                 formData.append("resource",file.url);
                 else
                 formData.append("resource",file[0]);
-                debugger
+                 
                 $.ajax({
                     type:"POST",
                     url:"./../../controllers/LevelController.php",
@@ -139,7 +139,7 @@ const Nivel = {
                       
                     },
                     error:function(x,y,z){
-                        debugger
+                         
                         console.error(z,y,z);
                     }
                 });
@@ -226,7 +226,7 @@ const Nivel = {
                           });
                     },
                     error:function(x,y,z){
-                        debugger
+                         
                     }
                 });
              
