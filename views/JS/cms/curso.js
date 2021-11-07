@@ -9,7 +9,7 @@ $("#btnCourse").click(function(){
         data:{action:"findAll"},
         dataType:"json",
         success: function(resp){
-            debugger
+             
             $("#Ccategoria").html("")
           resp.map((item)=>{
               $("#Ccategoria").append(`
@@ -18,7 +18,7 @@ $("#btnCourse").click(function(){
           })
         },
         error:function(x,y,z){
-           debugger
+            
         }
     });
     const id_user = JSON.parse(localStorage.getItem("id"));
@@ -68,7 +68,7 @@ function addCurso(image,name,description,price,user,categoria){
         formData.append('description',description);
         formData.append('price',price);
         formData.append('user',user);
-        debugger
+         
     $.ajax({
         type:"POST",
         enctype: "multipart/form-data",
@@ -159,7 +159,7 @@ function getAllCursos(user){
         data:{action:"getAllCursosByUser",user},
         dataType:"json",
         success: function(resp){
-            debugger
+             
             listCursos = resp;
             console.log(listCursos);
             $("#tableShowCursos").html("");
@@ -185,7 +185,7 @@ function getAllCursos(user){
             })
         },
         error:function(x,y,z){
-            debugger
+             
             console.error(z,y,z);
         }
     });
@@ -193,7 +193,7 @@ function getAllCursos(user){
 
 function setStateNivelCmb(id){
     stateCursoCmb = id;
-    debugger
+     
     $("#btnLevel").click();
 }
 

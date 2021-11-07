@@ -473,7 +473,7 @@ BEGIN
 		FROM `course` A INNER JOIN `user` B 
 		ON A.`user` = B.`id_user` INNER JOIN `image` C
 		ON C.`id_image` = A.image 
-		WHERE A.`id_course` = _curso AND B.`id_user` = _user;
+		WHERE A.`id_course` = _curso ;
     end if;
     if _case = 2 then 
 		SELECT   C.`name`,C.`description`,C.`id_category`

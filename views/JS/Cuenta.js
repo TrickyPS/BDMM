@@ -120,7 +120,7 @@ const toBase64 = file => new Promise((resolve, reject) => {
 async function  showImage(){
     var avatar = $('#updateAvatar').prop('files');
     var image = await toBase64(avatar[0]);
-    debugger
+     
     $('#avatar').attr("src",image);
 }
 

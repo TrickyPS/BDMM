@@ -44,6 +44,18 @@ switch ($action) {
          echo $resp;
      break;
 
+     case "getVideo":
+        $id = $_GET["id"];
+        $resp = Video::GetVideo($id);
+         echo json_encode($resp);
+     break;
+
+     case "getResources":
+        $id = $_POST["id"];
+        $resp = Video::GetResources($id);
+        echo json_encode($resp);
+     break;
+
     
     default:
         http_response_code(404);

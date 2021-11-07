@@ -80,5 +80,54 @@ class Video {
            Connection::disconnect($db);
     }
 
+    public static function GetVideo($id){
+      try {
+          $db = Connection::connect();
+          $query = $db->query("CALL SP_Video(4,".$id.",0,'','','')");
+          
+          if($query){
+            Connection::disconnect($db);
+            $resp = $query->fetch_assoc();
+              return $resp; 
+            }
+            else{
+              echo $db->error;
+              Connection::disconnect($db);
+              return false;
+            }
+         } catch (Exception $th) {
+             return false;
+         }
+         Connection::disconnect($db);
+  }
+
+  public static function GetResources($id){
+    try {
+        $db = Connection::connect();
+        $query = $db->query("CALL SP_Nivel(5,".$id.",'',0,0,'','','',0,'')");
+        
+        if($query){
+          Connection::disconnect($db);
+          $recursos = null;
+          while($row = $query->fetch_assoc()){
+            if($row['resource'] != null){
+              $row["resource"] = base64_encode($row["resource"]);
+            }
+            $recursos[] = $row;
+          }
+             return $recursos; 
+          }
+          else{
+            echo $db->error;
+            Connection::disconnect($db);
+            return false;
+          }
+       } catch (Exception $th) {
+           return false;
+       }
+       Connection::disconnect($db);
+}
+
+
     
 }

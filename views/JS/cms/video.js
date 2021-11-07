@@ -107,7 +107,7 @@ const Video = {
         formData.append('title',name);
         formData.append('nivel',nivel);
         formData.append("path",uuidv4())
-        debugger
+         
     $.ajax({
         type:"POST",
         enctype: "multipart/form-data",
