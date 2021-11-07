@@ -60,6 +60,10 @@
                             class="fab fa-youtube navegacion"></i>Mis cursos</a>
                 </li>
                 <li>
+                    <a type="button " class=" zoom opcion" style="padding-left: 20px;" id="boton3"><i
+                            class="fab fa-youtube navegacion"></i>Mis Niveles</a>
+                </li>
+                <li>
                     <a type="button" class=" zoom opcion  " style="padding-left: 20px;" id="boton1"><i
                             class="fas fa-address-card navegacion"></i>Mi
                         perfil</a>
@@ -79,176 +83,9 @@
 
                 </div>
                 <div class="division2 pb-4" id="cursotes " style="font-family: 'Archivo Narrow', sans-serif;">
-                    <section class="pt-4   cursos d-flex align-items-center">
-                        <div class="container " style="overflow-x: hidden; overflow-y: scroll; height: 550px;">
-                            <div class="col-lg-12 col-md-12 col-sm-12 row pb-3"
-                                style="border:rgb(48, 16, 16) 1px !important; border-style: 1px !important;">
-                                <div class="col-lg-4">
-                                    <img class="shadow card-img-right" alt="" style="width: 300px; height:213px;"
-                                        src="../IMG/python.png" data-holder-rendered="true">
-                                </div>
-                                <div class="col-lg-8">
-                                    <h3>Curso de Python</h3>
-                                    <h3 class="mb-0">
-                                        <a class="text-dark" href="#">Categoria</a>
-                                    </h3>
-
-                                    <p class="card-text mb-auto" style="font-size: 15px;">Lorem ipsum dolor sit amet
-                                        consectetur
-                                        adipisicing elit. Corporis, ipsum? Laborum modi sunt, laboriosam quaerat tenetur
-                                        recusandae
-                                        mollitia, illum reiciendis eos sed, soluta totam itaque expedita cupiditate
-                                        esse. Temporibus
-                                        animi itaque iste aperiam esse debitis.</p>
-                                    <div class="text-center">
-                                        <span class=" mx-auto">Progreso del curso : 100%</span>
-                                    </div>
-
-                                    <div class="progress mx-auto" style="width: 500px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="button" onclick="location.href = 'curso.php'"
-                                            class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
-                                            style="width:150px; font-size: 17px;">Ver
-                                            clase</button>
-                                    </div>
-
-
-
-
-                                </div>
-
-                            </div>
-                            <hr>
-                            <div class="col-lg-12 col-md-12 col-sm-12 row pb-3"
-                                style="border:rgb(48, 16, 16) 1px !important; border-style: 1px !important;">
-                                <div class="col-lg-4">
-                                    <img class="shadow card-img-right" alt="" style="width: 300px; height:213px;"
-                                        src="../IMG/python.png" data-holder-rendered="true">
-                                </div>
-                                <div class="col-lg-8">
-                                    <h3>Curso de Python</h3>
-                                    <h3 class="mb-0">
-                                        <a class="text-dark" href="#">Categoria</a>
-                                    </h3>
-
-                                    <p class="card-text mb-auto" style="font-size: 15px;">Lorem ipsum dolor sit amet
-                                        consectetur
-                                        adipisicing elit. Corporis, ipsum? Laborum modi sunt, laboriosam quaerat tenetur
-                                        recusandae
-                                        mollitia, illum reiciendis eos sed, soluta totam itaque expedita cupiditate
-                                        esse. Temporibus
-                                        animi itaque iste aperiam esse debitis.</p>
-                                    <div class="text-center">
-                                        <span class=" mx-auto">Progreso del curso : 100%</span>
-                                    </div>
-
-                                    <div class="progress mx-auto" style="width: 500px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="button" onclick="location.href = 'curso.php'"
-                                            class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
-                                            style="width:150px; font-size: 17px;">Ver
-                                            clase</button>
-                                    </div>
-
-
-
-
-                                </div>
-
-                            </div>
-                            <hr>
-                            <div class="col-lg-12 col-md-12 col-sm-12 row pb-3"
-                                style="border:rgb(48, 16, 16) 1px !important; border-style: 1px !important;">
-                                <div class="col-lg-4">
-                                    <img class="shadow card-img-right" alt="" style="width: 300px; height:213px;"
-                                        src="../IMG/python.png" data-holder-rendered="true">
-                                </div>
-                                <div class="col-lg-8">
-                                    <h3>Curso de Python</h3>
-                                    <h3 class="mb-0">
-                                        <a class="text-dark" href="#">Categoria</a>
-                                    </h3>
-
-                                    <p class="card-text mb-auto" style="font-size: 15px;">Lorem ipsum dolor sit amet
-                                        consectetur
-                                        adipisicing elit. Corporis, ipsum? Laborum modi sunt, laboriosam quaerat tenetur
-                                        recusandae
-                                        mollitia, illum reiciendis eos sed, soluta totam itaque expedita cupiditate
-                                        esse. Temporibus
-                                        animi itaque iste aperiam esse debitis.</p>
-                                    <div class="text-center">
-                                        <span class=" mx-auto">Progreso del curso : 100%</span>
-                                    </div>
-
-                                    <div class="progress mx-auto" style="width: 500px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="button" onclick="location.href = 'curso.php'"
-                                            class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
-                                            style="width:150px; font-size: 17px;">Ver
-                                            clase</button>
-                                    </div>
-
-
-
-
-                                </div>
-
-                            </div>
-                            <hr>
-                            <div class="col-lg-12 col-md-12 col-sm-12 row pb-3"
-                                style="border:rgb(48, 16, 16) 1px !important; border-style: 1px !important;">
-                                <div class="col-lg-4">
-                                    <img class="shadow card-img-right" alt="" style="width: 300px; height:213px;"
-                                        src="../IMG/python.png" data-holder-rendered="true">
-                                </div>
-                                <div class="col-lg-8">
-                                    <h3>Curso de Python</h3>
-                                    <h3 class="mb-0">
-                                        <a class="text-dark" href="#">Categoria</a>
-                                    </h3>
-
-                                    <p class="card-text mb-auto" style="font-size: 15px;">Lorem ipsum dolor sit amet
-                                        consectetur
-                                        adipisicing elit. Corporis, ipsum? Laborum modi sunt, laboriosam quaerat tenetur
-                                        recusandae
-                                        mollitia, illum reiciendis eos sed, soluta totam itaque expedita cupiditate
-                                        esse. Temporibus
-                                        animi itaque iste aperiam esse debitis.</p>
-                                    <div class="text-center">
-                                        <span class=" mx-auto">Progreso del curso : 100%</span>
-                                    </div>
-
-                                    <div class="progress mx-auto" style="width: 500px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="button" onclick="location.href = 'curso.php'"
-                                            class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
-                                            style="width:150px; font-size: 17px;">Ver
-                                            clase</button>
-                                    </div>
-
-
-
-
-                                </div>
-
-                            </div>
-                            <hr>
-
-
-
-
+                    <section class="pt-4   cursos d-flex align-items-center" id="misCursos">
+                        <div class="container " id="agregaCursos" style="overflow-x: hidden; overflow-y: scroll; height: 550px;">
+                            
                         </div>
 
                     </section>
@@ -348,6 +185,60 @@
                     </section>
                 </div>
 
+            </div>
+            <div class="d-none division3">
+                <div class=" d-flex  justify-content-center mx-auto"
+                    style="  padding-top: 20px; font-family: 'Archivo Narrow', sans-serif;">
+
+                </div>
+                <div class="division3 pb-4" id="cursotes " style="font-family: 'Archivo Narrow', sans-serif;">
+                    <section class="pt-4   cursos d-flex align-items-center" id="misCursos">
+                        <div class="container " id="agregaCursos" style="overflow-x: hidden; overflow-y: scroll; height: 550px;">
+                        <div class="col-lg-12 col-md-12 col-sm-12 row pb-3"
+            style="border:rgb(48, 16, 16) 1px !important; border-style: 1px !important;">
+            <div class="col-lg-4">
+                <img class="shadow card-img-right" alt="" style="width: 300px; height:213px;"
+                    src="" data-holder-rendered="true">
+            </div>
+            <div class="col-lg-8">
+                <h3>Curso de Python</h3>
+                <h3 class="mb-0" id="obtenerCategoriaU${item.idCurso}">
+                   
+                </h3>
+            
+                <p class="card-text mb-auto" style="font-size: 15px;">Lorem ipsum dolor sit amet
+                    consectetur
+                    adipisicing elit. Corporis, ipsum? Laborum modi sunt, laboriosam quaerat tenetur
+                    recusandae
+                    mollitia, illum reiciendis eos sed, soluta totam itaque expedita cupiditate
+                    esse. Temporibus
+                    animi itaque iste aperiam esse debitis.</p>
+                <div class="text-center">
+                    <span class=" mx-auto">Progreso del curso : 100%</span>
+                </div>
+            
+                <div class="progress mx-auto" style="width: 500px;">
+                    <div class="progress-bar" role="progressbar" style="width: 100%"
+                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="text-center">
+                    <button type="button" onclick="location.href = 'curso.php'"
+                        class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
+                        style="width:150px; font-size: 17px;">Ver
+                        clase</button>
+                </div>
+            
+            
+            
+            
+            </div>
+            
+            </div>
+            <hr>
+                        </div>
+
+                    </section>
+                </div>
             </div>
         </div>
 

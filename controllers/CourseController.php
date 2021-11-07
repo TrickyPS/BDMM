@@ -1,5 +1,6 @@
 <?php
 include("../models/Curso.php");
+include("../models/User.php");
 include("../db/Connection.php");
 
 $action = null;
@@ -77,7 +78,86 @@ switch ($action) {
          $resp = Curso::GetCursobyId($curso,$user);
          echo json_encode($resp);
      break;
-    
+     case "pagarCurso":
+     
+         $courseid = $_POST["courseId"];
+         $userid = $_POST["userId"];
+         $precio = $_POST["amount"];
+         $payment = $_POST["paymentMethod"];
+         $keyp = $_POST["key"];
+
+      
+         $resp = Curso :: BuyCourse($courseid,$userid,$precio,$payment,$keyp);
+         echo json_encode($resp);
+        
+     break;
+     case "obtenerHistorial":
+        $userid = $_POST["userId"];
+        $resp = User :: GetHist($userid);
+        echo json_encode($resp);
+
+    break;
+    case "obtenerNiveles":
+        $curso = $_POST["curso"];
+        $resp = Curso :: ObtenerNiveles($curso);
+        echo json_encode($resp);
+    break;
+    case "traercurso":
+        $curso = $_POST["curso"];
+        $resp = User :: GetCursobyId3($curso);
+        echo json_encode($resp);
+    break;
+    case "obtenerNivelesUser":
+        $curso = $_POST["curso"];
+        $user = $_POST["user"];
+        $resp = Curso :: ObtenerNivelesUser($user,$curso);
+        echo json_encode($resp);
+    break;
+    case "obtenervideosleveluser":
+        $user = $_POST["user"];
+        $level = $_POST["level"];
+        $resp = Curso :: ObtenerVideosUser($user,$level);
+        echo json_encode($resp);
+    break;
+    case "obtenervideoslevel":
+        $level = $_POST["level"];
+        $resp = Curso :: ObtenerVideos($level);
+        echo json_encode($resp);
+    break;
+    case "estatusnivel":
+        $level = $_POST["level"];
+        $user = $_POST["user"];
+        $resp = Curso :: estatusNivel($level,$user);
+        echo json_encode($resp);
+    break;
+    case "obtenerporcentaje":
+        $user = $_POST["user"];
+        $cursito = $_POST["cursito"];
+        $resp = Curso :: progresocurso($user,$cursito);
+        echo json_encode($resp);
+    break;
+    case "comentar":
+        $curso = $_POST["curso"];
+        $user = $_POST["user"];
+        $comentario = $_POST["comentario"];
+        $resp = Curso :: comentario($curso,$user,$comentario);
+        echo json_encode($resp);
+    break;
+    case "comentar2":
+        $curso = $_POST["curso"];
+        $resp = Curso :: comentario2($curso);
+        echo json_encode($resp);
+    break;
+    case "pagarNivel":
+        $user = $_POST["user"];
+        $level = $_POST["level"];
+        $nivel = $_POST["nivel"];
+        $precio = $_POST["precio"];
+        $metodo = $_POST["metodo"];
+        $llave = $_POST["llave"];
+        $resp = Curso :: PagarNivel($user,$level,$nivel,$precio,$metodo,$llave);
+        echo json_encode($resp);
+    break;
     default:
         http_response_code(404);
         break;

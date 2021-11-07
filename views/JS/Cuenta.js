@@ -1,3 +1,5 @@
+const id_user = JSON.parse(localStorage.getItem("id"));
+debugger
 $(document).ready(function () {
 
     const createdAt = localStorage.getItem("created_at").substr(0, 10);
@@ -27,13 +29,19 @@ $(document).ready(function () {
     $("#boton1").on('click', function () {
         $(".division1").removeClass("d-none");
         $(".division2").addClass("d-none");
+        $(".division3").addClass("d-none");
     });
 
     $("#boton2").on('click', function () {
         $(".division1").addClass("d-none");
+        $(".division3").addClass("d-none");
         $(".division2").removeClass("d-none");
     });
-
+    $("#boton3").on('click', function () {
+        $(".division1").addClass("d-none");
+        $(".division2").addClass("d-none");
+        $(".division3").removeClass("d-none");
+    });
 
 });
 
@@ -170,9 +178,99 @@ function setUser(user) {
 }
 
 
+  $.ajax({
+    type:"POST",
+    url:"./../../controllers/CourseController.php",
+    data:{action:"obtenerHistorial",userId:id_user},
+    dataType:"json",
+    success:function(resp){
+        debugger
+      console.log(resp)
+        for(var item of resp){
+debugger
+            $("#agregaCursos").append(`
+            <div class="col-lg-12 col-md-12 col-sm-12 row pb-3"
+            style="border:rgb(48, 16, 16) 1px !important; border-style: 1px !important;">
+            <div class="col-lg-4">
+                <img class="shadow card-img-right" alt="" style="width: 300px; height:213px;"
+                    src="${"data:"+item.tipo + ";base64,"+item.imagen}" data-holder-rendered="true">
+            </div>
+            <div class="col-lg-8">
+                <h3>Curso de Python</h3>
+                <h3 class="mb-0" id="obtenerCategoriaU${item.idCurso}">
+                   
+                </h3>
+            
+                <p class="card-text mb-auto" style="font-size: 15px;">Lorem ipsum dolor sit amet
+                    consectetur
+                    adipisicing elit. Corporis, ipsum? Laborum modi sunt, laboriosam quaerat tenetur
+                    recusandae
+                    mollitia, illum reiciendis eos sed, soluta totam itaque expedita cupiditate
+                    esse. Temporibus
+                    animi itaque iste aperiam esse debitis.</p>
+                <div class="text-center">
+                    <span class=" mx-auto">Progreso del curso : 100%</span>
+                </div>
+            
+                <div class="progress mx-auto" style="width: 500px;">
+                    <div class="progress-bar" role="progressbar" style="width: 100%"
+                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="text-center">
+                    <button type="button" onclick="location.href = 'curso.php'"
+                        class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
+                        style="width:150px; font-size: 17px;">Ver
+                        clase</button>
+                </div>
+            
+            
+            
+            
+            </div>
+            
+            </div>
+            <hr>
+        
+            `);
+            var curso = item.idCurso;
+            debugger
+            $.ajax({
+                type:"GET",
+                url:"./../../controllers/CategoryController.php",
+                data:{action:"getCategoriasByCurso",curso:curso},
+                dataType:"json",
+                async:false,
+                success:function(resp2){
+                    debugger
+                  console.log(resp2)
+                  for( var item2 of resp2){
+
+                    $("#obtenerCategoriaU"+item.idCurso).append(`<a class="text-dark" href="#">${item2.name}</a>`);
+                  }
+                   
+                  
+                alert(resp);
+                },
+                error:function (x,y,z){
+                  debugger
+                  alert(x);
+                  
+                }
+              })
 
 
 
 
+          }
+        
+      
+    alert(resp);
+    },
+    error:function (x,y,z){
+      debugger
+      location.href = "index.php"
+      
+    }
+  })
 
 

@@ -93,6 +93,79 @@ class User {
        Connection::disconnect($db);
     }
 
+
+    public static function GetHist($idUser){
+      try {
+        $db = Connection::connect();
+        $query = $db->query("CALL SP_Historial(".$idUser.")");
+        $historial = null;
+        if($query){
+          while($row = $query->fetch_assoc()){
+            Connection::disconnect($db);
+            $row["imagen"] = base64_encode($row["imagen"]);
+            $historial[] = $row;
+          }
+            return $historial; 
+          }
+          else{
+            echo $db->error;
+            Connection::disconnect($db);
+            return false;
+          }
+       } catch (Exception $th) {
+           return false;
+       }
+      
+    }
+    
+
+
+    public static function GetCursobyId2($curso,$user){
+      try {
+        $db = Connection::connect();
+        $query = $db->query("CALL SP_CursoState(2,".$curso.",".$user.")");
+        
+        if($query){
+            Connection::disconnect($db);
+            $curso = $query->fetch_assoc();
+            return $curso; 
+          }
+          else{
+            echo $db->error;
+            Connection::disconnect($db);
+            return false;
+          }
+       } catch (Exception $th) {
+           return false;
+       }
+       
+    }
+    
+    public static function GetCursobyId3($curso){
+      try {
+        $db = Connection::connect();
+        $query = $db->query("CALL SP_CursoState(3,".$curso.",3)");
+        
+        if($query){
+            Connection::disconnect($db);
+            $curso = $query->fetch_assoc();
+            $curso["imagen"] = base64_encode($curso["imagen"]);
+            return $curso; 
+          }
+          else{
+            echo $db->error;
+            Connection::disconnect($db);
+            return false;
+          }
+       } catch (Exception $th) {
+           return false;
+       }
+       
+    }
+
+
+
 }
+
 
 ?>

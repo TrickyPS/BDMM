@@ -2,9 +2,9 @@
 
 return array (
     "dbHost" => "localhost",
-    "dbName" => "BDM",
+    "dbName" => "bdm",
     "dbUser" => "root",
-    "dbPass" => "12345678"
+    "dbPass" => "root"
 )
 
 ?>
