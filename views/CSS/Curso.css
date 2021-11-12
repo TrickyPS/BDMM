@@ -65,6 +65,11 @@
        z-index: 5 !important;
        transform: scale(1.1) !important; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
      }
+
+     .btn-hover:hover{
+       color: #FFFFFF !important;
+     }
+
      .button {
        border-radius: 4px;
        background-color: #2b2d33;

@@ -128,6 +128,48 @@ class Video {
        Connection::disconnect($db);
 }
 
+public static function SetProgress($id,$user){
+  try {
+      $db = Connection::connect();
+      $query = $db->query("CALL SP_Video(5,".$id.",".$user.",'','','')");
+      
+      if($query){
+        Connection::disconnect($db);
+        $recursos = null;
+        return true;
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
 
-    
+public static function GetVideosByLevel($id){
+  try {
+      $db = Connection::connect();
+      $query = $db->query("CALL SP_Video(6,0,".$id.",'','','')");
+      
+      if($query){
+        Connection::disconnect($db);
+        $videos = null;
+        while($row = $query->fetch_assoc()){
+          $videos[] = $row;
+        }
+        return $videos;
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
 }

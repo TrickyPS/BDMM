@@ -56,6 +56,19 @@ switch ($action) {
         echo json_encode($resp);
      break;
 
+     case "setProgress":
+        $id = $_POST["id"];
+        $user = $_POST["user"];
+        $resp = Video::SetProgress($id,$user);
+        echo json_encode($resp);
+     break;
+
+     case "getVideosByLevel":
+        $id = $_POST["id"];
+        $resp = Video::GetVideosByLevel($id);
+        echo json_encode($resp);
+     break;
+
     
     default:
         http_response_code(404);

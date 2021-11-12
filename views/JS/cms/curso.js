@@ -186,7 +186,7 @@ function getAllCursos(user){
         },
         error:function(x,y,z){
              
-            console.error(z,y,z);
+            console.error(x,y,z);
         }
     });
 }

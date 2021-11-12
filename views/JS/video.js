@@ -5,7 +5,14 @@ var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
   });
 const id_user = JSON.parse(localStorage.getItem("id"))
 
-
+var vid = document.getElementById("srcVideo");
+vid.onplay = function() {
+    setTimeout(function(){
+      toastr.success( 'Progreso Guardado','Bien!');
+      Video.progreso()
+    },5000)
+};
+var videoDefault = {};
 const Video = {
     getVideo: function(){
         $.ajax({
@@ -14,8 +21,7 @@ const Video = {
             data:{action:"getVideo",id:vars.video},
             dataType:"json",
             success:function(resp){
-               
-              console.log(resp);
+              
               $("#srcVideo").append(`
               <source src="${"./../.." + resp.path}" type="${resp.type}" >
               `)
@@ -24,6 +30,7 @@ const Video = {
             error:function (x,y,z){
                
               console.error(x.responseText);
+              window.location.href = "notfound.php"
             }
           })
     },
@@ -31,7 +38,7 @@ const Video = {
       $.ajax({
         type:"POST",
         url:"./../../controllers/VideoController.php",
-        data:{action:"getResources",id:vars.video},
+        data:{action:"getResources",id:vars.nivel},
         dataType:"json",
         success:function(resp){
            console.log(resp);
@@ -40,7 +47,7 @@ const Video = {
                 if(item.url == null){
                   $("#contResources").append(`
                   <li class="list-group-item" style="background-color: rgb(71, 67, 67);">
-                  <span class="float-left">${item.nombre}</span>  <a  download="${item.type}" href="${"data:" + item.type + ";base64," + item.resource}" class="float-right p1p btn button mt-0 ml-1 zoom" 
+                  <span class="float-left">${item.nombre}</span>  <a  download="${item.type}" href="${"data:" + item.type + ";base64," + item.resource}" class="btn-hover float-right p1p btn button mt-0 ml-1 zoom" 
                   style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Descargar</a>
                  </li>
                   `)
@@ -48,7 +55,7 @@ const Video = {
                   $("#contResources").append(`
                   <li class="list-group-item" style="background-color: rgb(71, 67, 67);">
                   <span class="float-left">${item.url.substring(0,20) + "..."}</span> 
-                   <a target="blank" href="${item.url}" class="float-right p1p btn button mt-0 ml-1 zoom"  
+                   <a target="blank" href="${item.url}" class="btn-hover float-right p1p btn button mt-0 ml-1 zoom"  
                   style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</a>
                  </li>
                   `)
@@ -60,15 +67,74 @@ const Video = {
         error:function (x,y,z){
            
           console.error(x.responseText);
+          window.location.href = "notfound.php"
         }
       })
-    }
+    },
+    progreso: function(){
+      $.ajax({
+        type:"POST",
+        url:"./../../controllers/VideoController.php",
+        data:{action:"setProgress",id:vars.video,user:id_user},
+        success:function(resp){
+          
+          $("#showProgress").html(`
+            <p class="text-success"><i class="fas fa-check"></i> Progreso Actualizado</p>
+          `)
+       
+        },
+        error:function (x,y,z){
+           
+          console.error(x.responseText);
+        }
+      })
+    },
+    getVideoByLevel: function(){
+      $.ajax({
+        type:"POST",
+        url:"./../../controllers/VideoController.php",
+        data:{action:"getVideosByLevel",id:vars.nivel},
+        dataType:"json",
+        async:false,
+        success:function(resp){
+           console.log(resp);
+           if(resp ){
+            for(var item of resp){
+             
+                $("#contVideos").prepend(`
+                <li class="list-group-item" style="background-color: rgb(71, 67, 67);">
+                <span class="float-left">${item.title}</span>  <a   href="video.php?video=${item.id_video}&nivel=${vars.nivel}" class="btn-hover text-ligth float-right  btn button mt-0 ml-1 zoom" 
+                style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</a>
+               </li>
+                `)
+               
+              videoDefault=item;
+            }
+        }
+        },
+        error:function (x,y,z){
+           
+          console.error(x.responseText);
+          window.location.href = "notfound.php"
+        }
+      })
+    },
 }
 
 if(vars.video){
     Video.getVideo()
+    if(vars.nivel){
+      Video.getVideoByLevel()
+    }
+}else if (vars.nivel){
+  Video.getVideoByLevel();
+  console.log(videoDefault);
+  $("#srcVideo").append(`
+  <source src="${"./../.." + videoDefault.path}" type="${videoDefault.type}" >
+  `)
+  $("#titleVideo").html(videoDefault.title)
 }else{
-    window.location.href = "notfound.php"
+  window.location.href = "notfound.php"
 }
 
 Video.getResources()

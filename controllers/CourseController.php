@@ -158,6 +158,13 @@ switch ($action) {
         $resp = Curso :: PagarNivel($user,$level,$nivel,$precio,$metodo,$llave);
         echo json_encode($resp);
     break;
+    case "addCalificate":
+        $user = $_POST["user"];
+        $curso = $_POST["curso"];
+        $value = $_POST["valor"];
+        $resp = Curso::AddCalificate($user,$curso,$value);
+        echo json_encode($resp);
+    break;
     default:
         http_response_code(404);
         break;

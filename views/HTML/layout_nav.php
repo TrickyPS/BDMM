@@ -64,8 +64,8 @@ $currentUrl = strtolower(array_pop($url));
                     </a>
                     <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item " id="noadmins" href="../HTML/cuenta.php">Mi Cuenta</a>
-                        <a class="variable dropdown-item" id="admins" href="../HTML/cms.php">Cms</a>
-                        <a class="variable dropdown-item" id="chat" href="../HTML/chat.php">Chat</a>
+                        <a class="variable dropdown-item" id="admins" href="../HTML/cms.php">Administración</a>
+                        <a class="variable dropdown-item" id="chat" href="../HTML/chat.php">Chat Privado</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item " style="cursor:pointer;" onclick="cerrarSesion();">Cerrar
                             sesión</a>

@@ -22,6 +22,8 @@
     <script src="./../JS/cms/video.js" defer></script>
     <script src="./../JS/cms/nivel.js" defer></script>
     <script src="./../JS/cms/curso.js" defer></script>
+    <script src="./../JS/cms/dashboard.js" defer></script>
+    <script src="./../JS/cms/reportes.js" defer></script>
     <script src="./../JS/cms/category.js" defer></script>
     <script src="./../JS/cms.js" defer></script>
 </head>
@@ -37,7 +39,7 @@
             <div id="nav-cms" class="col-lg-2">
 
                 <div  class="nav">
-                    <div  onclick="toggleNav('dashboard')" class="item-nav cms-act">Dashboard <i
+                    <div id="btnDashBoard" onclick="toggleNav('dashboard')" class="item-nav cms-act">Dashboard <i
                             class="fas fa-tachometer-alt"></i> </div>
                     <div id="btnMyCourses" onclick="toggleNav('misCursos')" class="item-nav cms-act">Mis Cursos <i
                             class="fas fa-laptop-house"></i> </div>
@@ -63,15 +65,15 @@
                                     <div class="card shadow">
                                         <div class="card-body">
                                             <div class="h5"> Total</div>
-                                            <div class="card-text">$8,600.00 MXN</div>
+                                            <div id="cardTotal" class="card-text"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="card shadow">
                                         <div class="card-body">
-                                            <div class="h5"> Total Semanal</div>
-                                            <div class="card-text">$1,200.00 MXN</div>
+                                            <div class="h5"> Total Mensual</div>
+                                            <div id="cardTotalMonth" class="card-text"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +81,7 @@
                                     <div class="card shadow">
                                         <div class="card-body">
                                             <div class="h5"> Cursos Vendidos</div>
-                                            <div class="card-text">5 cursos</div>
+                                            <div id="cardCursosVendidos" class="card-text"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -94,26 +96,9 @@
                         <div class="col-md-4">
                             <div class="  card shadow pt-3">
                                 <p class="h5 pl-3">Cursos Mas Vendidos</p>
-                                <ul class="list-group">
-                                    <li
-                                        class="list-group-item d-flex flex-row justify-content-between align-items-center list-group-item-action">
-                                        <div class="h4">1</div>
-                                        <img src="" alt="Curso" class="img-thubnail">
-                                        <div class="h5">$2,500.00</div>
-                                    </li>
-                                    <li
-                                        class="list-group-item d-flex flex-row justify-content-between align-items-center list-group-item-action">
-                                        <div class="h4">2</div>
-                                        <img src="" alt="Curso" class="img-thubnail">
-                                        <div class="h5">$2,100.00</div>
-                                    </li>
-                                    <li
-                                        class="list-group-item d-flex flex-row justify-content-between align-items-center list-group-item-action">
-                                        <div class="h4">3</div>
-                                        <img src="" alt="Curso" class="img-thubnail">
-                                        <div class="h5">$1,400.00</div>
-                                    </li>
-
+                                <ul id="listCursosBest" class="list-group">
+                                    
+                                   
                                 </ul>
                             </div>
                             <div class="card shadow p-3 mt-2 mb-4">
@@ -142,65 +127,14 @@
                                             <th>Nivel promedio</th>
                                             <th></th>
                                             <th></th>
-                                            <th></th>
+                                           
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Javascript Introducción</td>
-                                            <td>Público <i class="fas fa-globe-americas text-success"></i></td>
-                                            <td>$500.00</td>
-                                            <td>14</td>
-                                            <td>$7,000</td>
-                                            <td>3</td>
-                                            <td><button class="btn btn-sm btn-primary ">Ver detalle</button></td>
-                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i
-                                                        class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-ligth"
-                                                    onclick="location.href='curso.php'"><i
-                                                        class="far fa-eye"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Golang Gorilla-Mux</td>
-                                            <td>Público <i class="fas fa-globe-americas text-success"></i></td>
-                                            <td>$400.00</td>
-                                            <td>4</td>
-                                            <td>$1,600</td>
-                                            <td>5</td>
-                                            <td><button class="btn btn-sm btn-primary ">Ver detalle</button></td>
-                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i
-                                                        class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-ligth"
-                                                    onclick="location.href='curso.php'"><i
-                                                        class="far fa-eye"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>React Native</td>
-                                            <td>No público <i class="fas fa-globe-americas text-secondary"></i></td>
-                                            <td>$650.00</td>
-                                            <td>0</td>
-                                            <td>$0.00</td>
-                                            <td>0</td>
-                                            <td><button class="btn btn-sm btn-primary ">Publicar <i
-                                                        class="fas fa-globe-americas "></button></td>
-                                            <td> <button class="btn  btn-sm btn-info" onclick="toggleNav('curso')"> <i
-                                                        class="fas fa-pen"></i> Editar</button> </td>
-                                            <td><button class="btn btn-sm btn-ligth"
-                                                    onclick="location.href='curso.php'"><i
-                                                        class="far fa-eye"></i></button></td>
-                                        </tr>
+                                    <tbody id="contMyCursos">
+                                       
+                                       
 
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <th>Total: $8,600.00</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                       
 
                                     </tbody>
                                 </table>
@@ -217,14 +151,20 @@
                                     <tbody>
                                         <tr>
                                             <th>Ingresos</th>
-                                            <td>6200</td>
-                                            <td>2400</td>
+                                            <td id="totalMC" >$ 0.00 MXN</td>
+                                            <td id="totalP"> $ 0.00 MXN</td>
+                                        </tr>
+                                        <tr>
+                                           
+                                            
+                                            <th id="totalMethodP"></th>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
 
-                            <div class="card shadow p-3 mt-3 mb-3">
+                            <div id="reporteDetalle" class="card shadow p-3 mt-3 mb-3">
                                 <p class="h4">Detalles del Curso Javascript Introducción</p>
                                 <table class="table">
                                     <thead>
@@ -232,25 +172,15 @@
                                             <th>#</th>
                                             <th>Alumno</th>
                                             <th>Correo</th>
+                                            <th>Desde</th>
+                                            <th>Avance</th>
                                             <th>Pago</th>
                                             <th>Forma de pago</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Pedro Angel Ramírez Villarreal</td>
-                                            <td>pedro@gmail.com</td>
-                                            <td>$500.00</td>
-                                            <td>Master Card</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jesus Angel Paredes Sauceda</td>
-                                            <td>angel @gmail.com</td>
-                                            <td>$500.00</td>
-                                            <td>Master Card</td>
-                                        </tr>
+                                    <tbody id="contDetalle">
+                                       
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -514,58 +444,6 @@
 
     <?php include_once("layout_footer.php") ?>
 
-    <script>
-    const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June'
-    ];
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30],
-        }]
-    };
-
-    const dataCategory = {
-        labels: labels,
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: ['rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)',
-                'rgb(54,235,162)',
-                'rgb(162,54,240)',
-                'rgb(40,255,100)'
-            ],
-            borderColor: 'rgb(255, 99, 132)',
-            data: [5, 10, 5, 2, 20, 30],
-        }]
-    };
-
-    const config = {
-        type: 'line',
-        data: data,
-        options: {}
-    };
-    var myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-    var categoryChart = new Chart(
-        document.getElementById('categoryChart'), {
-            type: 'doughnut',
-            data: dataCategory,
-            options: {}
-        }
-    );
-    </script>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

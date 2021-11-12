@@ -27,14 +27,14 @@ const Chat = {
       data:{action:"getEachUserChat",user:id_user},
       dataType:"json",
       success:function(resp){
-        console.log(resp);
-        userList = resp;
+       console.log(resp);
+        userList = resp? resp : [];
         $("#users-chat").html("")
         for(var item of userList){
           $("#users-chat").prepend(`
-          <div class="list-group" onclick="handlerUser('${item.image == null ? "./../IMG/user.png" : "data:" + item.type_image + ";base64," + item.image}','${item.name}',${item.id_user})">
+          <div class="list-group" onclick="handlerUser('${item.image == null || item.type_image == null? "./../IMG/user.png" : "data:" + item.type_image + ";base64," + item.image}','${item.name}',${item.id_user})">
                     <div class="list-group-item list-group-item-action d-flex justify-content-start align-items-center">
-                      <img style="width:100px; height:100px;object-fit:cover" src="${item.image == null ? "./../IMG/user.png" : "data:" + item.type_image + ";base64," + item.image}" class=" img-user"/>
+                      <img style="width:100px; height:100px;object-fit:cover" src="${item.image == null || item.type_image == null ? "./../IMG/user.png" : "data:" + item.type_image + ";base64," + item.image}" class=" img-user"/>
                       <div class="pl-2 w-100">
                               <div class="d-flex justify-content-between">
                               <p> ${item.name}  </p>
@@ -94,9 +94,9 @@ const Chat = {
          
         console.log(resp);
         $("#users-chat").prepend(`
-        <div class="list-group" onclick="handlerUser('${resp.image == null ? "./../IMG/user.png" : "data:" + resp.type_image + ";base64," + resp.image}','${resp.name}',${to})">
+        <div class="list-group" onclick="handlerUser('${resp.image == null || resp.image == "" || resp.type_image == null ? "./../IMG/user.png" : "data:" + resp.type_image + ";base64," + resp.image}','${resp.name}',${to})">
                   <div class="list-group-item list-group-item-action d-flex justify-content-start align-items-center">
-                    <img style="width:100px; height:100px; object-fit:cover" src="${resp.image == null ? "./../IMG/user.png" : "data:" + resp.type_image + ";base64," + resp.image}" class=" img-user"/>
+                    <img style="width:100px; height:100px; object-fit:cover" src="${resp.image == null || resp.image == "" || resp.type_image == null ? "./../IMG/user.png" : "data:" + resp.type_image + ";base64," + resp.image}" class=" img-user"/>
                     <div class="pl-2"><p> ${resp.name}  </p>
                             <p> Borrador   </p> <div/>
                   </div>

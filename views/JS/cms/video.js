@@ -96,7 +96,7 @@ const Video = {
                console.log(resp);
             },
             error:function(x,y,z){
-                console.error(z,y,z);
+                console.error(x,y,z);
             }
         });
     },
@@ -159,7 +159,7 @@ const Video = {
               })
             },
             error:function(x,y,z){
-                console.error(z,y,z);
+                console.error(x,y,z);
             }
         });
     },
@@ -192,7 +192,7 @@ const Video = {
                   });
             },
             error:function(x,y,z){
-                console.error(z,y,z);
+                console.error(x,y,z);
             }
             });
           }

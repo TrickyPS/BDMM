@@ -20,8 +20,7 @@
         integrity="sha512-i+WzzATeaDcwcfi5CfLn63qBxrKqiQvDLC+IChU1zVlaPguPgJlddOR07nU28XOoIOno9WPmJ+3ccUInpmHxBg=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
-    <link rel="stylesheet" href="../CSS/Onboarding.css">
-    <link rel="stylesheet" href="../CSS/toast.css">
+ 
     <!-- FONTS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
@@ -36,6 +35,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
     <script src="./../JS/video.js" defer></script>
+    <link rel="stylesheet" href="./../CSS/video.css"></link>
     <title>Continuity-Video</title>
 </head>
 
@@ -52,7 +52,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-md-8 col-sm-12">
 
-                    <video id="srcVideo" controls ="controls" class="jutify-content-center " width="100%" height="auto" >
+                    <video id="srcVideo" controls class="jutify-content-center " width="100%" height="auto" >
                         
                     </video>
                     
@@ -68,89 +68,31 @@
 
 
             <h2 class="title text-center pt-3" style="font-family: 'Archivo Narrow', sans-serif; font-size: 40px;">
-                Niveles del curso</h2>
-            <div id="accordion" class="pb-5 justify-content-center examplee" style="font-family: 'Archivo Narrow', sans-serif; overflow-y:scroll; height: 190px;" >
-                <div class="col-lg-12 mx-auto">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                            <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                aria-controls="collapseOne">
-                                Nivel 1
-                            </button>
-                            <span></span>
-                            <span></span>
-                        </h5>
-                    </div>
-
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="card-body">
-                            <span>Video uno de practica de programacion con Python.</span>
-                            <button  onclick="location.href = 'video.php'" class=" p1p btn button mt-0 ml-1 zoom float-right"  id="botonsearch" type="submit"
-                            style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                           </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 mx-auto">
-                    <div class="card-header" id="headingTwo">
-                        <h5 class="mb-0">
-                            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                aria-expanded="false" aria-controls="collapseTwo">
-                                Nivel 2
-                            </button>
-                            <span></span>
-                            <span> </span>
-                        </h5>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body">
-                            <span>Video uno de practica de programacion con Python.</span>
-                            <button  onclick="location.href = 'video.php'" class=" p1p btn button mt-0 ml-1 zoom float-right"  id="botonsearch" type="submit"
-                            style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                           </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-12 mx-auto">
-                    <div class="card-header" id="headingThree">
-                        <h5 class="">
-                            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseThree"
-                                aria-expanded="false" aria-controls="collapseThree">
-                                Nivel 3
-                            </button>
-                            <span></span>
-                            <span></span>
-                        </h5>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                        <div class="card-body">
-                            <span>Video uno de practica de programacion con Python.</span>
-                            <button  onclick="location.href = 'video.php'" class=" p1p btn button mt-0 ml-1 zoom float-right"  id="botonsearch" type="submit"
-                            style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                           </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 mx-auto">
-                    <div class="card-header" id="headingFour">
-                        <h5 class="mb-0">
-                            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseFour"
-                                aria-expanded="false" aria-controls="collapseFour">
-                                Nivel 4
-                            </button>
-                            <span></span>
-                            <span></span>
-                        </h5>
-                    </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                        <div class="card-body">
-                            <span>Video uno de practica de programacion con Python.</span>
-                            <button  onclick="location.href = 'video.php'" class=" p1p btn button mt-0 ml-1 zoom float-right"  id="botonsearch" type="submit"
-                            style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                           </div>
-                    </div>
-                </div>
+                Progreso
+            </h2>
+           
                 
+            <div id="showProgress" class="d-flex justify-content-start m-4 align-items-center">
+            <div class="spinner"></div>
+            <p class="text-muted p-2 m-0">Reproduce el video y espera a tú progreso</p>
+            </div>
+
+            <div class="text-center">
+                        <h2> Videos del nivel </h2>
+            </div>
+    
+            <div class="contenidon text-center examplee" >
               
-            </div>  <div class="text-center">
+            <ul class="list-group my-4" id="contVideos" style="color: white;">
+               
+               
+                
+            
+              </ul>
+            </div>
+              
+        
+             <div class="text-center">
                         <h2>Contenido del nivel </h2>
             </div>
     
@@ -163,7 +105,7 @@
             
               </ul>
             </div>
-      
+           
         </div>
 
 

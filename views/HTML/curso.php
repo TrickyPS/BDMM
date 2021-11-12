@@ -77,7 +77,7 @@
                                 <div class="ui float-right huge star rating" id="ratingCurso" data-rating="1">
                                     
                                 </div>
-                                <p class="float-right text-secondary">4.5</p>
+                                <p id="ptsCurso" class="float-right text-secondary"></p>
                             </span>
                         </div>
                         <div class="mb-3 mt-3">
@@ -94,21 +94,24 @@
                         <div class="compra" id="compraBotones">
                         <span id="comprarCon" class=" disabled ">Comprar con: </span>
                         <center>
-                        <button target="blank" id="btnComprarPaypal2" type="button"
+                        <button target="blank" id="btnComprarPaypalCurso" type="button"
                             class="m-0 mb-4 btn text-light btn-dark zoom" style="font-size: 19px; width: 150px;">Paypal <i class="fab fa-paypal"></i></button>    
-                        <button id="btnComprarMasterCard2" type="button" data-toggle="modal" data-target="#tarjeta2" type="submit"
+                        <button id="btnComprarMasterCardCurso" type="button" data-toggle="modal" data-target="#tarjeta2" type="submit"
                             class="m-0 mb-4 btn btn-dark zoom  " style="font-size: 19px; width: 150px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
-                        <button id="btnVerCertificado" type="button" type="submit" class="m-0 mb-4 btn btn-dark zoom d-none"
-                            onclick="location.href='../HTML/Certificado.html';"
-                            style="font-size: 19px; width: 150px;">Ver certificado</button></center>
+                       </center>
                         </div>
-                       
-
-                        <div class="mb-4 mt-3 d-flex flex-column">
-                            <div class="h3 text-center" id="cursocal"><span>Calificar este curso</span></div>
-                            <div data-toggle="modal" data-target="#ratingModalOpen" id="cursocal2"
-                                class="ui float-right massive star rating" id="ratingModal" data-rating="0"></div>
-                             </div>
+                       <center>
+                       <button id="btnVerCertificado" type="button" type="submit" class="m-0 mb-4 btn btn-dark zoom d-none"
+                            onclick="location.href='../HTML/Certificado.html';"
+                            style="font-size: 19px; width: 150px;">Ver certificado</button>
+                       </center>
+                        <div id="contAllCailf" class="d-none">
+                             <div class="  mb-4 mt-3 d-flex flex-column">
+                                <div class="h3 text-center" ><span>Calificar este curso</span></div>
+                                <div data-toggle="modal" data-target="#ratingModalOpen" 
+                                     class="ui float-right massive star rating" id="ratingModal" data-rating="0"></div>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -184,16 +187,7 @@
                 <div class="col-md-8 pb-5 examplee " id="agregacomentario"   style=" 
                     overflow-y: scroll; height: 300px;  padding: 10px; background-color: rgb(107, 101, 101);">
 
-                    <div class="card p-3 m-1">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="user d-flex flex-row align-items-center"> <img src="../IMG/persono.png"
-                                    class="user-img rounded-circle mr-2"
-                                    style="object-fit: contain; width: 30px; height:30px;"> <span><small
-                                        class="font-weight-bold text-primary">james_olesenn</small> <small
-                                        class="font-weight-bold">Hmm, This poster looks cool</small></span> </div>
-                            <small>2 days ago</small>
-                        </div>
-                    </div>
+                  
                   
                   
 
@@ -493,7 +487,7 @@
                     </form>
                     <center>
                         <button type="button" class="btn btn-second" data-dismiss="modal">Cancelar</button>
-                        <button class="btn  my-1 btn-main " id="btnpagartarjeta2"><i class="fa fa-lock"></i> Pagar</button>
+                        <button class="btn  my-1 btn-main " id="btnpagartarjetaCurso"><i class="fa fa-lock"></i> Pagar</button>
                     </center>
                 </div>
 
@@ -516,7 +510,7 @@
                 <div class="ui float-right massive star rating" id="ratingCalificate" ></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Calificar</button>
+                    <button type="button" id="onclickCalificar" class="btn btn-primary">Calificar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>

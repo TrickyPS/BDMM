@@ -1,5 +1,5 @@
 const id_user = JSON.parse(localStorage.getItem("id"));
-debugger
+ 
 $(document).ready(function () {
 
     const createdAt = localStorage.getItem("created_at").substr(0, 10);
@@ -24,24 +24,26 @@ $(document).ready(function () {
         $('#sidebar').toggleClass('active');
     });
 
-
-
-    $("#boton1").on('click', function () {
+    $("#boton0").on('click', function () {
         $(".division1").removeClass("d-none");
         $(".division2").addClass("d-none");
         $(".division3").addClass("d-none");
     });
 
+
+
+    $("#boton1").on('click', function () {
+        $(".division1").removeClass("d-none");
+        $(".division2").addClass("d-none");
+    });
+
     $("#boton2").on('click', function () {
         $(".division1").addClass("d-none");
-        $(".division3").addClass("d-none");
         $(".division2").removeClass("d-none");
     });
-    $("#boton3").on('click', function () {
-        $(".division1").addClass("d-none");
-        $(".division2").addClass("d-none");
-        $(".division3").removeClass("d-none");
-    });
+
+ 
+   
 
 });
 
@@ -184,10 +186,13 @@ function setUser(user) {
     data:{action:"obtenerHistorial",userId:id_user},
     dataType:"json",
     success:function(resp){
-        debugger
-      console.log(resp)
         for(var item of resp){
-debugger
+            let currentDateCurso = new Date(item.creacion);
+            let dateCurso = currentDateCurso.toLocaleDateString();
+            let currentDateLevel = new Date(item.lastDateLevel);
+            let dateLevel = currentDateLevel.toLocaleDateString();
+            debugger
+            console.log(dateLevel);
             $("#agregaCursos").append(`
             <div class="col-lg-12 col-md-12 col-sm-12 row pb-3"
             style="border:rgb(48, 16, 16) 1px !important; border-style: 1px !important;">
@@ -196,31 +201,26 @@ debugger
                     src="${"data:"+item.tipo + ";base64,"+item.imagen}" data-holder-rendered="true">
             </div>
             <div class="col-lg-8">
-                <h3>Curso de Python</h3>
+                <h3>Curso de Python </h3>
+                <div class="text-muted h5">Adquirido : ${dateCurso}</>
                 <h3 class="mb-0" id="obtenerCategoriaU${item.idCurso}">
                    
                 </h3>
             
-                <p class="card-text mb-auto" style="font-size: 15px;">Lorem ipsum dolor sit amet
-                    consectetur
-                    adipisicing elit. Corporis, ipsum? Laborum modi sunt, laboriosam quaerat tenetur
-                    recusandae
-                    mollitia, illum reiciendis eos sed, soluta totam itaque expedita cupiditate
-                    esse. Temporibus
-                    animi itaque iste aperiam esse debitis.</p>
+                <p class="card-text mb-auto" style="font-size: 15px;">${item.descripcionCurso}</p>
                 <div class="text-center">
-                    <span class=" mx-auto">Progreso del curso : 100%</span>
+                    <span class=" mx-auto">Progreso del curso : ${item.porcentaje}%</span>
                 </div>
             
                 <div class="progress mx-auto" style="width: 500px;">
-                    <div class="progress-bar" role="progressbar" style="width: 100%"
-                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: ${item.porcentaje}%"
+                        aria-valuenow="${item.porcentaje}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="text-center">
-                    <button type="button" onclick="location.href = 'curso.php'"
+                    <button type="button" onclick="location.href = 'curso.php?curso=${item.idCurso}'"
                         class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
                         style="width:150px; font-size: 17px;">Ver
-                        clase</button>
+                        curso</button>
                 </div>
             
             
@@ -229,11 +229,20 @@ debugger
             </div>
             
             </div>
-            <hr>
-        
+            <hr class="w-100"/>
+               
+                <div class=" w-75 align-items-center d-flex justify-content-between"> 
+                <div class="h5 m-0  d-flex align-items-center">${item.lastNameLevel?"Último nivel visto: "+item.lastNameLevel:"No has visto niveles" }
+                <div class="text-muted my-0 mx-2 h6" >${item.lastDateLevel?dateLevel:""}</div>
+                </div> 
+                 <button type="button" onclick="location.href = 'video.php?nivel=${item.idNivelLast}'"
+                class="btn btn-dark ${item.idNivelLast?"":"d-none"}  btn-lg  zoom justify-content-center"
+                style="width:150px; font-size: 17px;">
+                Ver Nivel</button>   </div>
+            <hr class="w-100"/>
             `);
             var curso = item.idCurso;
-            debugger
+             console.log(curso);
             $.ajax({
                 type:"GET",
                 url:"./../../controllers/CategoryController.php",
@@ -241,19 +250,19 @@ debugger
                 dataType:"json",
                 async:false,
                 success:function(resp2){
-                    debugger
+                     
                   console.log(resp2)
                   for( var item2 of resp2){
 
-                    $("#obtenerCategoriaU"+item.idCurso).append(`<a class="text-dark" href="#">${item2.name}</a>`);
+                    $("#obtenerCategoriaU"+item.idCurso).append(`<a class="text-dark" href="#">${item2.name + "  "}</a>`);
                   }
                    
                   
-                alert(resp);
+               
                 },
                 error:function (x,y,z){
-                  debugger
-                  alert(x);
+                   
+                
                   
                 }
               })
@@ -264,13 +273,14 @@ debugger
           }
         
       
-    alert(resp);
+ 
     },
     error:function (x,y,z){
-      debugger
-      location.href = "index.php"
+       debugger
+      //location.href = "index.php"
       
     }
   })
+
 
 

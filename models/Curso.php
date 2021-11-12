@@ -349,13 +349,7 @@ public static function progresocurso($user,$curso){
      }
      Connection::disconnect($db);
 }
-/*
-IN iduser int,
-IN idlevel int,
-IN nombreNivel varchar(60),
-IN precio decimal(12,2),
-IN metodo int,
-IN llave varchar(150)*/ 
+
 public static function PagarNivel($iduser,$idlevel,$nombreNivel,$precio,$metodo,$llave){
   try {
    $result = null;
@@ -379,5 +373,194 @@ public static function PagarNivel($iduser,$idlevel,$nombreNivel,$precio,$metodo,
 }
 
 
+public static function addCalificate($user,$curso,$valor){
+  try {
+      $db = Connection::connect();
+      
+      $query = $db->query("CALL SP_Score(1,".$user.",".$curso.",".$valor.")");
+      
+      if($query){
+        Connection::disconnect($db);
+        
+          return true; 
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
+
+public static function GetInfoDash($user){
+  try {
+      $db = Connection::connect();
+      
+      $query = $db->query("CALL SP_Curso(6,".$user.",null,null,null,null,null,null,null)");
+      
+      if($query){
+        Connection::disconnect($db);
+          return $query->fetch_assoc();
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
+public static function GetBestCursos($user){
+  try {
+      $db = Connection::connect();
+      
+      $query = $db->query("CALL SP_Curso(7,".$user.",null,null,null,null,null,null,null)");
+      
+      if($query){
+        Connection::disconnect($db);
+        $cursos = null;
+        while($row = $query->fetch_assoc()){
+            $row["image"] = base64_encode($row["image"]);
+            $cursos[] = $row;
+        }
+          return $cursos;
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
+
+public static function GetBestCategorias(){
+  try {
+      $db = Connection::connect();
+      
+      $query = $db->query("CALL SP_Category(4,null,null,null,null,null)");
+      
+      if($query){
+        Connection::disconnect($db);
+        $categorias = null;
+        while($row = $query->fetch_assoc()){
+            $categorias[] = $row;
+        }
+          return $categorias;
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
+
+public static function GetMountEachMonth($user){
+  try {
+      $db = Connection::connect();
+      
+      $query = $db->query("CALL SP_Curso(8,".$user.",null,null,null,null,null,null,null)");
+      
+      if($query){
+        Connection::disconnect($db);
+        return $query->fetch_assoc();
+     
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
+
+public static function GetCursosReporte($user){
+  try {
+      $db = Connection::connect();
+      
+      $query = $db->query("CALL SP_Curso(9,".$user.",null,null,null,null,null,null,null)");
+      
+      if($query){
+        Connection::disconnect($db);
+        $cursos = null;
+        while($row = $query->fetch_assoc()){
+            $cursos[] = $row;
+        }
+          return $cursos;
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
+
+public static function GetPayMethods($user){
+  try {
+      $db = Connection::connect();
+      
+      $query = $db->query("CALL SP_Curso(10,".$user.",null,null,null,null,null,null,null)");
+      
+      if($query){
+        Connection::disconnect($db);
+        $metodos = null;
+        while($row = $query->fetch_assoc()){
+            $metodos[] = $row;
+        }
+          return $metodos;
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
+
+public static function DetalleReporte($curso){
+  try {
+      $db = Connection::connect();
+      
+      $query = $db->query("CALL SP_Curso(11,null,null,null,null,null,null,null,".$curso.")");
+      
+      if($query){
+        Connection::disconnect($db);
+        $usuarios = null;
+        while($row = $query->fetch_assoc()){
+            $usuarios[] = $row;
+        }
+          return $usuarios;
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
 
 }

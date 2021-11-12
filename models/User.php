@@ -97,11 +97,12 @@ class User {
     public static function GetHist($idUser){
       try {
         $db = Connection::connect();
-        $query = $db->query("CALL SP_Historial(".$idUser.")");
+        $query = $db->query("CALL SP_Historial(1,".$idUser.",0)");
         $historial = null;
         if($query){
+          Connection::disconnect($db);
           while($row = $query->fetch_assoc()){
-            Connection::disconnect($db);
+            
             $row["imagen"] = base64_encode($row["imagen"]);
             $historial[] = $row;
           }

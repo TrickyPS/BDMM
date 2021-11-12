@@ -21,7 +21,7 @@ $.ajax({
                 <h4>Curso de ${data[i].name}</h4>
                 <span>Precio</span>
                 <p class="lead" style="color: white;">
-                  <span>$ ${data[i].price}</span>
+                  <span> ${data[i].price?"$"+data[i].price:"Gratis"}</span>
                 </p>
                  <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
                   class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='curso.php?curso=${data[i].id_course}';">Ver Curso</button>
@@ -61,7 +61,7 @@ $.ajax({
                 <h4>Curso de ${data[i].name}</h4>
                 <span>Precio</span>
                 <p class="lead" style="color: white;">
-                  <span>$ ${data[i].price}</span>
+                  <span>$ ${data[i].price }</span>
                 </p>
                  <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
                   class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='curso.php?curso=${data[i].id_course}';">Ver Curso</button>
