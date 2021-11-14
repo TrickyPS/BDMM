@@ -141,7 +141,7 @@ BEGIN
         WHERE `id_course` = _curso;
      END IF;
       IF _case = 5 THEN
-		UPDATE `course` SET `is_public` = 1
+		UPDATE `course` SET `is_public` = 1,`created_at` = CURRENT_TIMESTAMP
         WHERE `id_course` = _curso;
      END IF;
       IF _case = 6 THEN
@@ -189,7 +189,7 @@ BEGIN
         (SELECT count(curso) from (SELECT curso from V_Historial WHERE curso = course.id_course group by curso , usuario) tableHist) as inscritos,
         (SELECT sum(amount) from V_Amount WHERE curso = course.id_course ) as ingresos,
         (SELECT round(avg(cant),0) from (SELECT count(level) as cant from  V_NivelAvg WHERE course = course.id_course  group by `user`) tablenlAvg) as nlPromedio
-        from  course  WHERE deleted_at is null;
+        from  course  WHERE deleted_at is null and `user` = _user;
      END if;
      if _case = 10 then
 		select SUM(A.amount) as monto, A.payment_method,B.name  from V_Amount A INNER JOIN payment_method B ON A.payment_method = B.id_payment_method
@@ -266,7 +266,7 @@ BEGIN
 		SELECT A.`title` as 'video', A.`id_video`, B.id_level , B.`name` as 'level',C.`name` as 'curso',C.`id_course` 
         FROM `video` A INNER JOIN `level` B ON A.`level` = B.`id_level`
         INNER JOIN `course` C ON C.`id_course` = B.`course` 
-        WHERE C.`user` = _idVideo AND B.deleted_at IS NULL AND A.deleted_at IS NULL AND C.deleted_at IS NULL ;
+        WHERE C.`user` = _idVideo AND B.deleted_at IS NULL AND A.deleted_at IS NULL AND C.deleted_at IS NULL AND C.is_public = 0 ;
     END IF;
     IF _case = 3 THEN
 		UPDATE `video` SET `deleted_at` = CURRENT_TIMESTAMP
@@ -289,7 +289,12 @@ drop procedure if exists `SP_Buscar`;
 delimiter //
 CREATE PROCEDURE `SP_Buscar`(
 IN _case tinyint,
-IN _limit tinyint
+IN _limit tinyint,
+IN _buscar VARCHAR(250),
+IN _a date ,
+IN _desde date,
+IN _categoria INT UNSIGNED,
+IN _by tinyint
 )
 BEGIN
 	if _case = 1 THEN
@@ -313,6 +318,46 @@ BEGIN
 		INNER JOIN payment_course on   course . id_course  = payment_course . course   
 		where  course . is_public  = 1 group by  course . id_course   order by  course . id_course  DESC limit 4;
     END if;
+    if _case = 4 THEN
+		if _categoria = 0 then
+			if _by = 0 then
+        SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
+         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day  
+         OR  nombre LIKE CONCAT('%',_buscar,'%') AND created_at  between _desde - interval 1 day and _a + interval 1 day 
+         GROUP BY id_course ORDER BY created_at DESC ;
+        end if;
+        if _by = 1 then
+        SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
+         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day 
+         GROUP BY id_course ORDER BY created_at DESC ;
+        end if;
+         if _by = 2 then
+        SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
+         WHERE nombre LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day  
+         GROUP BY id_course ORDER BY created_at DESC ;
+         end if;
+        else
+			if _by = 0 then
+        SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
+         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day  AND category = _categoria
+         OR  nombre LIKE CONCAT('%',_buscar,'%') AND created_at  between _desde - interval 1 day and _a + interval 1 day AND category = _categoria
+         GROUP BY id_course ORDER BY created_at DESC ;
+        end if;
+        if _by = 1 then
+        SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
+         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day  AND category = _categoria
+         GROUP BY id_course ORDER BY created_at DESC ;
+        end if;
+         if _by = 2 then
+        SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
+         WHERE nombre LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day  AND category = _categoria
+         GROUP BY id_course ORDER BY created_at DESC ;
+        end if;
+    
+        end if;
+    
+       
+    end if;
 END	//
 
 drop Procedure if exists `SP_CursoState`	
@@ -481,12 +526,14 @@ BEGIN
 		select course.id_course  as idCurso, course.name  as nombreCurso, hist.created_at as 'creacion',
         description  as descripcionCurso, image.image  as imagen , image.type_image  as tipo,
         progresoCurso (id_usuario,course.id_course) as porcentaje,
-        (SELECT registro_level.level from registro_level INNER JOIN `level` ON registro_level.level = `level`.id_level
-        WHERE `level`.course = course.id_course ORDER BY registro_level.updated_at DESC LIMIT 1 ) as 'idNivelLast',
-         (SELECT registro_level.updated_at from registro_level INNER JOIN `level` ON registro_level.level = `level`.id_level
-        WHERE `level`.course = course.id_course ORDER BY registro_level.updated_at DESC LIMIT 1 ) as 'lastDateLevel',
-         (SELECT `level`.`name` from registro_level INNER JOIN `level` ON registro_level.level = `level`.id_level
-        WHERE `level`.course = course.id_course ORDER BY registro_level.updated_at DESC LIMIT 1 ) as 'lastNameLevel'
+        (SELECT level from V_Registro
+        WHERE course = course.id_course AND `user` = id_usuario ORDER BY updated_at DESC LIMIT 1 ) as 'idNivelLast',
+         (SELECT updated_at from V_Registro
+        WHERE course = course.id_course AND `user` = id_usuario ORDER BY updated_at DESC LIMIT 1 ) as 'lastDateLevel',
+         (SELECT `name` from V_Registro
+        WHERE course = course.id_course AND `user` = id_usuario ORDER BY updated_at DESC LIMIT 1 ) as 'lastNameLevel',
+        (SELECT `fecha` from V_Registro 
+		WHERE course = course.id_course AND `user` = id_usuario LIMIT 1	) as concluido
 		FROM user  INNER JOIN (SELECT usuario, curso,created_at from V_Historial GROUP BY curso , usuario) as hist
 		ON user.id_user  = hist.usuario  
 		INNER JOIN course  
@@ -494,7 +541,14 @@ BEGIN
 		course.image  = image.id_image 
 		where user.id_user  = id_usuario ;
     END IF;
-  
+	
+    if _case = 2 then
+		SELECT A.fecha as fin,
+        (select `name` from `user` WHERE id_user = id_usuario ) as nombre,
+        (select created_at from V_Historial WHERE usuario =id_usuario AND curso =_curso ORDER BY created_at ASC LIMIT 1) as inicio,
+        (select `name` from course WHERE id_course = _curso) as curso
+        from V_Registro A WHERE A.course = _curso AND A.`user` = 1 LIMIT 1;
+    end if;
 END//
 
 drop procedure if exists SP_PagarNivel;

@@ -29,11 +29,15 @@ $currentUrl = strtolower(array_pop($url));
     </button>
     <div class="collapse justify-content-between navbar-collapse text-center" id="navbarSupportedContent" id="_Buscador">
             <div></div>
-        <form action="categorias.php" class=" form1 form-inline justify-content-center" id="_Buscador">
+        <form action="categorias.php" class=" form1 form-inline justify-content-center" method="GET">
             <input class="buscador form-control input-group-sm mr-sm-2 justify-content-center" type="search"
-                placeholder="Busca algun producto..." aria-label="Search"
-                style="width: 360px; font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;"">
-            <button class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch" type="submit"
+                placeholder="Busca algo..." id="b_buscar" name="b"  aria-label="Search"
+                style="width: 360px; font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">
+                <input type="hidden" name="by" id="b_option" value="">
+                <input type="hidden" name="desde" id="b_desde" value="">
+                <input type="hidden" name="a" id="b_a" value="">
+                <input type="hidden" name="categoria" id="b_categoria" value="">
+            <button class=" p1p btn button mt-0 ml-1 zoom"  type="submit"
                 style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Buscar</button>
 
         </form>
@@ -64,6 +68,7 @@ $currentUrl = strtolower(array_pop($url));
                     </a>
                     <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item " id="noadmins" href="../HTML/cuenta.php">Mi Cuenta</a>
+                        <a class="dropdown-item " id="noadmins" href="../HTML/cuenta.php?o=h">Historial</a>
                         <a class="variable dropdown-item" id="admins" href="../HTML/cms.php">Administración</a>
                         <a class="variable dropdown-item" id="chat" href="../HTML/chat.php">Chat Privado</a>
                         <div class="dropdown-divider"></div>

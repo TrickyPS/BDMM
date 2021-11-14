@@ -103,7 +103,7 @@ const Video = {
              
                 $("#contVideos").prepend(`
                 <li class="list-group-item" style="background-color: rgb(71, 67, 67);">
-                <span class="float-left">${item.title}</span>  <a   href="video.php?video=${item.id_video}&nivel=${vars.nivel}" class="btn-hover text-ligth float-right  btn button mt-0 ml-1 zoom" 
+                <span class="float-left">${item.title}</span>  <a   href="video.php?video=${item.id_video}&nivel=${vars.nivel}&curso=${vars.curso}" class="btn-hover text-ligth float-right  btn button mt-0 ml-1 zoom" 
                 style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</a>
                </li>
                 `)
@@ -126,13 +126,19 @@ if(vars.video){
     if(vars.nivel){
       Video.getVideoByLevel()
     }
+    if(vars.curso){
+      $("#btnBackCurso").attr("href",`curso.php?curso=${vars.curso}`)
+    }
 }else if (vars.nivel){
   Video.getVideoByLevel();
   console.log(videoDefault);
   $("#srcVideo").append(`
   <source src="${"./../.." + videoDefault.path}" type="${videoDefault.type}" >
   `)
-  $("#titleVideo").html(videoDefault.title)
+  $("#titleVideo").html(videoDefault.title);
+  if(vars.curso){
+    $("#btnBackCurso").attr("href",`curso.php?curso=${vars.curso}`)
+  }
 }else{
   window.location.href = "notfound.php"
 }

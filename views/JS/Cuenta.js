@@ -2,6 +2,18 @@ const id_user = JSON.parse(localStorage.getItem("id"));
  
 $(document).ready(function () {
 
+    var vars = {};
+var progrss = null;
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+  function (m, key, value) {
+    vars[key] = value;
+  });
+
+  if(vars.o == "h"){
+    $(".division1").addClass("d-none");
+    $(".division2").removeClass("d-none");
+  }
+
     const createdAt = localStorage.getItem("created_at").substr(0, 10);
     const avatar = JSON.parse(localStorage.getItem("avatar"))
     const name = localStorage.getItem("name");
@@ -27,7 +39,6 @@ $(document).ready(function () {
     $("#boton0").on('click', function () {
         $(".division1").removeClass("d-none");
         $(".division2").addClass("d-none");
-        $(".division3").addClass("d-none");
     });
 
 
@@ -191,8 +202,9 @@ function setUser(user) {
             let dateCurso = currentDateCurso.toLocaleDateString();
             let currentDateLevel = new Date(item.lastDateLevel);
             let dateLevel = currentDateLevel.toLocaleDateString();
-            debugger
-            console.log(dateLevel);
+            let concluidoDate= new Date(item.concluido);
+            let dateShortConcluido = concluidoDate.toLocaleDateString();
+            console.log(resp);
             $("#agregaCursos").append(`
             <div class="col-lg-12 col-md-12 col-sm-12 row pb-3"
             style="border:rgb(48, 16, 16) 1px !important; border-style: 1px !important;">
@@ -202,7 +214,8 @@ function setUser(user) {
             </div>
             <div class="col-lg-8">
                 <h3>Curso de Python </h3>
-                <div class="text-muted h5">Adquirido : ${dateCurso}</>
+                <div class="text-muted h5">Adquirido : ${dateCurso}</div>
+                <div class="text-primary h5">${item.concluido?"Concluido: "+dateShortConcluido:""}</div>
                 <h3 class="mb-0" id="obtenerCategoriaU${item.idCurso}">
                    
                 </h3>
@@ -221,6 +234,9 @@ function setUser(user) {
                         class="btn btn-dark  btn-lg mt-2 zoom justify-content-center"
                         style="width:150px; font-size: 17px;">Ver
                         curso</button>
+                    <button type="button" onclick="location.href = 'Certificado.html?curso=${item.idCurso}'"
+                        class="btn btn-dark ${item.porcentaje == 100? "":"d-none"}  btn-lg mt-2 zoom justify-content-center"
+                        style="width:150px; font-size: 17px;"> Ver certificado </button>
                 </div>
             
             
@@ -235,7 +251,7 @@ function setUser(user) {
                 <div class="h5 m-0  d-flex align-items-center">${item.lastNameLevel?"Último nivel visto: "+item.lastNameLevel:"No has visto niveles" }
                 <div class="text-muted my-0 mx-2 h6" >${item.lastDateLevel?dateLevel:""}</div>
                 </div> 
-                 <button type="button" onclick="location.href = 'video.php?nivel=${item.idNivelLast}'"
+                 <button type="button" onclick="location.href = 'video.php?nivel=${item.idNivelLast}&curso=${item.idCurso}'"
                 class="btn btn-dark ${item.idNivelLast?"":"d-none"}  btn-lg  zoom justify-content-center"
                 style="width:150px; font-size: 17px;">
                 Ver Nivel</button>   </div>
@@ -276,7 +292,7 @@ function setUser(user) {
  
     },
     error:function (x,y,z){
-       debugger
+        
       //location.href = "index.php"
       
     }

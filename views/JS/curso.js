@@ -12,10 +12,12 @@ $(document).ready(function () {
   var esCursoTerminado = false;
   var precioCurso = null;
   if (!vars.curso) {
-    location.href = "index.php"
+    location.href = "notfound.php"
   }
   const id_user = JSON.parse(localStorage.getItem("id"));
   const is_student = JSON.parse(localStorage.getItem("is_student"));
+
+  $("#btnVerCertificado").attr("onclick",`location.href='../HTML/Certificado.html?curso=${vars.curso}'`)
 
   // Para traer las categorias del curso
   $.ajax({
@@ -65,7 +67,7 @@ $(document).ready(function () {
 
   $("#onclickCalificar").click(function(){
     var value = $('#ratingCalificate').rating('get rating');
-    debugger
+     
     $.ajax({
       type: "POST",
       url: "./../../controllers/CourseController.php",
@@ -79,7 +81,7 @@ $(document).ready(function () {
         location.reload()
       },
       error: function (x, y, z) {
-        debugger
+         
       }
     })
   
@@ -186,6 +188,59 @@ $(document).ready(function () {
 
   }
   });
+
+  $("#btnComprarGratis").click(function () {
+    if(!id_user){
+      window.location.href = "index.php"
+    }
+    if(is_student == 0){
+      Swal.fire(
+        'Eres maestro',
+        'Cambia de tipo de cuenta para comprar cursos',
+        'warning'
+      )
+    }else{
+
+    var paymentMethod = 3;
+    var key = uuidv4()
+    $.ajax({
+      type: "POST",
+      url: "./../../controllers/CourseController.php",
+      data: {
+        action: "pagarCurso",
+        userId: id_user,
+        courseId: vars.curso,
+        amount: precioCurso,
+        paymentMethod,
+        key
+      },
+      success: function (resp) {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: `Curso comprado`,
+          showConfirmButton: false,
+          timer: 1500
+        }).then((result) => {
+          window.location.reload()
+        }).catch((err) => {
+            console.error(err)
+        });
+      },
+      error: function (x, y, z) {
+        Swal.fire(
+          'Error',
+          'Intentelo de nuevo',
+          'error'
+        )
+      }
+    })
+
+
+  }
+  });
+
+
   if (id_user != null) {
     //Para traer datos del curso cuando esta logeado
     if (is_student == 0) { // SI ES MAESTRO
@@ -203,12 +258,12 @@ $(document).ready(function () {
           precioCurso = resp.price ? resp.price : 0
 
           $("#titleCurso").html(resp.curso)
-          $("#precioCurso").html(resp.price ? "$ " + resp.price : "Gratis")
+          $("#precioCurso").html(resp.price ? "$ " + numberWithCommas(resp.price) : "Gratis")
           $("#descriptionCurso").html(resp.description);
           $("#imageCurso").attr("src", `${"data:" + resp.type_image + ";base64," + resp.image}`)
           $("#chatearCurso").append(`Creado por : ${resp.name} / ${resp.email} <i class="far fa-comment-dots"></i>`)
           $("#chatearCurso").attr("href", `chat.php?to=${resp.id_user}`)
-          $("#nombreCurso").addClass("d-none");
+          
           //$("#cursocal").addClass("invisible");
           var puntos = parseFloat(resp.puntos)
           if(resp.countPts > 0)
@@ -229,6 +284,79 @@ $(document).ready(function () {
         }
       })
 
+      var curso = vars.curso;
+      $.ajax({
+        type: "POST",
+        url: "./../../controllers/CourseController.php",
+        data: {
+          action: "obtenerNiveles",
+          curso: curso
+        },
+        dataType: "json",
+        success: function (resp3) {
+  
+          console.log(resp3);
+          for (item3 of resp3) {
+            if(item3.cantidad > 0){
+              $("#accordion").append(`
+              <div class="col-lg-8 mx-auto">
+              <div class="card-header" id="headingOne${item3.idNivel}">
+                  <h5 class="mb-0">
+                      <button class="btn" data-toggle="collapse" data-target="#collapseOne${item3.idNivel}" aria-expanded="true"
+                          aria-controls="collapseOne${item3.idNivel}">
+                         Videos
+                      </button>
+                      <span>${item3.nombreNivel}</span>
+                      <button  onclick="location.href='../HTML/index.php'"
+                              class="m-0 btn text-light btn-dark zoom float-right ml-1" style="font-size: 10px;">Paypal <i class="fab fa-paypal"></i></button>    
+                          <button   onclick="location.href='../HTML/index.php'"
+                              class="m-0 btn btn-dark zoom float-right ml-1" style="font-size: 10px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
+                  </h5>
+              </div>
+              <div id="collapseOne${item3.idNivel}" class="collapse show" aria-labelledby="headingOne${item3.idNivel}" data-parent="#accordion">
+                
+              </div>
+          </div>  `);
+      
+                var level = item3.idNivel;
+                $.ajax({
+                  type: "POST",
+                  url: "./../../controllers/CourseController.php",
+                  data: {
+                    action: "obtenervideoslevel",
+                    level: level
+                  },
+                  dataType: "json",
+                  async: false,
+                  success: function (resp4) {
+      
+                    for (item4 of resp4) {
+                      $("#collapseOne" + item3.idNivel).append(`
+                      <div class="card-body">
+                                  <span>${item4.tituloVideo}</span>
+                                  
+                              </div>
+                      `)
+      
+                    }
+                  },
+                  error: function (x, y, z) {
+      
+      
+                    // location.href = "index.php"
+                  }
+                })
+            }
+          }
+  
+  
+        },
+        error: function (x, y, z) {
+  
+          location.href = "index.php"
+  
+        }
+      })
 
 
 
@@ -252,7 +380,7 @@ $(document).ready(function () {
           esCursoTerminado = resp.porcentaje == 100 ? true:false;
 
           $("#titleCurso").html(resp.curso)
-          $("#precioCurso").html(resp.price ? "$ " + resp.price : "Gratis")
+          $("#precioCurso").html(resp.price ? "$ " + numberWithCommas(resp.price) : "Gratis")
           $("#descriptionCurso").html(resp.description);
           $("#imageCurso").attr("src", `${"data:" + resp.type_image + ";base64," + resp.image}`)
           $("#chatearCurso").append(`Creado por : ${resp.name} / ${resp.email} <i class="far fa-comment-dots"></i>`)
@@ -267,19 +395,28 @@ $(document).ready(function () {
           $("#numerop").append(resp.porcentaje + "%");
           $("#numeropp").css("width", resp.porcentaje + "%");
 
+          if(precioCurso == 0){
+            $('#btnComprarPaypalCurso').hide();
+            $('#btnComprarMasterCardCurso').hide();
+            $('#btnComprarGratis').removeClass("d-none");
+          }
+
           if (esComprado) {
 
             $('#btnComprarPaypalCurso').hide();
             $('#btnComprarMasterCardCurso').hide();
-            // $('#cursocal').hide();
+            $('#btnComprarGratis').hide();
+            
 
           }
+
+
 
           if (esCursoTerminado) {
             $("#btnVerCertificado").removeClass("d-none");
             $("#containerComentarios").removeClass("d-none");
             console.log(resp.isCalificado);
-            debugger
+             
             if(resp.isCalificado == 0)
             $("#contAllCailf").removeClass("d-none");
 
@@ -349,8 +486,8 @@ $(document).ready(function () {
                           $("#collapseOne" + item3.idNivel).append(`
        <div class="card-body">
                    <span>${item4.tituloVideo}</span>
-                   <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php?video=${item4.videoid}&nivel=${level}'"
-                       id="botonsearch" type="submit"
+                   <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php?video=${item4.videoid}&nivel=${level}&curso=${vars.curso}'"
+                        type="submit"
                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
                </div>
        `)
@@ -435,9 +572,11 @@ $(document).ready(function () {
               <span id="nombreN${item3.idNivel}">${item3.nombreNivel} </span>
               <div id="progresoDiv${item3.idNivel}" class="float-right text-muted">(${item3.Progreso})</div> 
               <button target="blank" id="btnComprarPaypal" type="button" name="${item3.idNivel}" accessKey="${item3.precio}"
-                      class="m-0 btn text-light btn-dark zoom float-right ml-1 btnComprarPaypal${item3.idNivel}" style="font-size: 10px;">Paypal <i class="fab fa-paypal"></i></button>    
+                      class=" ${item3.precio?"":"d-none"} m-0 btn text-light btn-dark zoom float-right ml-1 btnComprarPaypal${item3.idNivel}" style="font-size: 10px;">Paypal <i class="fab fa-paypal"></i></button>    
                   <button id="btnComprarMasterCard" type="button" data-toggle="modal" data-target="#tarjeta" type="submit" name="${item3.idNivel}" accessKey="${item3.precio}"
-                      class="m-0 btn btn-dark zoom float-right ml-1 btnComprarMasterCard${item3.idNivel} " style="font-size: 10px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
+                      class="${item3.precio?"":"d-none"} m-0 btn btn-dark zoom float-right ml-1 btnComprarMasterCard${item3.idNivel} " style="font-size: 10px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
+                  <button id="btnComprarGratisNivel" type="button" type="submit" name="${item3.idNivel}" accessKey="${item3.precio}"
+                      class="${item3.precio?"d-none":""} m-0 btn btn-dark zoom float-right ml-1 btnComprarGratisClass${item3.idNivel}"  style="font-size: 10px;">Obtener Gratis </button>
                       <div id="priceNivel${item3.idNivel}" class="float-right text-success mx-2"> ${ item3.precio? "$ "+item3.precio :"Gratis"}  </div>
           </h5>
       </div>
@@ -453,12 +592,14 @@ $(document).ready(function () {
                     $('#progresoDiv' + item3.idNivel).hide();
                     $('.btnComprarPaypal' + item3.idNivel).prop("disabled", false);
                     $('.btnComprarMasterCard' + item3.idNivel).prop("disabled", false);
+                    $('.btnComprarGratisClass' + item3.idNivel).prop("disabled", false);
                   } else {
                     countNlComprados++;
                     $("#contProgreso").removeClass("d-none");
                     $('#priceNivel' + item3.idNivel).hide();
                     $('.btnComprarPaypal' + item3.idNivel).hide();
                     $('.btnComprarMasterCard' + item3.idNivel).hide();
+                    $('.btnComprarGratisClass' + item3.idNivel).hide();
                   }
                
                   var level = item3.idNivel;
@@ -468,7 +609,7 @@ $(document).ready(function () {
                   if (precio == null) {
                     precio = 0;
                   }
-debugger
+ 
                 if(countNl == countNlComprados){
                   $('#compraBotones').hide();
                 }
@@ -495,8 +636,8 @@ debugger
                             $("#collapseOne" + item3.idNivel).append(`
                         <div class="card-body">
                       <span>${item4.tituloVideo}</span>
-                       <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php?video=${item4.videoid}&nivel=${level}'"
-                          id="botonsearch" type="submit"
+                       <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php?video=${item4.videoid}&nivel=${level}&curso=${vars.curso}'"
+                          type="submit"
                           style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
                            </div>
                             `)
@@ -569,7 +710,7 @@ debugger
         precioCurso = resp.price ? resp.price : 0
 
         $("#titleCurso").html(resp.nombrec)
-        $("#precioCurso").html(resp.precioc ? "$ " + resp.precioc : "Gratis")
+        $("#precioCurso").html(resp.precioc ? "$ " + numberWithCommas(resp.precioc) : "Gratis")
         $("#descriptionCurso").html(resp.decripcionc);
         $("#imageCurso").attr("src", `${"data:" + resp.tipo + ";base64," + resp.imagen}`)
         //$("#chatearCurso").append(`Creado por : ${resp.name } / ${resp.email} <i class="far fa-comment-dots"></i>`)
@@ -611,6 +752,7 @@ debugger
                             class="m-0 btn text-light btn-dark zoom float-right ml-1" style="font-size: 10px;">Paypal <i class="fab fa-paypal"></i></button>    
                         <button   onclick="location.href='../HTML/index.php'"
                             class="m-0 btn btn-dark zoom float-right ml-1" style="font-size: 10px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
+                            <div id="priceNivel${item3.idNivel}" class="float-right text-success mx-2"> ${ item3.precio? "$ "+item3.precio :"Gratis"}  </div>
                 </h5>
             </div>
             <div id="collapseOne${item3.idNivel}" class="collapse show" aria-labelledby="headingOne${item3.idNivel}" data-parent="#accordion">
@@ -713,8 +855,55 @@ debugger
 
   })
 
-  $(this).on('click', '#btnComprarMasterCard', function (e) {
 
+  $(this).on('click', '#btnComprarGratisNivel', function (e) {
+
+    var user = id_user;
+    var level = e.target.name;
+    var nivel = "nada";
+    var precio = e.target.accessKey;
+    var metodo = 3;
+    var llave = uuidv4;
+    $.ajax({
+      type: "POST",
+      url: "./../../controllers/CourseController.php",
+      data: {
+        action: "pagarNivel",
+        user: user,
+        level: level,
+        nivel: nivel,
+        precio: precio,
+        metodo: metodo,
+        llave: llave
+      },
+      dataType: "json",
+      async: false,
+      success: function (resppago) {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: `Nivel conseguido`,
+          showConfirmButton: false,
+          timer: 1500
+        }).then((result) => {
+          window.location.reload()
+        }).catch((err) => {
+            console.error(err)
+        });
+      },
+      error: function (x, y, z) {
+        Swal.fire(
+          'Error',
+          'Intentelo de nuevo',
+          'error'
+        )
+      }
+    })
+
+  })
+
+  $(this).on('click', '#btnComprarMasterCard', function (e) {
+debugger
     console.log(e.target.name, e.target.accessKey);
     userm = id_user;
     levelm = e.target.name;
@@ -761,7 +950,7 @@ debugger
         });
       },
       error: function (x, y, z) {
-        debugger
+         
         Swal.fire(
           'Error',
           'Intentelo de nuevo',
@@ -842,4 +1031,10 @@ debugger
   }
 
   showComentarios()
+
+  const numberWithCommas = (
+    number
+)=>{
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
+}
 });

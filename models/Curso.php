@@ -563,4 +563,26 @@ public static function DetalleReporte($curso){
      Connection::disconnect($db);
 }
 
+public static function GetCertificado($id,$curso){
+  try {
+      $db = Connection::connect();
+      
+      $query = $db->query("CALL SP_Historial(2,".$id.",".$curso.")");
+      
+      if($query){
+        Connection::disconnect($db);
+        return $query->fetch_assoc();
+        
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
+
 }

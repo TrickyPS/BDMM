@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./../CSS/categorias.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
+    <script src="./../JS/buscar.js"  defer>  </script>
 </head>
 
 <body>
@@ -21,11 +22,10 @@
     <div class="container cat-nav bg-light p-2" >
         <div class="container">
         <div class="  row align-items-center">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 
                     <select id="inputState" class="form-control">
-                        <option selected>Categoria</option>
-                        <option>...</option>
+                        <option value="0" selected>Categoria</option>
                     </select>
                 
 
@@ -33,392 +33,49 @@
             <div class="col-md-1 ">
                 <p class="text-dark text-center pt-2">Desde:</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 
-                    <input type="date" name="" id="desdeDate" class="form-control" id="">
+                    <input type="date" name="" id="desdeDate" class="form-control" >
                 
 
             </div>
             <div class="col-md-1 ">
                 <p class="text-dark text-center pt-2">A:</p>
             </div>
-            <div class="col-md-3  ">
+            <div class="col-md-2  ">
                 
-                    <input type="date" name="" id="aDate"  class="form-control" id="">
+                    <input type="date" name="" id="aDate"  class="form-control" >
                    
 
             </div>
-            <div class="col-md-1 ">
-            <button onclick="dateValidate()" class=" ml-2 btn btn-primary zoom "><i class="fas fa-search" style="font-size:12px"></i></button>
+       
+            <div class="col-md-3 ">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="isByCurso" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Curso</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="isByUser" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Usuario</label>
+            </div>
+            </div>
+
+            <div class="col-md-1"> 
+            <button id="btnRefresh" class="btn btn-dark zoom" > <i class="fas fa-redo-alt"></i> </button> 
+
             </div>
         </div>
 
         </div>
     </div>
-    <div class="container mt-3">
-        <div class="row 1">
+    <div id="contSearchCursos" style="min-height:100vh" class="container mt-3 mb-3">
+        
 
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
-
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">20%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star disable"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Curso de Python</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                           
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">50%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Curso de Python</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                           
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">50%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Curso de Python</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/python.png">
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                           
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">50%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Curso de Python</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row 2">
-
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/angular.png">
-
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                           
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">20%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star disable"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Stack MEAN</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/angular.png">
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">50%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Stack MEAN</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/angular.png">
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">50%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Stack MEAN</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/angular.png">
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                           
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">50%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Curso de Javascript</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="row 3">
-
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/javascript.png">
-
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">20%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star disable"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Curso de Javascript</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/javascript.png">
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">50%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Stack MEAN</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/javascript.png">
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                            
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">50%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Curso de Javascript</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#">
-                            <img class="pic-1" src="../IMG/javascript.png">
-                        </a>
-                        <ul class="social">
-                            <li><a href="curso.php" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                           
-                        </ul>
-                        <span class="product-new-label">Sale</span>
-                        <span class="product-discount-label">50%</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                    </ul>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Curso de Javascript</a></h3>
-                        <div class="price pb-2">$16.00
-                            <span>$20.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+      
+       
 
 
-        <div class="d-flex justify-content-center">
-        <div class="pagination justify-content-center pt-2 m-3">
-            <a href="#">&laquo;</a>
-            <a href="#">1</a>
-            <a class="active" href="#">2</a>
-            
-            <a href="#">&raquo;</a>
-        </div>
-        </div>
+       
 
     </div>
     <?php include_once("layout_footer.php") ?>
@@ -432,19 +89,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    <script>
-        function dateValidate(){
-            var desde = document.getElementById("desdeDate").value;
-            var a = document.getElementById("aDate").value;
 
-            var dateDesde = new Date(desde);
-            var dateA = new Date(a);
-            
-            if(dateA < dateDesde){
-                toastr.warning("Cuidado","Fechas deben estar en un rango")
-            }
-        }
-    </script>
 </body>
 
 

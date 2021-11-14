@@ -50,6 +50,12 @@ switch ($action) {
             $resp = Curso::DetalleReporte($curso);
             echo json_encode($resp);
             break;
+    case "getCertificado":
+            $id = $_GET["id"];
+            $curso = $_GET["curso"];
+            $resp = Curso::GetCertificado($id,$curso);
+            echo json_encode($resp);
+             break;
     
     default:
         http_response_code(404);

@@ -51,7 +51,7 @@
             <p style="font-size: 30px;">
               Continuity, la mejor para plataforma de cursos para aprender.
             </p>
-            <button onclick="location.href = 'categorias.php'" class="p1p btn button zoom" id="botonsearch" type="submit"
+            <button onclick="location.href = 'categorias.php'" class="p1p btn button zoom" type="submit"
               style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: large;">Ver Cursos</button>
           </div>
         </div>
@@ -326,7 +326,7 @@
             Instructores de todo el mundo enseñan a millones de estudiantes en Continuity. Proporcionamos las
             herramientas y las habilidades para que enseñes lo que te apasiona.</p>
           <div class="text-center">
-            <button class="p1p btn button mt-0 ml-1 zoom text-center" id="botonsearch" type="submit"
+            <button class="p1p btn button mt-0 ml-1 zoom text-center"  type="submit"
               style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 30px;"  data-toggle="modal" data-target="#exampleModal2">Unete ahora</button>
           </div>
 

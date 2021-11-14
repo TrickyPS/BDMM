@@ -34,6 +34,7 @@ const Dashboard ={
             dataType:'json',
             success: function(resp){
                if(resp){
+                   console.log(resp);
                   $("#listCursosBest").html("");
                   var count = 0
                   for(var item of resp){

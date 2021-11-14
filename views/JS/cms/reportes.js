@@ -99,7 +99,7 @@ const Reportes = {
 
 
                         let month = months[d.getMonth()];
-                        let day = days[d.getDay()];
+                        let day = days[d.getDay() -1];
                       i++;
                       $("#contDetalle").append(`
                       <tr>

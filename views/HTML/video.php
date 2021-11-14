@@ -76,7 +76,8 @@
             <div class="spinner"></div>
             <p class="text-muted p-2 m-0">Reproduce el video y espera a tú progreso</p>
             </div>
-
+            <a id="btnBackCurso"   class="btn-hover text-ligth float-right mr-2  btn button  zoom" 
+                style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ir al curso</a>
             <div class="text-center">
                         <h2> Videos del nivel </h2>
             </div>

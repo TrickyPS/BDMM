@@ -92,17 +92,19 @@
                             <a style="cursor:pointer" id="chatearCurso" class="h6 text-primary"> </a>
                         </dl>
                         <div class="compra" id="compraBotones">
-                        <span id="comprarCon" class=" disabled ">Comprar con: </span>
+                        <span id="comprarCon" class=" disabled ">Conseguir con: </span>
                         <center>
                         <button target="blank" id="btnComprarPaypalCurso" type="button"
                             class="m-0 mb-4 btn text-light btn-dark zoom" style="font-size: 19px; width: 150px;">Paypal <i class="fab fa-paypal"></i></button>    
                         <button id="btnComprarMasterCardCurso" type="button" data-toggle="modal" data-target="#tarjeta2" type="submit"
                             class="m-0 mb-4 btn btn-dark zoom  " style="font-size: 19px; width: 150px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
+                            <button id="btnComprarGratis" type="button"  type="submit"
+                            class="m-0 mb-4 btn btn-dark zoom d-none  " style="font-size: 19px; width: 150px;">Conseguir Gratis</i></button>
                        </center>
                         </div>
                        <center>
                        <button id="btnVerCertificado" type="button" type="submit" class="m-0 mb-4 btn btn-dark zoom d-none"
-                            onclick="location.href='../HTML/Certificado.html';"
+                            
                             style="font-size: 19px; width: 150px;">Ver certificado</button>
                        </center>
                         <div id="contAllCailf" class="d-none">
@@ -137,37 +139,7 @@
     <h2 class="title text-center pt-5" id="nombreCurso" style="font-family: 'Archivo Narrow', sans-serif; font-size: 40px;">Niveles
         del curso</h2>
     <div id="accordion" class="pb-5 justify-content-center" style="font-family: 'Archivo Narrow', sans-serif;">
-        <div class="col-lg-8 mx-auto d-none">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
-                        Nivel 1
-                    </button>
-                    <span>Nombre del curso -</span>
-                    <span>(Curso completado)</span>
-                    <button target="blank" id="btnComprarPaypal" type="button"
-                            class="m-0 btn text-light btn-dark zoom float-right ml-1" style="font-size: 10px;">Paypal <i class="fab fa-paypal"></i></button>    
-                        <button id="btnComprarMasterCard" type="button" data-toggle="modal" data-target="#tarjeta2" type="submit"
-                            class="m-0 btn btn-dark zoom float-right ml-1" style="font-size: 10px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
-                </h5>
-            </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    <span>Video uno de practica de programacion con Python.</span>
-                    <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"
-                        id="botonsearch" type="submit"
-                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                </div>
-                <div class="card-body">
-                    <span>Video uno de practica de programacion con Python.</span>
-                    <button class=" p1p btn button mt-0 ml-1 zoom float-right" onclick="location.href = 'video.php'"
-                        id="botonsearch" type="submit"
-                        style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: small;">Ver</button>
-                </div>
-
-            </div>
-        </div>  
+      
     </div>
 
 

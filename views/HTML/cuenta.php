@@ -173,7 +173,7 @@
 
                                     <div class="col-lg-12 col-md-12 col-sm-12 ">
                                         <div class="text-center  mx-auto justify-content m-3">
-                                            <button class=" p1p btn button mt-0 ml-1 zoom" id="botonsearch"
+                                            <button class=" p1p btn button mt-0 ml-1 zoom" 
                                                 type="submit"
                                                 style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 20px; width: 200px;">Actualizar
                                                 perfil</button>

@@ -31,3 +31,23 @@ CREATE VIEW V_Metodos
 AS 
 SELECT A.payment_method,A.customer,A.curso,B.`name` from V_Amount A 
 INNER JOIN payment_method B ON A.payment_method = B.id_payment_method;
+
+drop view if exists V_Registro;
+CREATE VIEW V_Registro
+AS 
+SELECT registro_level.level ,registro_level.updated_at ,`level`.`name`,registro_level.user,`level`.course, registro_level.fecha from registro_level 
+INNER JOIN `level` ON registro_level.level = `level`.id_level;
+
+
+drop view if exists V_Buscar;
+CREATE VIEW V_Buscar
+AS 
+SELECT A.id_course, A.name as 'title', B.`name` as 'nombre',C.image,C.type_image,A.created_at,A.price,D.category from
+course A INNER JOIN `user` B ON A.user = B.id_user
+INNER JOIN image C ON C.id_image = A.image
+INNER JOIN categorycourse D ON D.course = A.id_course
+WHERE A.deleted_at is null AND A.is_public = 1
+
+
+
+       
