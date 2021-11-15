@@ -7,6 +7,32 @@ $currentUrl = strtolower(array_pop($url));
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
 <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./../JS/categoriasTop.js" defer> </script>
+<style>
+.tooltip1 {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip1 .tooltiptext1 {
+  visibility: hidden;
+  min-width: 120px;
+  background-color: #141C29;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+
+  /* Position the tooltip */
+  position: absolute;
+  right:100%;
+  z-index: 1000;
+}
+
+.tooltip1:hover .tooltiptext1 {
+  visibility: visible;
+}
+</style>
 <nav class="navbar navi  navbar-expand-lg navbar-dark fixed-top" id="_cartelera">
     <div class="namep pt-0">
         <?php
@@ -45,7 +71,14 @@ $currentUrl = strtolower(array_pop($url));
             <ul class="navbar-nav text-center mx-auto mt-2"
                 style="flex-direction: row; justify-content: space-evenly; font-family: 'Yanone Kaffeesatz', sans-serif;;">
 
-
+                <div class="dropdown">
+                <a class="zoom btn  palab cdp nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categorias
+                    </a>
+                <div id="showCatTop" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                   
+                </div>
+                </div>
                 <a class="zoom btn d-none  palab cdp nav-link" data-toggle="modal" data-target="#exampleModal"
                     id="sesioninicia">
                     Inicia sesion
@@ -56,9 +89,8 @@ $currentUrl = strtolower(array_pop($url));
                     Registrate
                 </a>
 
-                <a class="zoom btn  palab cdp nav-link" id="sesionregistrate" href="../HTML/categorias.php">
-                    Categorias
-                </a>
+              
+                
 
                 <li class="nav-item d-none " id="infocuenta">
 
@@ -152,7 +184,7 @@ $currentUrl = strtolower(array_pop($url));
                         <div class="form-group pl-5 pr-5">
                             <a>Nombre completo</a>
                             <input type="text" class="form-control" name="nombresign" id="nombrer"
-                                placeholder="Escribe tu nombre" style="font-size:  14px;">
+                                placeholder="Escribe tu nombre completo" style="font-size:  14px;">
                         </div>
                         <div class="form-group pl-5 pr-5">
                             <a>Correo electronico</a>

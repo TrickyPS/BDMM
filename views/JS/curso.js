@@ -29,8 +29,9 @@ $(document).ready(function () {
     },
     dataType: "json",
     success: function (resp) {
+      console.log(resp);
       for (var item of resp) {
-        $("#categoriasCurso").append(`${item.name} -`)
+        $("#categoriasCurso").append(` <a style="cursor:pointer;" href="categorias.php?categoria=${item.id_category}"> ${item.name} </a> -`)
       }
     },
     error: function (x, y, z) {
@@ -90,8 +91,8 @@ $(document).ready(function () {
   //////HACERLE UN INSERT ALA TABLA COMPRAR TRAYENDO EL ID DEL CURSO DEL USUARIO PRECIO /uuidv4()
   $("#btnComprarPaypalCurso").click(function () {
     if(!id_user){
-      window.location.href = "index.php"
-    }
+      $("#sesioninicia").click()
+    }else{
     if(is_student == 0){
       Swal.fire(
         'Eres maestro',
@@ -137,11 +138,12 @@ $(document).ready(function () {
 
 
   }
+}
   });
-  $("#btnComprarMasterCardCurso").click(function () {
+  $("#btnpagartarjetaCurso2").click(function () {
     if(!id_user){
-      window.location.href = "index.php"
-    }
+      $("#sesioninicia").click()
+    }else{
     if(is_student == 0){
       Swal.fire(
         'Eres maestro',
@@ -187,12 +189,13 @@ $(document).ready(function () {
 
 
   }
+}
   });
 
   $("#btnComprarGratis").click(function () {
     if(!id_user){
-      window.location.href = "index.php"
-    }
+      $("#sesioninicia").click()
+    }else{
     if(is_student == 0){
       Swal.fire(
         'Eres maestro',
@@ -238,6 +241,7 @@ $(document).ready(function () {
 
 
   }
+}
   });
 
 
@@ -258,7 +262,7 @@ $(document).ready(function () {
           precioCurso = resp.price ? resp.price : 0
 
           $("#titleCurso").html(resp.curso)
-          $("#precioCurso").html(resp.price ? "$ " + numberWithCommas(resp.price) : "Gratis")
+          $("#precioCurso").html(resp.price ? "$ " + numberWithCommas(resp.price) + " MXN" : "Gratis")
           $("#descriptionCurso").html(resp.description);
           $("#imageCurso").attr("src", `${"data:" + resp.type_image + ";base64," + resp.image}`)
           $("#chatearCurso").append(`Creado por : ${resp.name} / ${resp.email} <i class="far fa-comment-dots"></i>`)
@@ -380,7 +384,7 @@ $(document).ready(function () {
           esCursoTerminado = resp.porcentaje == 100 ? true:false;
 
           $("#titleCurso").html(resp.curso)
-          $("#precioCurso").html(resp.price ? "$ " + numberWithCommas(resp.price) : "Gratis")
+          $("#precioCurso").html(resp.price ? "$ " + numberWithCommas(resp.price) + " MXN" : "Gratis")
           $("#descriptionCurso").html(resp.description);
           $("#imageCurso").attr("src", `${"data:" + resp.type_image + ";base64," + resp.image}`)
           $("#chatearCurso").append(`Creado por : ${resp.name} / ${resp.email} <i class="far fa-comment-dots"></i>`)
@@ -577,7 +581,7 @@ $(document).ready(function () {
                       class="${item3.precio?"":"d-none"} m-0 btn btn-dark zoom float-right ml-1 btnComprarMasterCard${item3.idNivel} " style="font-size: 10px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
                   <button id="btnComprarGratisNivel" type="button" type="submit" name="${item3.idNivel}" accessKey="${item3.precio}"
                       class="${item3.precio?"d-none":""} m-0 btn btn-dark zoom float-right ml-1 btnComprarGratisClass${item3.idNivel}"  style="font-size: 10px;">Obtener Gratis </button>
-                      <div id="priceNivel${item3.idNivel}" class="float-right text-success mx-2"> ${ item3.precio? "$ "+item3.precio :"Gratis"}  </div>
+                      <div id="priceNivel${item3.idNivel}" class="float-right text-success mx-2"> ${ item3.precio? "$ "+item3.precio + "MXN" :"Gratis"}  </div>
           </h5>
       </div>
       <div id="collapseOne${item3.idNivel}" class="collapse show" aria-labelledby="headingOne${item3.idNivel}" data-parent="#accordion">
@@ -707,14 +711,26 @@ $(document).ready(function () {
       dataType: "json",
       success: function (resp) {
         console.log(resp);
-        precioCurso = resp.price ? resp.price : 0
+        var valPrecio = resp.precioc ? resp.precioc : 0
 
         $("#titleCurso").html(resp.nombrec)
-        $("#precioCurso").html(resp.precioc ? "$ " + numberWithCommas(resp.precioc) : "Gratis")
+        $("#precioCurso").html(resp.precioc ? "$ " + numberWithCommas(resp.precioc) +" MXN" : "Gratis")
         $("#descriptionCurso").html(resp.decripcionc);
         $("#imageCurso").attr("src", `${"data:" + resp.tipo + ";base64," + resp.imagen}`)
         //$("#chatearCurso").append(`Creado por : ${resp.name } / ${resp.email} <i class="far fa-comment-dots"></i>`)
         //$("#chatearCurso").attr("href",`chat.php?to=${resp.id_user}`)
+        var puntos = parseFloat(resp.puntos)
+          if(resp.countPts > 0)
+          $("#ptsCurso").html(`${puntos.toFixed(1)} (${resp.countPts})`)
+          else
+          $("#ptsCurso").html("Sin calificar")
+       
+        $('#btnComprarMasterCardCurso').attr("data-target","#exampleModal");
+        if(valPrecio == 0){
+          $('#btnComprarPaypalCurso').hide();
+          $('#btnComprarMasterCardCurso').hide();
+          $('#btnComprarGratis').removeClass("d-none");
+        }
 
       },
       error: function (x, y, z) {
@@ -748,11 +764,11 @@ $(document).ready(function () {
                        Videos
                     </button>
                     <span>${item3.nombreNivel}</span>
-                    <button  onclick="location.href='../HTML/index.php'"
+                    <button  onclick="$('#sesioninicia').click()"
                             class="m-0 btn text-light btn-dark zoom float-right ml-1" style="font-size: 10px;">Paypal <i class="fab fa-paypal"></i></button>    
-                        <button   onclick="location.href='../HTML/index.php'"
+                        <button   onclick="$('#sesioninicia').click()"
                             class="m-0 btn btn-dark zoom float-right ml-1" style="font-size: 10px;">MasterCard <i class="fab fa-cc-mastercard"></i></button>
-                            <div id="priceNivel${item3.idNivel}" class="float-right text-success mx-2"> ${ item3.precio? "$ "+item3.precio :"Gratis"}  </div>
+                            <div id="priceNivel${item3.idNivel}" class="float-right text-success mx-2"> ${ item3.precio? "$ "+item3.precio + " MXN" :"Gratis"}  </div>
                 </h5>
             </div>
             <div id="collapseOne${item3.idNivel}" class="collapse show" aria-labelledby="headingOne${item3.idNivel}" data-parent="#accordion">

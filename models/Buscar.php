@@ -57,4 +57,60 @@ class Buscar {
          Connection::disconnect($db);
   }
 
+
+  public static function buscarCalificados(){
+    try {
+        
+        $db = Connection::connect();
+        $query = $db->query("CALL SP_Buscar(2,null,null,null,null,null,null)");
+        
+        if($query){
+            Connection::disconnect($db);
+            $cursos = null;
+              while($row = $query->fetch_assoc()){
+                $row["image"] = base64_encode($row["image"]);
+               $cursos[] = $row;
+                  
+              }
+              return $cursos;
+          }
+          else{
+            echo $db->error;
+            Connection::disconnect($db);
+            return false;
+          }
+       } catch (Exception $th) {
+           return false;
+       }
+       Connection::disconnect($db);
+}
+
+
+public static function buscarComprados(){
+  try {
+      
+      $db = Connection::connect();
+      $query = $db->query("CALL SP_Buscar(3,null,null,null,null,null,null)");
+      
+      if($query){
+          Connection::disconnect($db);
+          $cursos = null;
+            while($row = $query->fetch_assoc()){
+              $row["image"] = base64_encode($row["image"]);
+             $cursos[] = $row;
+                
+            }
+            return $cursos;
+        }
+        else{
+          echo $db->error;
+          Connection::disconnect($db);
+          return false;
+        }
+     } catch (Exception $th) {
+         return false;
+     }
+     Connection::disconnect($db);
+}
+
 }

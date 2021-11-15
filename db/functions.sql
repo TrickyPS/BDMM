@@ -1,6 +1,11 @@
 /* ffunctions */
+/*SET GLOBAL log_bin_trust_function_creators = 1;*/
 
-drop function if exists NivelesComprados;
+/*drop function if exists NivelesComprados;*/
+/*drop function if exists progresoCurso;*/
+/*drop function if exists progresoNivel;*/
+
+
 Delimiter //
 CREATE  FUNCTION NivelesComprados(
 userid INT,
@@ -22,7 +27,7 @@ SET C = IF(A<=B,true,false);
 RETURN C;
 END //
 
-drop function if exists progresoCurso;
+
 Delimiter //
 CREATE  FUNCTION progresoCurso(
 idUser  INT,
@@ -46,7 +51,7 @@ SET C = (A / B) * 100;
 RETURN C;
 END //
 
-drop function if exists progresoNivel;
+
 DELIMITER //
 CREATE  FUNCTION progresoNivel(
 _idUser  INT,

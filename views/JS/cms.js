@@ -5,7 +5,9 @@ var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
     vars[key] = value;
   });
 
-
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 
 var menus = [];
 menus.push('dashboard');

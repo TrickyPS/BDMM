@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./../IMG/logooficial.png" type="image/png">
+    <script>
+ const is_studentValidate = JSON.parse(localStorage.getItem("is_student"));
+
+if(is_studentValidate == 1){
+    window.location.href = "notfound.php"
+}
+        </script>
     <title>Continuity-CMS</title>
     <!----Semantic ui-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
@@ -41,10 +48,10 @@
                 <div  class="nav">
                     <div id="btnDashBoard" onclick="toggleNav('dashboard')" class="item-nav cms-act">Dashboard <i
                             class="fas fa-tachometer-alt"></i> </div>
-                    <div id="btnMyCourses" onclick="toggleNav('misCursos')" class="item-nav cms-act">Mis Cursos <i
+                    <div id="btnMyCourses" onclick="toggleNav('misCursos')" class="item-nav cms-act">Reportes<i
                             class="fas fa-laptop-house"></i> </div>
                     <div class="item-nav cms-des">Agregar Nuevo</div>
-                    <div id="btnCourse" onclick="toggleNav('curso')" class="item-nav cms-act"> Curso <i
+                    <div id="btnCourse" onclick="toggleNav('curso')" class="item-nav cms-act"> Mis cursos <i
                             class="fas fa-arrow-circle-right"></i> </div>
                     <div id="btnLevel" onclick="toggleNav('nivel')" class="item-nav cms-act"> Nivel <i
                             class="fas fa-arrow-circle-right"></i></div>
@@ -110,7 +117,7 @@
                 </div>
                 <div id="misCursos">
                     <p class="h2 pl-2">
-                        Mis Cursos
+                        Reportes
                     </p>
                     <div class="row">
                         <div class="col-lg-12">
@@ -188,7 +195,9 @@
                     </div>
                 </div>
                 <div id="curso">
-                    <p class="h2 pl-2">Cursos</p>
+                    <p class="h2 pl-2">Cursos
+                         <i type="button" data-toggle="tooltip" data-placement="left"
+                          title="Puedes agregar los niveles que desees, cuando el curso esté listo solo publicalo en Cursos" class="far fa-question-circle float-right mr-4"></i> </p>
                     <div class="row">
                         <div class="col-lg-4 p-4">
                             <div class="card shadow p-3">
@@ -211,7 +220,7 @@
                                     </div>
 
                                     <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" lang="es" id="Cimagen">
+                                        <input multiple="false" accept="image/*" type="file" class="custom-file-input" lang="es" id="Cimagen">
                                         <label class="custom-file-label" for="customFileLang">Seleccionar imagen del
                                             curso</label>
                                     </div>
@@ -260,7 +269,10 @@
                     </div>
                 </div>
                 <div id="nivel">
-                    <p class="h2 pl-2">Niveles</p>
+                    <p class="h2 pl-2">Niveles
+                    <i type="button" data-toggle="tooltip" data-placement="left"
+                          title="Puedes agregar los niveles que desees, cuando el curso esté listo solo publicalo en Cursos" class="far fa-question-circle float-right mr-4"></i> 
+                    </p>
                     <div class="row">
                         <div class="col-lg-4 p-4">
                             <div class="card shadow p-3">
@@ -288,7 +300,7 @@
                                     </div>
                                     <label for="">Contenidos Adjuntos</label>
                                     <div class="custom-file mb-3">
-                                        <input  type="file" class="custom-file-input" id="filesNivelCms" lang="es">
+                                        <input multiple="false"  type="file" class="custom-file-input" id="filesNivelCms" lang="es">
                                         <label class="custom-file-label" for="customFileLang">Seleccionar
                                             Archivos</label>
                                     </div>
@@ -338,7 +350,11 @@
                     </div>
                 </div>
                 <div id="video">
-                    <p class="h2 pl-2">Videos</p>
+                    <p class="h2 pl-2">Videos
+
+                    <i type="button" data-toggle="tooltip" data-placement="left"
+                          title="Puedes agregar los niveles que desees, cuando el curso esté listo solo publicalo en Cursos" class="far fa-question-circle float-right mr-4"></i> 
+                    </p>
                     <div class="row">
                         <div class="col-lg-4 p-4">
                             <div class="card shadow p-3">
@@ -363,7 +379,7 @@
                                         </select>
                                     </div>
                                     <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="Vvideo" lang="es">
+                                        <input multiple="false" accept="video/*" type="file" class="custom-file-input" id="Vvideo" lang="es">
                                         <label class="custom-file-label" for="customFileLang">Seleccionar Video</label>
                                     </div>
                                     <div class="form-group d-flex justify-content-center">

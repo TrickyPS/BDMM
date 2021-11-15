@@ -69,6 +69,11 @@ const Chat = {
             for(var item of userList){
               if(item.id_user == vars.to){
                 isExist = true;
+                document.getElementById("head-msg").innerHTML =`
+              <img src="${item.image == null || item.image == "" || item.type_image == null ? "./../IMG/user.png" : "data:" + item.type_image + ";base64," + item.image}" class=" img-user-head"/>
+                   <div> ${item.name} </div>
+              `; 
+              Chat.getChatByUser()
                 break;
               }
             }
@@ -102,7 +107,10 @@ const Chat = {
                   </div>
               </div>`);
               
-               
+              document.getElementById("head-msg").innerHTML =`
+  <img src="${resp.image == null || resp.image == "" || resp.type_image == null ? "./../IMG/user.png" : "data:" + resp.type_image + ";base64," + resp.image}" class=" img-user-head"/>
+       <div> ${resp.name} </div>
+  `; 
       },
       error:function (x,y,z){
          
@@ -167,7 +175,12 @@ const Chat = {
 Chat.getEachUserChat()
 
 $("#btnEnviarChat").click(function(){
-   
+
+  if(currentUser == 0){
+    toastr.info('', 'Selecciona un usuario');
+    return
+  }
+  
     const msg =  $("#textMessageChat").val();
     if(msg != "" && currentUser != 0){
         Chat.addChat(id_user,currentUser,msg)

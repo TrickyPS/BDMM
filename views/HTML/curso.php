@@ -82,7 +82,7 @@
                         </div>
                         <div class="mb-3 mt-3">
                             <span class="price-title">Precio: </span>
-                            <span id="precioCurso" class="price color-price-waanbii">199</span>
+                            <span id="precioCurso" class="price text-success">199</span>
                         </div>
                         <dl class="item-property">
                             <dt>Description</dt>
@@ -459,7 +459,7 @@
                     </form>
                     <center>
                         <button type="button" class="btn btn-second" data-dismiss="modal">Cancelar</button>
-                        <button class="btn  my-1 btn-main " id="btnpagartarjetaCurso"><i class="fa fa-lock"></i> Pagar</button>
+                        <button class="btn  my-1 btn-main " id="btnpagartarjetaCurso2"><i class="fa fa-lock"></i> Pagar</button>
                     </center>
                 </div>
 

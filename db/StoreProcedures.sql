@@ -1,6 +1,6 @@
 /*script store Procedure */
 
-DROP PROCEDURE IF EXISTS SP_FindUserByAuth;
+/*DROP PROCEDURE IF EXISTS SP_FindUserByAuth;*/
 	DELIMITER //
 	CREATE PROCEDURE `SP_FindUserByAuth`(
 	IN _user VARCHAR(100), 
@@ -40,7 +40,7 @@ DROP PROCEDURE IF EXISTS SP_FindUserByAuth;
 	
 	END //
     
-drop procedure IF EXISTS SP_UpdateUser;
+/*drop procedure IF EXISTS SP_UpdateUser;*/
 
 DELIMITER //
 CREATE PROCEDURE `SP_UpdateUser`(
@@ -72,7 +72,7 @@ BEGIN
     WHERE A.`id_user` = _id;
 END //
 
-drop procedure IF EXISTS `SP_Category`;
+/*drop procedure IF EXISTS `SP_Category`;*/
 DELIMITER //
 CREATE PROCEDURE `SP_Category`(
 IN _case TINYINT,
@@ -102,7 +102,7 @@ BEGIN
      
 END //
 
-DROP PROCEDURE IF EXISTS  `SP_Curso`
+/*DROP PROCEDURE IF EXISTS  `SP_Curso`*/
 
 DELIMITER //
 CREATE PROCEDURE `SP_Curso`(
@@ -128,7 +128,7 @@ BEGIN
          (SELECT count(*) from `video` A INNER JOIN `level` B ON A.level = B.id_level INNER JOIN `course` C ON C.id_course = B.course
          WHERE C.`id_course`= F.`id_course` AND A.`deleted_at` is null AND B.`deleted_at` is null AND C.`deleted_at` is null) as 'count'
         FROM `course` F
-         WHERE F.`user` = _user AND F.`deleted_at` is null ;
+         WHERE F.`user` = _user AND F.`deleted_at` is null AND F.is_public = 0 ;
      END IF;
      IF _case = 3 THEN
 		INSERT INTO `image`(`image`,`type_image`) VALUES (_image,_type);
@@ -206,7 +206,7 @@ BEGIN
      end if;
 END //
 
-DROP PROCEDURE if exists `SP_Nivel`
+/*DROP PROCEDURE if exists `SP_Nivel`*/
 
 DELIMITER //
 CREATE PROCEDURE `SP_Nivel`(
@@ -246,7 +246,7 @@ BEGIN
       
 END//
 
-DROP PROCEDURE if exists `SP_Video`
+/*DROP PROCEDURE if exists `SP_Video`*/
 
 DELIMITER //
 CREATE PROCEDURE `SP_Video`(
@@ -285,7 +285,7 @@ BEGIN
     END IF;
 END//
 
-drop procedure if exists `SP_Buscar`;
+/*drop procedure if exists `SP_Buscar`;*/
 delimiter //
 CREATE PROCEDURE `SP_Buscar`(
 IN _case tinyint,
@@ -302,21 +302,16 @@ BEGIN
         WHERE A.`deleted_at` is null AND A.`is_public` = 1 order by A.`created_at` DESC limit _limit;
     END if;
     if _case = 2 THEN
-		select course.id_course as cursoid , image.image as imagen,image.type_image as tipo,course.price as precio,sum(
-		score.pts) as mascalificado
-		FROM course  
-		INNER JOIN image  on   course.image = image.id_image 
-		INNER JOIN payment_course on  course.id_course = payment_course.course INNER JOIN score on
-		score.course = payment_course.course
-		where course.is_public = 1 group by course.id_course  order by score.course DESC limit 4;
+		SELECT  A.id_course, B.title, B.nombre,B.image,B.type_image,B.created_at,B.price,
+           (SELECT avg(`pts`) FROM `score` WHERE course = A.id_course) as puntos
+           from course A INNER JOIN V_BuscarLanding B ON A.id_course = B.id_course
+           WHERe A.deleted_at is null ANd A.is_public = 1 ORDER BY puntos DESC LIMIT 4;
     END if;
     if _case = 3 THEN
-		select course.id_course as cursoid , image.image as imagen,image.type_image as tipo,course.price as precio,count(
-		course . id_course ) as mascomprado
-		FROM  course   
-		INNER JOIN image  on    course . image  =  image . id_image  
-		INNER JOIN payment_course on   course . id_course  = payment_course . course   
-		where  course . is_public  = 1 group by  course . id_course   order by  course . id_course  DESC limit 4;
+		SELECT  A.id_course, B.title, B.nombre,B.image,B.type_image,B.created_at,B.price,
+           (SELECT count(curso) from (SELECT usuario,curso from V_Historial WHERE curso = A.id_course  GROUP BY curso,usuario) countCurso) as cant
+           from course A INNER JOIN V_BuscarLanding B ON A.id_course = B.id_course
+           WHERe A.deleted_at is null ANd A.is_public = 1 ORDER BY cant DESC LIMIT 4;
     END if;
     if _case = 4 THEN
 		if _categoria = 0 then
@@ -360,7 +355,7 @@ BEGIN
     end if;
 END	//
 
-drop Procedure if exists `SP_CursoState`	
+/*drop Procedure if exists `SP_CursoState`	*/
 DELIMiTER //
 CREATE PROCEDURE `SP_CursoState`(
 IN _case TINYINT,
@@ -388,12 +383,14 @@ BEGIN
 		WHERE A.`id_course` = _curso ;
     end if;
     if _case = 3 then 
-		SELECT  `course`.`name` as nombrec,`course`.`price` as precioc , `course`.`description` as decripcionc,`image`.`type_image` as tipo , `image`.`image` as imagen
+		SELECT  `course`.`name` as nombrec,`course`.`price` as precioc , `course`.`description` as decripcionc,`image`.`type_image` as tipo , `image`.`image` as imagen,
+         (SELECT avg(`pts`) FROM `score` WHERE course = _curso) as puntos,
+        (SELECT count(`pts`) FROM `score` WHERE course = _curso) as countPts
         FROM `course` INNER JOIN `image` ON `course`.`image` = `image`.`id_image` where `course`.`id_course`= _curso;
 	END IF;
 END //
 
-drop procedure if exists `SP_Chat`;
+/*drop procedure if exists `SP_Chat`;*/
 delimiter //
 create procedure `SP_Chat`(
 IN _case TINYINT,
@@ -430,7 +427,7 @@ BEGIN
     END If;
 ENd //
 
-drop procedure if exists `SP_Comentarios`;
+/*drop procedure if exists `SP_Comentarios`;*/
 DELIMITER //
 CREATE  PROCEDURE `SP_Comentarios`(
 IN _case TINYINT,
@@ -452,7 +449,7 @@ BEGIN
 	
 END//
 
-drop procedure if exists SP_GetLevel;
+/*drop procedure if exists SP_GetLevel;*/
 DELIMITER //
 CREATE PROCEDURE  SP_GetLevel (
 IN _idCurso INT unsigned
@@ -468,7 +465,7 @@ BEGIN
  where  course . id_course  = _idCurso and  level . deleted_at  is null;
 END //
 
-drop procedure if exists SP_GetLevelUS;
+/*drop procedure if exists SP_GetLevelUS;*/
 DELIMITER //
 CREATE PROCEDURE  SP_GetLevelUS (
 IN _idCurso INT,
@@ -488,7 +485,7 @@ select   level.id_level  as idNivel,
 
 END//
 
-drop procedure if exists SP_GetVideoLevel;
+/*drop procedure if exists SP_GetVideoLevel;*/
 DELIMITER //
 CREATE PROCEDURE SP_GetVideoLevel (
 IN _levelid INT
@@ -503,7 +500,7 @@ ON course.id_course  = level.course  where level.id_level  = _levelid;
 END$$
 
 
-drop procedure if exists SP_GetVideoLevelUser;
+/*drop procedure if exists SP_GetVideoLevelUser;*/
 DELIMITER //
 CREATE PROCEDURE SP_GetVideoLevelUser (
 IN _levelid INT,
@@ -514,7 +511,7 @@ BEGIN
   level . id_level  = video.level  where level.id_level  = _levelid;
 END//
 
-drop procedure if exists SP_Historial;
+/*drop procedure if exists SP_Historial;*/
 DELIMITER //
 CREATE PROCEDURE SP_Historial (
 IN _case INT unsigned,
@@ -551,7 +548,7 @@ BEGIN
     end if;
 END//
 
-drop procedure if exists SP_PagarNivel;
+/*drop procedure if exists SP_PagarNivel;*/
 DELIMITER //
 CREATE PROCEDURE SP_PagarNivel (
 IN iduser int,
@@ -576,7 +573,7 @@ metodo,
 llave);
 END//
 
-drop procedure if exists SP_Pago;
+/*drop procedure if exists SP_Pago;*/
 DELIMITER //
 CREATE PROCEDURE SP_Pago (
 IN _courseid INT UNSIGNED,
@@ -589,7 +586,7 @@ BEGIN
 INSERT INTO payment_course ( course , user , amount , payment_method , `key` ) VALUES(_courseid,_userid,_precio,_payment,_keyp);
 END//
 
-drop procedure if exists SP_PROGRESOTOTAL;
+/*drop procedure if exists SP_PROGRESOTOTAL;*/
 DELIMITER //
 CREATE PROCEDURE SP_PROGRESOTOTAL (
 IN id_user INT,
@@ -609,7 +606,7 @@ BEGIN
  select progresoNivel(iduser,nivelid) as Progreso;
 END//
 
-drop procedure if exists SP_GetVideoLevel;
+/*drop procedure if exists SP_GetVideoLevel;*/
 DELIMITER //
 CREATE  PROCEDURE SP_GetVideoLevel(
 IN _levelid INT
@@ -623,7 +620,7 @@ INNER JOIN `course`
 ON `course`.id_course =`level`.course where `level`.id_level = _levelid;
 END //
 
-drop procedure if exists SP_Score;
+/*drop procedure if exists SP_Score;*/
 DELIMITER //
 CREATE  PROCEDURE SP_Score(
 IN _case tinyint,

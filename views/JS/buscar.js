@@ -76,7 +76,7 @@ function dateValidate(){
             $("#Ccategoria").html("")
           resp.map((item)=>{
               $("#inputState").append(`
-              <option value="${item.id_category}"> ${item.name} </option>
+              <option  value="${item.id_category}"> ${item.name} </option>
               `)
           })
           if(_categoria){
@@ -106,6 +106,7 @@ $.ajax({
     by:_by
 },dataType:"json",
     success: function(resp){
+        console.log(resp);
     if(resp){
         var rows = Math.trunc( resp.length / 4) + 1;
         for(var i = 0; i < rows ; i++ ){
@@ -116,6 +117,14 @@ $.ajax({
             let init = (i) * 4;
             for(var j = init; j < temp && j < resp.length ; j++ ){
                 var item = resp[j];
+                var d = new Date(item.created_at);
+                const months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+                
+
+
+                  var month = months[d.getMonth()];
+                  var day = d.getDate();
+                  console.log(d);
                 $("#row" + i).append(
                     `   <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="product-grid">
@@ -133,6 +142,7 @@ $.ajax({
                        
                         <div class="product-content">
                             <h3 class="title"><a href="curso.php?curso=${item.id_course}">${item.title}</a></h3>
+                            <h3 class="title"><a href="curso.php?curso=${item.id_course}">${day +"/"+month+"/"+d.getFullYear()}</a></h3>
                             <div class="price pb-2 ${item.price?"":"text-success"}" >${ item.price? "$" + numberWithCommas(item.price) + "MXN":"Gratis"}
                             </div>
                         </div>
@@ -144,17 +154,19 @@ $.ajax({
         
     }else{
         $("#contSearchCursos").append(
-            `<h2 class="mt-3"> No se encontraron cursos con " ${_buscar} "</h2>`
+            `<h2 class="mt-3"> No se encontraron cursos con  ${_buscar?"'"+_buscar+"'":"tu busqueda"} </h2>`
         )
     }
     if(resp.length == 0){
         $("#contSearchCursos").append(
-            `<h2 class="mt-3"> No se encontraron cursos " ${_buscar} " </h2>`
+            `<h2 class="mt-3"> No se encontraron cursos  ${_buscar?"'"+_buscar+"'":"tu busqueda"} </h2>`
         )
     }
     },
     error:function(x,y,z){
-        debugger
+        $("#contSearchCursos").append(
+            `<h2 class="mt-3"> No se encontraron cursos  ${_buscar?"'"+_buscar+"'":"tu busqueda"} </h2>`
+        )
     }
 });
 

@@ -37,6 +37,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap" rel="stylesheet">
   <script src="./../JS/landing.js" defer> </script>
   <title>Continuity-Pagina Principal</title>
+
 </head>
 
 <body>
@@ -93,25 +94,16 @@
 
   <section class="categorias pb-5" style="background-color: rgb(239, 242, 245);">
     <div class="text-center pt-4">
-      <h1 style="font-family:'Bebas Neue'; color: rgb(0, 0, 0);"> Ultimos cursos </h1>
+      <h1 style="font-family:'Bebas Neue'; color: rgb(0, 0, 0);"> Últimos cursos </h1>
     </div>
 
     <div class="container pt-0" id="_productos">
       <div class="splide pt-3 d-flex mx-auto justify-content-center col-lg-12 col-md-12 col-sm-12 " id="splide"
         style="font-family: 'Bebas Neue'">
         <div class="splide__track " style="border-radius: 10px">
-          <ul class="splide__list">
-            <li class="liRecientes1 splide__slide p-2 d-flex" id="splide-slide01" style="background-color:#383a41">
-              
-
-
-            </li>
-            <li class=" liRecientes2 splide__slide p-2 d-flex" id="splide-slide02" style="background-color:#383a41">
-             
-            </li>
-            <li class=" liRecientes3 splide__slide p-2 d-flex" id="splide-slide03" style="background-color:#383a41">
-    
-            </li>
+          <ul id="splideManage" class="splide__list">
+           
+           
           </ul>
         </div>
       </div>
@@ -128,87 +120,8 @@
     </div>
 
     <div class="container px-4 px-lg-5 mt-5">
-      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-        <div class="col mb-5 zoom">
-          <div class="card h-100" style="background-color: #383a41; color: white;">
-            <!-- Product image-->
-            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
-            <!-- Product details-->
-            <div class="card-body p-4">
-              <div class="text-center">
-                <!-- Product name-->
-                <h5 class="fw-bolder">Curso de React</h5>
-                <!-- Product price-->
-                Precio: $199
-              </div>
-            </div>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-5 zoom">
-          <div class="card h-100" style="background-color: #383a41; color: white;">
-            <!-- Product image-->
-            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
-            <!-- Product details-->
-            <div class="card-body p-4">
-              <div class="text-center">
-                <!-- Product name-->
-                <h5 class="fw-bolder">Curso de React</h5>
-                <!-- Product price-->
-                Precio: $199
-              </div>
-            </div>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-5 zoom">
-          <div class="card h-100" style="background-color: #383a41; color: white;">
-            <!-- Product image-->
-            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
-            <!-- Product details-->
-            <div class="card-body p-4">
-              <div class="text-center">
-                <!-- Product name-->
-                <h5 class="fw-bolder">Curso de React</h5>
-                <!-- Product price-->
-                Precio: $199
-              </div>
-            </div>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-5 zoom">
-          <div class="card h-100" style="background-color: #383a41; color: white;">
-            <!-- Product image-->
-            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
-            <!-- Product details-->
-            <div class="card-body p-4">
-              <div class="text-center">
-                <!-- Product name-->
-                <h5 class="fw-bolder">Curso de React</h5>
-                <!-- Product price-->
-                Precio: $199
-              </div>
-            </div>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-            </div>
-          </div>
-        </div>
+      <div id="contMasComprados" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      
 
       </div>
     </div>
@@ -220,87 +133,9 @@
     </div>
 
     <div class="container px-4 px-lg-5 mt-5">
-      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-        <div class="col mb-5 zoom">
-          <div class="card h-100" style="background-color: #383a41; color: white;">
-            <!-- Product image-->
-            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
-            <!-- Product details-->
-            <div class="card-body p-4">
-              <div class="text-center">
-                <!-- Product name-->
-                <h5 class="fw-bolder">Curso de React</h5>
-                <!-- Product price-->
-                Precio: $199
-              </div>
-            </div>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-5 zoom">
-          <div class="card h-100" style="background-color: #383a41; color: white;">
-            <!-- Product image-->
-            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
-            <!-- Product details-->
-            <div class="card-body p-4">
-              <div class="text-center">
-                <!-- Product name-->
-                <h5 class="fw-bolder">Curso de React</h5>
-                <!-- Product price-->
-                Precio: $199
-              </div>
-            </div>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-5 zoom">
-          <div class="card h-100" style="background-color: #383a41; color: white;">
-            <!-- Product image-->
-            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
-            <!-- Product details-->
-            <div class="card-body p-4">
-              <div class="text-center">
-                <!-- Product name-->
-                <h5 class="fw-bolder">Curso de React</h5>
-                <!-- Product price-->
-                Precio: $199
-              </div>
-            </div>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-5 zoom">
-          <div class="card h-100" style="background-color: #383a41; color: white;">
-            <!-- Product image-->
-            <img class="card-img-top" src="../IMG/reactredux.png" alt="..." style="object-fit: cover; height:158px;">
-            <!-- Product details-->
-            <div class="card-body p-4">
-              <div class="text-center">
-                <!-- Product name-->
-                <h5 class="fw-bolder">Curso de React</h5>
-                <!-- Product price-->
-                Precio: $199
-              </div>
-            </div>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-              <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
-              class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='../HTML/curso.php';">Ver Curso</button>
-            </div>
-          </div>
-        </div>
+      <div id="contMasCalificados" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+       
+        
 
       </div>
     </div>
@@ -309,7 +144,7 @@
   </section>
 
 
-  <section class="shadow" id="home" data-scroll-index="0"
+  <section id="siNoEsMaestro" class="shadow" id="home" data-scroll-index="0"
     style="background-color: rgb(151, 174, 180); color: rgb(255, 255, 255);">
     <div class="container">
       <div class="mt-0 row row-inicio align-items-center" style="font-family: 'Bebas Neue'">
@@ -343,22 +178,7 @@
 
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-
-      new Splide('.splide').mount();
-
-      var elms = document.getElementsByClassName('.splide');
-      for (var i = 0, len = elms.length; i < len; i++) {
-        new Splide(elms[i]).mount();
-      }
-
-      var splide = new Splide('#splide');
-
-      splide.on('autoplay:playing', function (rate) {
-        console.log(rate);
-      });
-
-      splide.mount();
+    
 
 
 

@@ -21,6 +21,17 @@ switch ($action) {
         echo json_encode($resp);
         break;
 
+    case 'buscarCalificados':
+            $resp = Buscar::buscarCalificados();
+            echo json_encode($resp);
+        break;
+
+    case 'buscarComprados':
+              
+                $resp = Buscar::buscarComprados();
+                echo json_encode($resp);
+            break;
+
     case 'buscar':
 
         if(

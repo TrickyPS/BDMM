@@ -1,3 +1,5 @@
+var _categoriasCms = [];
+
 $("#formCategoria").submit(function (e) {
     e.preventDefault();
     var campos = [];
@@ -16,7 +18,14 @@ $("#formCategoria").submit(function (e) {
         success = false;
         }
     }
+    for(var i = 0; i < _categoriasCms.length; i++){
+        if(name == _categoriasCms[i].name){
+            toastr.error('Error', `Esta categoria ya existe`);
+            success = false;
+        }
+    }
     if(success){
+       
         $.ajax({
             type:"POST",
             url:"./../../controllers/CategoryController.php",
@@ -56,6 +65,10 @@ $("#btnCategory").click(function(){
         data:{action:"findAll"},
         dataType:"json",
         success: function(resp){
+            console.log(resp);
+            if(resp.length > 0){
+                _categoriasCms = resp;
+            }
            showCategories(resp)
            
         },

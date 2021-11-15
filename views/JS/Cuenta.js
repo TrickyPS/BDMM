@@ -270,7 +270,7 @@ function setUser(user) {
                   console.log(resp2)
                   for( var item2 of resp2){
 
-                    $("#obtenerCategoriaU"+item.idCurso).append(`<a class="text-dark" href="#">${item2.name + "  "}</a>`);
+                    $("#obtenerCategoriaU"+item.idCurso).append(`<a class="text-dark" href="categorias.php?categoria=${item2.id_category}">${item2.name + "  "}</a>`);
                   }
                    
                   

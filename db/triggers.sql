@@ -1,6 +1,10 @@
 /*  Triggers  */
 
-drop trigger NivelesGratis;
+/*drop trigger NivelesGratis;*/
+ /*drop Trigger `TG_Resource`*/
+  /*drop Trigger `TG_RegistroNivel`*/
+  
+  
  delimiter //
 
 CREATE TRIGGER NivelesGratis AFTER UPDATE ON `course`
@@ -11,7 +15,7 @@ CREATE TRIGGER NivelesGratis AFTER UPDATE ON `course`
     END IF;
   END //
   
-  drop Trigger `TG_Resource`
+ 
 delimiter //
 CREATE TRIGGER `TG_Resource` Before INSERT on `resource` for each row
 BEGIN
@@ -22,7 +26,7 @@ BEGIN
 	End if;
 END //
 
-drop Trigger `TG_RegistroNivel`
+
 delimiter //
 CREATE TRIGGER `TG_RegistroNivel` After INSERT on `courseprogress` for each row
 BEGIN
