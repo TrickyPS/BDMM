@@ -94,7 +94,7 @@ BEGIN
          INSERT INTO `categorycourse`(`category`,`course`) VALUES (_categoria,_curso);
      END IF;
      IF _case = 4 THEN
-         Select count(B.category) as cant,B.category,C.name from V_Historial A 
+         Select count(B.category) as cant,B.category,C.name from V_Reportes A 
          INNER JOIN categorycourse B ON A.curso = B.course
          Inner join category C ON B.category = C.id_category
          group by B.category;
@@ -152,7 +152,7 @@ BEGIN
         Where user = _user AND month(created_at) = month(curdate()) ANd year(created_at) = year(curdate())) as montoMes;
      END IF;
      if _case = 7 then
-		select sum(amount) as monto,A.curso,C.image,C.type_image,b.name from V_Amount A INNER JOIN `course` B ON A.curso = B.id_course 
+		select sum(amount) as monto,A.curso,C.image,C.type_image,B.name from V_Amount A INNER JOIN `course` B ON A.curso = B.id_course 
         INNER JOIN image C ON B.image = C.id_image
         WHERE A.user = _user group by A.curso Order by monto DESC limit 3;
      end if;
@@ -185,11 +185,11 @@ BEGIN
         
      end if;
      if _case = 9 then
-		SELECT id_course,`name`, is_public,price,
-        (SELECT count(curso) from (SELECT curso from V_Historial WHERE curso = course.id_course group by curso , usuario) tableHist) as inscritos,
+    SELECT course.id_course,course.`name`, course.is_public,course.price,
+        (SELECT count(curso) from V_Reportes WHERE curso = course.id_course) as inscritos,
         (SELECT sum(amount) from V_Amount WHERE curso = course.id_course ) as ingresos,
-        (SELECT round(avg(cant),0) from (SELECT count(level) as cant from  V_NivelAvg WHERE course = course.id_course  group by `user`) tablenlAvg) as nlPromedio
-        from  course  WHERE deleted_at is null and `user` = _user;
+        (SELECT round(avg(cant),0) from V_Nivel WHERE curso = course.id_course) as nlPromedio
+        from  course  WHERE course.deleted_at is null and course.`user` = _user;
      END if;
      if _case = 10 then
 		select SUM(A.amount) as monto, A.payment_method,B.name  from V_Amount A INNER JOIN payment_method B ON A.payment_method = B.id_payment_method
@@ -288,7 +288,7 @@ BEGIN
     END IF;
       IF _case = 6 THEN
 		Select `id_video`,`path`,`created_at`,`type`,`title` FROM `video` 
-        WHERE `level` = _idNivel ORDER BY `created_at` DESC ; /* validar si compro el video - level -paymentlevel-paymentcurso */
+        WHERE `level` = _idNivel AND deleted_at is null ORDER BY `created_at` DESC ; /* validar si compro el video - level -paymentlevel-paymentcurso */
     END IF;
 END//
 
@@ -316,7 +316,7 @@ BEGIN
     END if;
     if _case = 3 THEN
 		SELECT  A.id_course, B.title, B.nombre,B.image,B.type_image,B.created_at,B.price,
-           (SELECT count(curso) from (SELECT usuario,curso from V_Historial WHERE curso = A.id_course  GROUP BY curso,usuario) countCurso) as cant
+           (SELECT count(curso) from (SELECT usuario,curso from V_Historial  GROUP BY curso,usuario) si WHERE si.curso = A.id_course ) as cant
            from course A INNER JOIN V_BuscarLanding B ON A.id_course = B.id_course
            WHERe A.deleted_at is null ANd A.is_public = 1 ORDER BY cant DESC LIMIT 4;
     END if;
@@ -451,7 +451,7 @@ BEGIN
         from `comment` INNER JOIN `user` ON `comment`.`user` = `user`.`id_user`
         INNER JOIN `image` ON `image`.`id_image` = `user`.`avatar`
         WHERE `comment`.`course` = _curso  AND `comment`.`deleted_at` is null
-        ORDER by `comment`.created_at Desc;	
+        ORDER by `comment`.created_at ASC;	
     END If;
 	
 END//
@@ -503,8 +503,8 @@ BEGIN
  INNER  JOIN video 
 ON  video.level  = level.id_level  
 INNER JOIN course  
-ON course.id_course  = level.course  where level.id_level  = _levelid;
-END$$
+ON course.id_course  = level.course  where level.id_level  = _levelid AND video.deleted_at is null;
+END //
 
 
 /*drop procedure if exists SP_GetVideoLevelUser;*/
@@ -515,7 +515,7 @@ IN _userid INT
 )
 BEGIN
  select video.id_video  as videoid, title  as tituloVideo, video.level  FROM video  INNER JOIN  level  ON
-  level . id_level  = video.level  where level.id_level  = _levelid;
+  level . id_level  = video.level  where level.id_level  = _levelid AND video.deleted_at is null ;
 END//
 
 /*drop procedure if exists SP_Historial;*/

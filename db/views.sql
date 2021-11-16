@@ -62,5 +62,14 @@ AS
 SELECT A.id_course, A.name as 'title', B.`name` as 'nombre',C.image,C.type_image,A.created_at,A.price from
 course A INNER JOIN `user` B ON A.user = B.id_user
 INNER JOIN image C ON C.id_image = A.image
-WHERE A.deleted_at is null AND A.is_public = 1
-       
+WHERE A.deleted_at is null AND A.is_public = 1;
+
+
+CREATE VIEW V_Reportes
+AS 
+SELECT curso,usuario from V_Historial  group by curso , usuario;
+
+
+CREATE VIEW V_Nivel
+AS 
+SELECT count(level) as cant,course as curso from  V_NivelAvg   group by `user`;

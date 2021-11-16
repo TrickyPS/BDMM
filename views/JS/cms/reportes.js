@@ -46,10 +46,10 @@ const Reportes = {
                if(resp){
                  console.log(resp);
                 for(var item of resp){
-                    if(item.payment_method == 1){
+                    if(item.payment_method == 2){
                         $("#totalMC").html(`$ ${item.monto?numberWithCommasR(item.monto):"0.00"} MXN`);
                     }
-                    if(item.payment_method == 2){
+                    if(item.payment_method == 1){
                         $("#totalP").html(`$ ${item.monto?numberWithCommasR(item.monto):"0.00"} MXN`);
                     }
                     

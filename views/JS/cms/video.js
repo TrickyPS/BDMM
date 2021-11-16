@@ -121,7 +121,7 @@ const Video = {
            Swal.fire({
             position: 'center',
             icon: 'success',
-            title: `Curso ${name} agregado`,
+            title: `Video ${name} agregado`,
             showConfirmButton: false,
             timer: 1500
           }).then((result) => {
@@ -190,7 +190,7 @@ const Video = {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: `Nivel ${video} eliminado`,
+                    title: `Video ${video} eliminado`,
                     showConfirmButton: false,
                     timer: 1500
                   }).then((result) => {

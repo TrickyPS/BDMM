@@ -614,9 +614,7 @@ $(document).ready(function () {
                     precio = 0;
                   }
  
-                if(countNl == countNlComprados){
-                  $('#compraBotones').hide();
-                }
+                
 
                   var level = item3.idNivel;
                   var user = id_user;
@@ -657,7 +655,7 @@ $(document).ready(function () {
                         }
                       }
 
-
+                     
                     },
                     error: function (x, y, z) {
 
@@ -670,7 +668,9 @@ $(document).ready(function () {
 
 
                 }
-
+                if(countNl == countNlComprados){
+                  $('#compraBotones').hide();
+                }
 
               },
               error: function (x, y, z) {
@@ -990,7 +990,7 @@ debugger
         curso: curso, user: user, comentario: comentario
       },
       success: function (resp) {
-
+        $("#comment").val("");
         showComentarios()
       },
       error: function (x, y, z) {

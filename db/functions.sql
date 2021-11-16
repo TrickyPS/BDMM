@@ -44,7 +44,8 @@ INNER JOIN courseprogress ON video.id_video= courseprogress.video
 where courseprogress.user = idUser AND level.course = idCourse);
 
 set B = (select count(video.id_video) as video from level 
-INNER JOIN video ON level.id_level = video.level where level.course = idCourse);
+INNER JOIN video ON level.id_level = video.level where level.course = idCourse
+ AND level.deleted_at is null AND video.deleted_at is null);
 
 SET C = (A / B) * 100;
 
