@@ -159,13 +159,13 @@ $.ajax({
     }
     if(resp.length == 0){
         $("#contSearchCursos").append(
-            `<h2 class="mt-3"> No se encontraron cursos  ${_buscar?"'"+_buscar+"'":"tu busqueda"} </h2>`
+            `<h2 class="mt-3"> No se encontraron cursos con  ${_buscar?"'"+_buscar+"'":"tu busqueda"} </h2>`
         )
     }
     },
     error:function(x,y,z){
         $("#contSearchCursos").append(
-            `<h2 class="mt-3"> No se encontraron cursos  ${_buscar?"'"+_buscar+"'":"tu busqueda"} </h2>`
+            `<h2 class="mt-3"> No se encontraron cursos con  ${_buscar?"'"+_buscar+"'":"tu busqueda"} </h2>`
         )
     }
 });

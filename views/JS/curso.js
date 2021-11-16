@@ -36,7 +36,7 @@ $(document).ready(function () {
     },
     error: function (x, y, z) {
 
-      location.href = "index.php"
+      console.error(x)
     }
   })
 
@@ -283,7 +283,7 @@ $(document).ready(function () {
         },
         error: function (x, y, z) {
 
-          location.href = "index.php"
+          console.error(x)
 
         }
       })
@@ -357,7 +357,7 @@ $(document).ready(function () {
         },
         error: function (x, y, z) {
   
-          location.href = "index.php"
+          console.error(x)
   
         }
       })
@@ -535,8 +535,8 @@ $(document).ready(function () {
 
               },
               error: function (x, y, z) {
-
-                location.href = "index.php"
+                console.error(x)
+               
 
               }
             })
@@ -685,8 +685,8 @@ $(document).ready(function () {
         },
         error: function (x, y, z) {
 
-          location.href = "index.php"
-
+         // location.href = "index.php"
+         console.error(x)
         }
       })
     }
@@ -811,7 +811,7 @@ $(document).ready(function () {
       },
       error: function (x, y, z) {
 
-        location.href = "index.php"
+        console.error(x)
 
       }
     })
@@ -995,7 +995,7 @@ debugger
       },
       error: function (x, y, z) {
 
-        location.href = "index.php"
+        console.error(x)
 
       }
     })
@@ -1019,7 +1019,7 @@ debugger
   
         respc = respc ? respc : [];
         $("#agregacomentario").html("")
-        for (item444 of respc) {
+        for (var item444 of respc) {
   
           $("#agregacomentario").append(`  <div class="card p-3 m-1">
   <div class="d-flex justify-content-between align-items-center">
@@ -1040,7 +1040,7 @@ debugger
       },
       error: function (x, y, z) {
   
-        location.href = "index.php"
+        console.error(x)
   
       }
     })

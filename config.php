@@ -2,9 +2,9 @@
 
 return array (
     "dbHost" => "localhost",
-    "dbName" => "bdm",
-    "dbUser" => "root",
-    "dbPass" => "12345678"
+    "dbName" => "u176038041_bdmcontinuity",
+    "dbUser" => "u176038041_root",
+    "dbPass" => "a#I8#[Iuz/Mk"
 )
 
 ?>
