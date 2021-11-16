@@ -1024,7 +1024,7 @@ debugger
           $("#agregacomentario").append(`  <div class="card p-3 m-1">
   <div class="d-flex justify-content-between align-items-center">
       <div class="user d-flex flex-row align-items-center"> 
-      <img src="${"data:" + item444.tipo + ";base64," + item444.imagen}" class="user-img rounded-circle mr-2"
+      <img src="${item444.imagen?"data:" + item444.tipo + ";base64," + item444.imagen:"./../IMG/user.png"}" class="user-img rounded-circle mr-2"
               style="object-fit: contain; width: 30px; height:30px;"> <span><small
                   class="font-weight-bold text-primary">${item444.correo}:</small> <small
                   class="font-weight-bold">${item444.comentario}</small></span> </div>

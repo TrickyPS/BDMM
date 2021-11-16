@@ -89,7 +89,7 @@ const Nivel = {
         $.ajax({
             type:"GET",
             url:"./../../controllers/CourseController.php",
-            data:{action:"getAllCursosByUser",user},
+            data:{action:"getAllCursosByUserNotPublic",user},
             dataType:"json",
             success: function(resp){
                 listCursos = resp;

@@ -161,7 +161,6 @@ function getAllCursos(user){
         success: function(resp){
              
             listCursos = resp;
-            console.log(listCursos);
             $("#tableShowCursos").html("");
             var i = 0;
             resp.map((item)=>{

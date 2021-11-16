@@ -26,7 +26,7 @@ $.ajax({
     
           
        if(resp.length > 0){
-         $("#splideManage").append(` <li class="liRecientes1 splide__slide p-2 d-flex" id="splide-slide01" style="background-color:#383a41">
+         $("#splideManage").append(` <li class="liRecientes1 splide__slide p-2 d-flex " id="splide-slide01" style="background-color:#383a41">
          </li>`);
        }
        if(resp.length >3){
@@ -71,7 +71,7 @@ $.ajax({
                 <h6 class="fw-bolder">${day+"/"+month+"/"+d.getFullYear()}</h6>
                 <span>Precio</span>
                 <p class="lead" style="color: white;">
-                  <span> ${data[i].price?"$"+numberWithCommas(data[i].price):"Gratis"}</span>
+                  <span> ${data[i].price?"$"+numberWithCommas(data[i].price) + " MXN":"Gratis"}</span>
                 </p>
                  <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
                   class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='curso.php?curso=${data[i].id_course}';">Ver Curso</button>
@@ -97,7 +97,7 @@ $.ajax({
                 <h6 class="fw-bolder">${day+"/"+month+"/"+d.getFullYear()}</h6>
                 <span>Precio</span>
                 <p class="lead" style="color: white;">
-                  <span>$ ${data[i].price}</span>
+                <span> ${data[i].price?"$"+numberWithCommas(data[i].price) + " MXN":"Gratis"}</span>
                 </p>
                  <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
                   class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='curso.php?curso=${data[i].id_course}';">Ver Curso</button>
@@ -123,7 +123,7 @@ $.ajax({
                 <h6 class="fw-bolder">${day+"/"+month+"/"+d.getFullYear()}</h6>
                 <span>Precio</span>
                 <p class="lead" style="color: white;">
-                  <span>$ ${data[i].price }</span>
+                <span> ${data[i].price?"$"+numberWithCommas(data[i].price) + " MXN":"Gratis"}</span>
                 </p>
                  <button style="font-family: 'Bebas Neue'; background-color: rgb(100, 100, 96);  color: white;"
                   class="p1p btn mt-3 mb-4 zoom" type="submit" onclick="location.href='curso.php?curso=${data[i].id_course}';">Ver Curso</button>
@@ -155,7 +155,7 @@ $.ajax({
           var day = d.getDate();
 
       $("#contMasComprados").append(`
-      <div class="col mb-5 zoom">
+      <div class="col-lg-3 col-md-3 col-sm-12 mb-5 zoom">
       <div class="card h-100" style="background-color: #383a41; color: white;">
         <!-- Product image-->
         <img class="card-img-top" src="data:${item.type_image};base64,${item.image}" alt="..." style="object-fit: cover; height:158px;">
@@ -204,7 +204,7 @@ $.ajax({
             var day = d.getDate();
 
           $("#contMasCalificados").append(`
-          <div class="col mb-5 zoom">
+          <div class="col-lg-3 col-md-3 col-sm-12 mb-5 zoom">
           <div class="card h-100" style="background-color: #383a41; color: white;">
             <!-- Product image-->
             <img class="card-img-top" src="data:${item.type_image};base64,${item.image}" alt="..." style="object-fit: cover; height:158px;">

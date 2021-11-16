@@ -107,7 +107,8 @@ const Video = {
         formData.append('title',name);
         formData.append('nivel',nivel);
         formData.append("path",uuidv4())
-         
+         debugger
+         $("#uploadVideo").removeClass("d-none");
     $.ajax({
         type:"POST",
         enctype: "multipart/form-data",
@@ -116,7 +117,7 @@ const Video = {
         processData: false, 
         contentType: false ,
         success: function(resp){
-          
+            $("#uploadVideo").addClass("d-none");
            Swal.fire({
             position: 'center',
             icon: 'success',
@@ -131,6 +132,13 @@ const Video = {
          
         },
         error:function(x,y,z){
+            console.error(x)
+            $("#uploadVideo").addClass("d-none");
+            Swal.fire(
+                'Error',
+                'Intentelo de nuevo',
+                'error'
+              )
         }
     });
     },

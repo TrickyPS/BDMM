@@ -51,7 +51,14 @@ switch ($action) {
         }
      break;
 
-    case "getAllCursosByUser":
+    case "getAllCursosByUserNotPublic":
+        $user = $_GET["user"];
+         $curso = new Curso($user,"","","null","","",0,0);
+         $resp = $curso->getAllCursosByUserNotPublic();
+         echo json_encode($resp);
+     break;
+
+     case "getAllCursosByUser":
         $user = $_GET["user"];
          $curso = new Curso($user,"","","null","","",0,0);
          $resp = $curso->GetCursoByUser();

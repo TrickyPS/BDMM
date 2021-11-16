@@ -128,7 +128,7 @@ BEGIN
          (SELECT count(*) from `video` A INNER JOIN `level` B ON A.level = B.id_level INNER JOIN `course` C ON C.id_course = B.course
          WHERE C.`id_course`= F.`id_course` AND A.`deleted_at` is null AND B.`deleted_at` is null AND C.`deleted_at` is null) as 'count'
         FROM `course` F
-         WHERE F.`user` = _user AND F.`deleted_at` is null AND F.is_public = 0 ;
+         WHERE F.`user` = _user AND F.`deleted_at` is null  ;
      END IF;
      IF _case = 3 THEN
 		INSERT INTO `image`(`image`,`type_image`) VALUES (_image,_type);
@@ -204,6 +204,13 @@ BEGIN
         INNER JOIN `user` B ON A.usuario = B.id_user
         WHERE A.curso = _curso GROUP by A.curso,A.usuario;
      end if;
+     IF _case = 12 THEN
+        SELECT F.`id_course`,F.`is_public`,F.`name`,F.`price`,F.`description`,F.`created_at`,F.`updated_at`,F.`deleted_at`,
+         (SELECT count(*) from `video` A INNER JOIN `level` B ON A.level = B.id_level INNER JOIN `course` C ON C.id_course = B.course
+         WHERE C.`id_course`= F.`id_course` AND A.`deleted_at` is null AND B.`deleted_at` is null AND C.`deleted_at` is null) as 'count'
+        FROM `course` F
+         WHERE F.`user` = _user AND F.`deleted_at` is null AND  F.is_public = 0 ;
+     END IF;
 END //
 
 /*DROP PROCEDURE if exists `SP_Nivel`*/
@@ -559,7 +566,7 @@ IN metodo int,
 IN llave varchar(150)
 )
 BEGIN
-INSERT INTO bdm.payment_level 
+INSERT INTO payment_level 
 ( level ,
  user ,
  amount ,
@@ -593,7 +600,7 @@ IN id_user INT,
 IN id_course INT
 )
 BEGIN
-select bdm .progresoCurso (id_user,id_course) as porcentaje;
+select progresoCurso (id_user,id_course) as porcentaje;
 END//
 
 

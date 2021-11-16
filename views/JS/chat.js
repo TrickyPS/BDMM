@@ -141,8 +141,9 @@ const Chat = {
       dataType:'json',
       success:function(resp){
         console.log(resp);
+        $("#contMsg").html("")
         for(var item of resp){
-           
+          
           if(item.from == id_user){
             $("#contMsg").append(`
               <div class=" d-flex w-100 justify-content-end">

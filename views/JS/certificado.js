@@ -23,13 +23,13 @@ var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
           var inicio = new Date(data.inicio);
           var fin = new Date(data.fin);
           const months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
-          const days = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+       
 
 
             let monthIni = months[inicio.getMonth()];
-            let dayIni = days[inicio.getDay() -1];
+            let dayIni = inicio.getDate();
             let monthFin = months[fin.getMonth()];
-            let dayFin = days[fin.getDay() -1];
+            let dayFin = fin.getDate();
           $("#cerName").html(data.nombre);
           $("#curso2").append(`${data.curso} de ${dayIni+"/"+monthIni+"/"+inicio.getFullYear()} a ${dayFin+"/"+monthFin+"/"+fin.getFullYear()}`)
         }else{

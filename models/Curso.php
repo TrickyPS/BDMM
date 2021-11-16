@@ -43,10 +43,10 @@ class Curso{
            Connection::disconnect($db);
     }
 
-    public function GetCursoByUser(){
+    public function getAllCursosByUserNotPublic(){
         try {
             $db = Connection::connect();
-            $query = $db->query("CALL SP_Curso(2,".$this->user.",0,'".$this->name."','".$this->description."',".$this->precio.",'".$this->image."','".$this->type."',0)");
+            $query = $db->query("CALL SP_Curso(12,".$this->user.",0,'".$this->name."','".$this->description."',".$this->precio.",'".$this->image."','".$this->type."',0)");
             
             if($query){
                 Connection::disconnect($db);
@@ -66,6 +66,30 @@ class Curso{
            }
            Connection::disconnect($db);
     }
+
+    public function GetCursoByUser(){
+      try {
+          $db = Connection::connect();
+          $query = $db->query("CALL SP_Curso(2,".$this->user.",0,'".$this->name."','".$this->description."',".$this->precio.",'".$this->image."','".$this->type."',0)");
+          
+          if($query){
+              Connection::disconnect($db);
+              $cursos = null;
+                while($row = $query->fetch_assoc()){
+                    $cursos[] = $row;
+                }
+                return $cursos; 
+            }
+            else{
+              echo $db->error;
+              Connection::disconnect($db);
+              return false;
+            }
+         } catch (Exception $th) {
+             return false;
+         }
+         Connection::disconnect($db);
+  }
 
     public function UpdateCurso(){
       try {

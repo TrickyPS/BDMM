@@ -355,6 +355,7 @@ if(is_studentValidate == 1){
                     <i type="button" data-toggle="tooltip" data-placement="left"
                           title="Puedes agregar los niveles que desees, cuando el curso esté listo solo publicalo en Cursos" class="far fa-question-circle float-right mr-4"></i> 
                     </p>
+                    <h3 id="uploadVideo" class="text-center text-muted d-none">Subiendo Video...</h3>
                     <div class="row">
                         <div class="col-lg-4 p-4">
                             <div class="card shadow p-3">
