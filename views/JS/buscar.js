@@ -10,7 +10,7 @@ let year = date.getFullYear()
 
 var _categoria = null;
 var _desde =`1970/${month}/${day}`;
-var _a = `${year}/${month}/${day}`;
+var _a = `${year + 1}/${month}/${day}`;
 var _by = null;
 var _buscar = null;
 

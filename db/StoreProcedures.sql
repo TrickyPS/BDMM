@@ -324,35 +324,35 @@ BEGIN
 		if _categoria = 0 then
 			if _by = 0 then
         SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
-         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day  
-         OR  nombre LIKE CONCAT('%',_buscar,'%') AND created_at  between _desde - interval 1 day and _a + interval 1 day 
+         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde   and _a + interval 1 day  
+         OR  nombre LIKE CONCAT('%',_buscar,'%') AND created_at  between _desde  and _a + interval 1 day 
          GROUP BY id_course ORDER BY created_at DESC ;
         end if;
         if _by = 1 then
         SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
-         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day 
+         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde  and _a + interval 1 day 
          GROUP BY id_course ORDER BY created_at DESC ;
         end if;
          if _by = 2 then
         SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
-         WHERE nombre LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day  
+         WHERE nombre LIKE CONCAT('%',_buscar,'%') AND created_at between _desde  and _a + interval 1 day  
          GROUP BY id_course ORDER BY created_at DESC ;
          end if;
         else
 			if _by = 0 then
         SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
-         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day  AND category = _categoria
-         OR  nombre LIKE CONCAT('%',_buscar,'%') AND created_at  between _desde - interval 1 day and _a + interval 1 day AND category = _categoria
+         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde   and _a + interval 1 day  AND category = _categoria
+         OR  nombre LIKE CONCAT('%',_buscar,'%') AND created_at  between _desde  and _a + interval 1 day AND category = _categoria
          GROUP BY id_course ORDER BY created_at DESC ;
         end if;
         if _by = 1 then
         SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
-         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day  AND category = _categoria
+         WHERE title LIKE CONCAT('%',_buscar,'%') AND created_at between _desde  and _a + interval 1 day  AND category = _categoria
          GROUP BY id_course ORDER BY created_at DESC ;
         end if;
          if _by = 2 then
         SELECT  id_course, image,type_image,title,price,nombre,created_at,category,_buscar FROM V_Buscar
-         WHERE nombre LIKE CONCAT('%',_buscar,'%') AND created_at between _desde - interval 1 day  and _a + interval 1 day  AND category = _categoria
+         WHERE nombre LIKE CONCAT('%',_buscar,'%') AND created_at between _desde  and _a + interval 1 day  AND category = _categoria
          GROUP BY id_course ORDER BY created_at DESC ;
         end if;
     
@@ -551,7 +551,7 @@ BEGIN
         (select `name` from `user` WHERE id_user = id_usuario ) as nombre,
         (select created_at from V_Historial WHERE usuario =id_usuario AND curso =_curso ORDER BY created_at ASC LIMIT 1) as inicio,
         (select `name` from course WHERE id_course = _curso) as curso
-        from V_Registro A WHERE A.course = _curso AND A.`user` = 1 LIMIT 1;
+        from V_Registro A WHERE A.course = _curso AND A.`user` = id_usuario LIMIT 1;
     end if;
 END//
 
